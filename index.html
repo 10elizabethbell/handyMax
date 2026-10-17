@@ -68,7 +68,7 @@ p{margin:0}
   linear-gradient(var(--ceiling) 0 64px,var(--wall) 64px)}
 .top{height:64px;display:flex;align-items:center;gap:12px}
 .top .wrap{display:flex;align-items:center;gap:10px;width:100%}
-.mark{font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;white-space:nowrap}
+.mark{display:flex;align-items:center;min-height:44px;font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;white-space:nowrap}
 .mark b{color:var(--amber);font-weight:900}
 .lang{margin-left:auto;min-height:44px;min-width:44px;padding:0 10px;border:0;background:none;color:var(--text-2);font:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(195,203,219,.45)}
 .lang:hover{color:var(--text)}
@@ -78,10 +78,10 @@ p{margin:0}
 
 .hero-body > .wrap{width:100%}
 .hero-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:max(28px,env(safe-area-inset-bottom))}
-.hero h1{font-size:clamp(40px,11.4vw,96px);margin-bottom:18px;text-shadow:0 2px 30px rgba(22,35,59,.9)}
+.hero h1{font-size:clamp(40px,11.4vw,96px);margin-bottom:18px}
 .hero h1 span{display:block}
 .hero h1 .lit{color:var(--amber)}
-.promise{font-size:clamp(17px,4.6vw,20px);line-height:1.45;color:var(--text);max-width:34em;margin-bottom:26px;text-shadow:0 1px 18px rgba(22,35,59,.95)}
+.promise{font-size:clamp(17px,4.6vw,20px);line-height:1.45;color:var(--text);max-width:34em;margin-bottom:26px}
 .cta{display:grid;gap:12px}
 
 /* the wall switch */
@@ -94,7 +94,7 @@ p{margin:0}
 /* ---------- services ---------- */
 .section{position:relative;padding:72px 0}
 .services h2{margin-bottom:10px}
-.lede{color:var(--text-2);font-size:18px;margin-bottom:26px}
+.lede{color:var(--text-2);font-size:19px;margin-bottom:26px}
 .rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .rows li{border-bottom:1px solid var(--line)}
 .row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;padding:8px 0;text-decoration:none;font-size:19px;font-weight:700}
@@ -124,7 +124,7 @@ p{margin:0}
 .ba .tag-b{left:16px}.ba .tag-a{right:16px}
 .ba:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
 .hint{color:var(--text-2);font-size:15px;margin-top:12px}
-.fb{display:inline-flex;align-items:center;gap:14px;margin-top:30px;min-height:60px;padding:10px 24px 10px 12px;border-radius:999px;border:2px solid var(--amber);text-decoration:none;font-weight:800;font-size:18px;transition:background-color .2s}
+.fb{display:inline-flex;align-items:center;gap:14px;margin-top:30px;min-height:60px;padding:10px 24px 10px 12px;border-radius:999px;border:2px solid var(--amber);text-decoration:none;font-weight:800;font-size:19px;transition:background-color .2s}
 .fb .fbi{width:40px;height:40px;border-radius:50%;background:var(--amber);display:grid;place-items:center;flex:none}
 .fb .fbi svg{width:22px;height:22px;fill:var(--ink)}
 .fb:hover{background:rgba(255,178,56,.12)}
@@ -143,7 +143,7 @@ p{margin:0}
 .steps ol{list-style:none;margin:0;padding:0;display:grid;gap:26px;counter-reset:s}
 .steps li{display:grid;grid-template-columns:52px 1fr;gap:4px 16px;counter-increment:s}
 .steps li::before{content:counter(s);grid-row:span 2;font-weight:900;font-size:44px;line-height:1;color:var(--amber)}
-.steps b{font-size:21px;font-weight:800;text-transform:uppercase;letter-spacing:-0.01em}
+.steps b{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:-0.01em}
 .steps span{color:var(--text-2)}
 
 /* ---------- estimate (the lit wall) ---------- */
@@ -173,7 +173,7 @@ input[type=text]:focus,textarea:focus{outline:none;border-color:var(--focus);box
 .send:hover,.send:focus-visible{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px rgba(47,107,255,.3)}
 .note{color:var(--ink-2);font-size:15px}
 .talk{margin-top:4px;font-size:17px;color:var(--ink-2)}
-.talk a{color:var(--ink);font-weight:800;text-underline-offset:3px;white-space:nowrap}
+.talk a{display:inline-block;padding:11px 0;color:var(--ink);font-weight:800;text-underline-offset:3px;white-space:nowrap}
 .sent{display:none;font-weight:700}
 .sent.show{display:block}
 
@@ -181,8 +181,8 @@ input[type=text]:focus,textarea:focus{outline:none;border-color:var(--focus);box
 .close{padding:150px 0 64px;text-align:left}
 .close .display{font-size:clamp(52px,16vw,128px);font-size:clamp(52px,16vw,96px)}
 .close .display b{color:var(--amber);font-weight:900}
-.close .tagline{font-size:18px;margin-top:14px}
-.close p.where{color:var(--text-2);font-size:18px;margin-top:8px}
+.close .tagline{font-size:19px;margin-top:14px}
+.close p.where{color:var(--text-2);font-size:19px;margin-top:8px}
 .bignum{display:inline-flex;align-items:center;gap:12px;margin-top:28px;font-weight:900;font-size:clamp(28px,8vw,44px);text-decoration:none;font-variant-numeric:tabular-nums;min-height:56px}
 .bignum svg{width:.8em;height:.8em;fill:var(--amber)}
 .bignum:hover{color:var(--amber-2)}
@@ -391,8 +391,8 @@ var lang = 'en';
 function smsHref(body){ return 'sms:' + PHONE + '?&body=' + encodeURIComponent(body); }
 function serviceText(i){
   return lang === 'es'
-    ? 'Hola Max, vi tu página de HandyMax. Quiero un estimado gratis para: ' + SERVICES[i][1].toLowerCase() + '.'
-    : "Hi Max, I found HandyMax online. I'd like a free estimate for: " + SERVICES[i][0].toLowerCase() + '.';
+    ? 'Hola Max, vi tu página de HandyMax. Quiero un estimado gratis para: ' + SERVICES[i][1] + '.'
+    : "Hi Max, I found HandyMax online. I'd like a free estimate for: " + SERVICES[i][0] + '.';
 }
 
 /* ===== service rows + form chips ===== */

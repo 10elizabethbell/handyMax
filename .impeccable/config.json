@@ -11,6 +11,21 @@
         ],
         "createdAt": "2026-10-17T23:46:41.702Z",
         "reason": "Claude: the before/after slider (.ba) must clip its stacked photos and divider; nothing inside needs to escape"
+      },
+      {
+        "rule": "overused-font",
+        "value": "roboto",
+        "createdAt": "2026-10-17T23:51:18.130Z",
+        "reason": "Ellie's pitch-site house style mandates the system font stack (ellie-taste.md §2); Roboto is only the Android member of that stack"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-17T23:51:18.269Z",
+        "reason": "Claude: .ba is a full-bleed photo slider; photos are meant to touch its rounded edge"
       }
     ]
   }
