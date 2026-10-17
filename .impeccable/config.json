@@ -26,6 +26,15 @@
         ],
         "createdAt": "2026-10-17T23:51:18.269Z",
         "reason": "Claude: .ba is a full-bleed photo slider; photos are meant to touch its rounded edge"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-17T23:57:34.598Z",
+        "reason": "Claude: typeset/technical/finish reviews all judged it non-material; the detector counts only UI text 15-22px while uppercase 900-weight display at 40-96px carries the hierarchy"
       }
     ]
   }

@@ -7,7 +7,9 @@
 - **Signature element:** a finger or mouse turns up the lights under it, and they dim back slowly. When nobody touches the page they sweep on by themselves. Dust gets pushed around by the finger and settles back. A real wall switch on the right turns every light on. Smaller light rows repeat as the ceiling of the work, Max and closing sections. The estimate section is the lit plaster wall showing through under the scallops. Tunables are in `TUNE` in the lights script (`BASE`, `DECAY`, `RISE`, `REACH`, `IDLE`, mote counts).
 - **Sections:** header (wordmark, Español toggle, tap-to-call number top-right) → hero "Lights on. Wires gone." + promise + Free estimate / See my work → What I do (12 services from both Facebook posts; each row opens a pre-written text naming the service) → Before & after slider (his dining-room post) + "Click to see more of my work." Facebook link → Hi, I'm Max (his profile photo) → How it works (3 steps) → Free estimate form (chips + details + name + town, sends a pre-written SMS; call link as backup) → closing wordmark, tagline, number → footer with phone, email, Facebook.
 - **Bilingual:** full English/Spanish toggle (saved per visitor; Spanish browsers start in Spanish). SMS bodies follow the language.
-- **Contact:** `tel:+18622393260` (header, form backup line, close, footer); `sms:+18622393260?&body=…` (service rows and form). Email `handymaxx27@gmail.com` in the footer only.
+- **Contact:** `tel:+18622393260` (header top-right, form backup line, big number in the close); `sms:+18622393260?&body=…` (service rows on phones, and the form). On computers, where `sms:` does nothing, a service row ticks that job in the estimate form instead. Email `handymaxx27@gmail.com` in the footer only.
+- **Footer phone:** removed. The close's big number sits on the same screen, so per the once-per-screen rule it serves as the footer phone. Footer = name, email, Facebook.
+- **Rewards:** sending a valid estimate sweeps the estimate wall's lights on, and the wall switch cuts the lights instantly when turned off.
 
 ## Assumptions I made
 - **Email** `handymaxx27@gmail.com` is printed on his Facebook profile picture (fetched 2026-10-17). The brief said none found. It's in the footer only.
@@ -18,7 +20,8 @@
 - **Area:** only "New Jersey" appears on the page. Northern NJ is inferred from the 862 area code and not shown.
 - **Colors:** no logo or brand colors exist. Navy and amber come from the world: night wall and warm light. His headlamp red is unused.
 - **Before photo** looks like a real-estate listing photo, from a different angle than the after. It's his own post, so I used it.
-- **Spanish copy** is mine. Have a native speaker read it.
+- **Spanish copy** is mine, revised once in review. Have a native speaker read it. The tagline "Reliable • Professional • Affordable" stays in English in both languages because it's his own wording; the Spanish post has no tagline ("Confiable • Profesional • Económico" is the obvious translation if he wants one).
+- **"How it works"** is kept, but one reviewer suggested cutting it as mechanical copy. Your call.
 - **World choice:** Impeccable's concept roll (seed 979b58ed) assigned a breaker-panel world. I overrode it with the pitch-site rule (best brand + fluid touchable motion). A breaker snaps rather than flows, and it would put panel work, and so the license question, front and centre.
 
 ## Placeholders and gaps
