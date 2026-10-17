@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "clipped-overflow-container",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-17T23:46:41.702Z",
+        "reason": "Claude: the before/after slider (.ba) must clip its stacked photos and divider; nothing inside needs to escape"
+      }
+    ]
+  }
+}
