@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HandyMax · Demo C · Christmas lights</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#14304a">
+<style>
+:root{
+  --sky:#14304a;        /* winter dusk over the roofline */
+  --sky-2:#1d4466;
+  --roof:#26303f;
+  --gutter:#3b4759;
+  --text:#f6efe3;
+  --text-2:#c6d3e2;
+  --gold:#ffc23d;
+  --ink:#13233a;
+  --focus:#7fb4ff;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--sky);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.hero{position:relative;min-height:clamp(640px,100svh,860px);display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(180deg,var(--sky-2) 0%,var(--sky) 62%)}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y pinch-zoom}
+.top{position:relative;z-index:2;height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;max-width:1180px;width:100%;margin:0 auto}
+.mark{font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.mark b{color:var(--gold)}
+.phone{margin-left:auto;font-weight:800;text-decoration:none;min-height:44px;display:flex;align-items:center;font-variant-numeric:tabular-nums}
+.copy{position:relative;z-index:2;margin-top:auto;padding:0 16px 40px;max-width:1180px;width:100%;margin-left:auto;margin-right:auto;pointer-events:none}
+.copy a{pointer-events:auto}
+h1{font-weight:900;font-size:clamp(40px,11.2vw,92px);line-height:.95;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance}
+h1 span{color:var(--gold)}
+.promise{margin-top:16px;font-size:18px;color:var(--text-2);max-width:30em}
+.btns{margin-top:26px;display:grid;gap:12px;max-width:420px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:999px;font-weight:800;font-size:17px;text-decoration:none;border:2px solid var(--gold)}
+.btn-fill{background:var(--gold);color:var(--ink)}
+.btn-line{color:var(--text)}
+.btn-line:hover{background:rgba(255,194,61,.12)}
+@media (min-width:1024px){
+  .copy{padding-bottom:72px}
+  .btns{grid-template-columns:1fr 1fr;max-width:520px}
+}
+</style>
+</head>
+<body>
+<!-- DEMO C · Christmas-light strings. Roof eave across the top; three strands of C9 bulbs hang from it on real rope physics. A finger or mouse plucks the wire and the bulbs swing; wind gusts when nobody touches. -->
+<header class="hero">
+  <canvas id="c" aria-hidden="true"></canvas>
+  <div class="top"><a class="mark" href="#">Handy<b>Max</b></a><a class="phone" href="tel:+18622393260">862-239-3260</a></div>
+  <div class="copy">
+    <h1>Inside, outside, <span>up on the roof.</span></h1>
+    <p class="promise">Roofs, basements, kitchens, windows, and your Christmas lights hung straight. One guy, done right.</p>
+    <div class="btns"><a class="btn btn-fill" href="../#estimate">Get a free estimate</a><a class="btn btn-line" href="../#work">See my work</a></div>
+  </div>
+</header>
+<script>
+(function(){
+  var TUNE={GRAV:0.42,DAMP:0.985,SEG:11,ITER:10,PUSH:0.55,REACH:46,WIND:0.18,IDLE:2.5};
+  var cv=document.getElementById('c'),ctx=cv.getContext('2d');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W=0,H=0,dpr=1,strands=[],roofY=0,ptr={x:-999,y:-999,vx:0,vy:0,t:0},lastMove=-1e9,t0=performance.now();
+  var COLORS=['#ff4636','#2fd27a','#3d8bff','#ffb020','#ff5fb8','#ffe14d'];
+
+  function strand(x0,y0,x1,y1,pins,slack,offset){
+    // a wire pinned at `pins` evenly spaced clips, sagging between them
+    var pts=[],links=[],n=Math.max(2,Math.round(Math.hypot(x1-x0,y1-y0)*slack/TUNE.SEG));
+    for(var i=0;i<=n;i++){var f=i/n,x=x0+(x1-x0)*f,y=y0+(y1-y0)*f;pts.push({x:x,y:y,px:x,py:y,pin:false,bulb:i%3===1?COLORS[(i/3+offset|0)%COLORS.length]:null,tw:Math.random()*6.28})}
+    for(var k=0;k<pins;k++){pts[Math.round(k*(n)/(pins-1))].pin=true}
+    var rest=Math.hypot(x1-x0,y1-y0)*slack/n;
+    for(i=0;i<n;i++)links.push([pts[i],pts[i+1],rest]);
+    return {pts:pts,links:links};
+  }
+  function build(){
+    var r=cv.getBoundingClientRect(),w=Math.round(r.width),h=Math.round(r.height);
+    if(w===W&&h===H)return;W=w;H=h;dpr=Math.min(devicePixelRatio||1,1.5);
+    cv.width=W*dpr;cv.height=H*dpr;
+    roofY=64+Math.min(54,H*.07);
+    var wide=W>=1024;
+    strands=[
+      strand(-10,roofY+4,W+10,roofY+4,wide?14:6,1.10,0),
+      strand(-10,roofY+4,W+10,roofY+4,wide?8:4,1.22,2),
+      // a loose strand Max is still hanging: pinned at the eave on the left, free end held low on the right
+      strand(W*.08,roofY+4,W*.92,roofY+H*.26,2,1.18,4)
+    ];
+    var s=strands[2];s.pts[s.pts.length-1].pin=true;
+    for(var i=0;i<60;i++)step(1);
+  }
+  function step(t){
+    var gust=reduce?0:Math.sin(t*0.6)*Math.sin(t*0.23+1)*TUNE.WIND*(performance.now()-lastMove>TUNE.IDLE*1000?1:0.3);
+    for(var s=0;s<strands.length;s++){
+      var P=strands[s].pts;
+      for(var i=0;i<P.length;i++){var p=P[i];if(p.pin)continue;
+        var vx=(p.x-p.px)*TUNE.DAMP,vy=(p.y-p.py)*TUNE.DAMP;p.px=p.x;p.py=p.y;
+        p.x+=vx+gust*(0.6+0.4*Math.sin(i*.4+s));p.y+=vy+TUNE.GRAV;
+        var dx=p.x-ptr.x,dy=p.y-ptr.y,d=Math.hypot(dx,dy);
+        if(d<TUNE.REACH&&performance.now()-ptr.t<120){var k=(1-d/TUNE.REACH)*TUNE.PUSH;p.x+=ptr.vx*k;p.y+=ptr.vy*k}
+      }
+      for(var it=0;it<TUNE.ITER;it++){var L=strands[s].links;
+        for(i=0;i<L.length;i++){var a=L[i][0],b=L[i][1],rest=L[i][2],ddx=b.x-a.x,ddy=b.y-a.y,dd=Math.hypot(ddx,ddy)||1,diff=(dd-rest)/dd*.5;
+          if(dd<rest)continue; // a wire goes slack, it doesn't push
+          if(!a.pin){a.x+=ddx*diff;a.y+=ddy*diff}if(!b.pin){b.x-=ddx*diff;b.y-=ddy*diff}}}
+    }
+  }
+  function roof(){
+    // shingled eave band across the top of the hero, with the gutter the clips hang from
+    ctx.fillStyle='#26303f';ctx.fillRect(0,0,W,roofY);
+    ctx.strokeStyle='rgba(255,255,255,.05)';ctx.lineWidth=1;
+    for(var y=8,row=0;y<roofY-6;y+=12,row++){ctx.beginPath();ctx.moveTo(0,y+.5);ctx.lineTo(W,y+.5);ctx.stroke();
+      for(var x=(row%2)*14;x<W;x+=28){ctx.beginPath();ctx.moveTo(x+.5,y);ctx.lineTo(x+.5,y+12);ctx.stroke()}}
+    ctx.fillStyle='#3b4759';ctx.fillRect(0,roofY-6,W,10);
+    ctx.fillStyle='rgba(0,0,0,.18)';ctx.fillRect(0,roofY+4,W,6);
+  }
+  function bulb(p,q,col,lit){
+    var ang=Math.atan2(q.y-p.y,q.x-p.x)+Math.PI/2; // hang perpendicular to the wire, mostly down
+    ang=ang*.35;
+    ctx.save();ctx.translate(p.x,p.y);ctx.rotate(ang);
+    ctx.fillStyle='#173524';ctx.fillRect(-3.5,0,7,7);
+    ctx.beginPath();ctx.moveTo(-5,7);ctx.bezierCurveTo(-9,14,-7,24,0,29);ctx.bezierCurveTo(7,24,9,14,5,7);ctx.closePath();
+    ctx.fillStyle=col;ctx.globalAlpha=.55+.45*lit;ctx.fill();ctx.globalAlpha=1;
+    ctx.fillStyle='rgba(255,255,255,'+(.25+.45*lit)+')';ctx.beginPath();ctx.ellipse(-2,15,1.6,5,0,0,6.28);ctx.fill();
+    ctx.restore();
+  }
+  function frame(now){
+    build();var t=(now-t0)/1000;
+    if(!reduce||t<.05)step(t);
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+    // glow pass
+    ctx.globalCompositeOperation='lighter';
+    for(var s=0;s<strands.length;s++){var P=strands[s].pts;for(var i=0;i<P.length;i++){var p=P[i];if(!p.bulb)continue;
+      var lit=reduce?1:.82+.18*Math.sin(t*2.1+p.tw),gx=p.x,gy=p.y+18,R=34;
+      var g=ctx.createRadialGradient(gx,gy,0,gx,gy,R);g.addColorStop(0,p.bulb+'aa');g.addColorStop(.35,p.bulb+'33');g.addColorStop(1,p.bulb+'00');
+      ctx.globalAlpha=lit;ctx.fillStyle=g;ctx.fillRect(gx-R,gy-R,R*2,R*2)}}
+    ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
+    roof();
+    for(s=0;s<strands.length;s++){P=strands[s].pts;
+      ctx.beginPath();ctx.moveTo(P[0].x,P[0].y);for(i=1;i<P.length;i++)ctx.lineTo(P[i].x,P[i].y);
+      ctx.strokeStyle='#1d3b2a';ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.stroke();
+      for(i=0;i<P.length;i++){if(P[i].pin){ctx.fillStyle='#e9eef5';ctx.fillRect(P[i].x-3,P[i].y-5,6,6)}}
+      for(i=0;i<P.length-1;i++)if(P[i].bulb)bulb(P[i],P[i+1],P[i].bulb,reduce?1:.82+.18*Math.sin(t*2.1+P[i].tw));
+    }
+    if(!reduce)requestAnimationFrame(frame);
+  }
+  function move(x,y){var r=cv.getBoundingClientRect(),nx=x-r.left,ny=y-r.top,now=performance.now();
+    if(now-ptr.t<100){ptr.vx=nx-ptr.x;ptr.vy=ny-ptr.y}else{ptr.vx=ptr.vy=0}
+    ptr.x=nx;ptr.y=ny;ptr.t=now;lastMove=now}
+  addEventListener('pointermove',function(e){move(e.clientX,e.clientY)},{passive:true});
+  addEventListener('touchmove',function(e){var t=e.touches[0];if(t)move(t.clientX,t.clientY)},{passive:true});
+  addEventListener('touchstart',function(e){var t=e.touches[0];if(t){ptr.t=0;move(t.clientX,t.clientY)}},{passive:true});
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

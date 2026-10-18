@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HandyMax · Demo B · Cutaway house</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#ffc83a">
+<style>
+:root{
+  --sign:#ffc83a;       /* job-site sign yellow */
+  --sign-2:#ffd25c;
+  --ink:#15233b;
+  --ink-2:#3a3a2a;
+  --tape:#3f97d6;       /* painter's tape */
+  --focus:#15233b;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--sign);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+::selection{background:var(--ink);color:var(--sign)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.hero{position:relative;min-height:clamp(660px,100svh,880px);display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(120% 70% at 50% 25%,var(--sign-2),var(--sign))}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y pinch-zoom}
+.top{position:relative;z-index:2;height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;max-width:1180px;width:100%;margin:0 auto}
+.mark{font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.mark b{background:var(--ink);color:var(--sign);padding:0 5px;margin-left:2px;border-radius:3px}
+.phone{margin-left:auto;font-weight:800;text-decoration:none;min-height:44px;display:flex;align-items:center;font-variant-numeric:tabular-nums}
+.copy{position:relative;z-index:2;margin-top:auto;padding:0 16px 40px;max-width:1180px;width:100%;margin-left:auto;margin-right:auto;pointer-events:none}
+.copy a{pointer-events:auto}
+h1{font-weight:900;font-size:clamp(40px,11.2vw,92px);line-height:.95;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance}
+.promise{margin-top:14px;font-size:18px;color:var(--ink-2);max-width:30em;font-weight:500}
+.btns{margin-top:24px;display:grid;gap:12px;max-width:420px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:999px;font-weight:800;font-size:17px;text-decoration:none;border:2px solid var(--ink)}
+.btn-fill{background:var(--ink);color:var(--sign)}
+.btn-line{color:var(--ink)}
+.btn-line:hover{background:rgba(21,35,59,.08)}
+@media (min-width:1024px){
+  .copy{padding-bottom:0;margin-top:0;position:absolute;left:0;right:0;top:50%;transform:translateY(-40%)}
+  .copy>*{max-width:520px}
+  .btns{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<!-- DEMO B · Cutaway house. A house cut open like a dollhouse on a job-site-yellow sign: roof and attic, kitchen, window wall, basement below the dirt line, a string of Christmas lights along the roof. Every room starts tired. A finger or mouse over a room renovates it with a paint-roller wipe; the lights string swings when touched and switches on. Left alone, Max renovates the house room by room, then it resets. -->
+<header class="hero">
+  <canvas id="c" aria-hidden="true"></canvas>
+  <div class="top"><a class="mark" href="#">Handy<b>Max</b></a><a class="phone" href="tel:+18622393260">862-239-3260</a></div>
+  <div class="copy">
+    <h1>Roof to basement. Inside and out.</h1>
+    <p class="promise">Kitchens, windows, roofs, basements, and the Christmas lights on top. I fix up the whole house.</p>
+    <div class="btns"><a class="btn btn-fill" href="../#estimate">Get a free estimate</a><a class="btn btn-line" href="../#work">See my work</a></div>
+  </div>
+</header>
+<script>
+(function(){
+  var TUNE={WIPE:0.75,STEP:1.1,HOLD:3.2,IDLE:5,GRAV:0.35,DAMP:0.982,PUSH:0.6,REACH:40};
+  var cv=document.getElementById('c'),ctx=cv.getContext('2d');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W=0,H=0,dpr=1,box,before,after,ptr={x:-999,y:-999,vx:0,vy:0,t:0},lastTouch=-1e9,t0=performance.now(),rope=[],links=[];
+  var ORDER=['basement','kitchen','windows','roof','lights'];
+  var R={}; ORDER.forEach(function(k){R[k]={p:0,dir:0}});
+  var autoNext=0,allDoneAt=0;
+
+  function X(f){return box.x+f*box.w}function Y(f){return box.y+f*box.h}
+  function rr(c,x0,y0,x1,y1){c.beginPath();c.rect(X(x0),Y(y0),X(x1)-X(x0),Y(y1)-Y(y0))}
+  function roofPath(c){c.beginPath();c.moveTo(X(.5),Y(.02));c.lineTo(X(.99),Y(.36));c.lineTo(X(.01),Y(.36));c.closePath()}
+  // rooms in house units: [x0,y0,x1,y1]
+  var ROOM={roof:[.01,.02,.99,.36],kitchen:[.07,.38,.59,.66],windows:[.61,.38,.93,.66],basement:[.07,.72,.93,.96]};
+
+  function layout(){
+    var wide=W>=1024,room=document.querySelector('.copy').getBoundingClientRect().top-cv.getBoundingClientRect().top-80-28;
+    var bw=wide?Math.min(580,W*.44,(H-110)/1.02):Math.max(210,Math.min(W-48,400,room/1.0));
+    var bh=bw*1.0;
+    return {x:wide?W*.52+(W*.46-bw)/2:(W-bw)/2,y:wide?(H-bh)/2+24:80,w:bw,h:bh};
+  }
+
+  // ---------- the two houses ----------
+  function shell(c){
+    // dirt the basement sits in
+    c.fillStyle='#7a5a3c';c.fillRect(X(-.06),Y(.68),X(1.06)-X(-.06),Y(1.0)-Y(.68));
+    c.fillStyle='rgba(0,0,0,.12)';for(var i=0;i<40;i++){var sx=((i*73)%100)/100,sy=.70+((i*37)%28)/100;c.fillRect(X(-.04+sx*1.08),Y(sy),2,2)}
+    c.fillStyle='#4f9a4f';c.fillRect(X(-.06),Y(.675),X(1.06)-X(-.06),Y(.69)-Y(.675));
+    // structure: walls, floors in section
+    c.fillStyle='#e8dfcf';
+    c.fillRect(X(.04),Y(.36),X(.07)-X(.04),Y(.97)-Y(.36));c.fillRect(X(.93),Y(.36),X(.96)-X(.93),Y(.97)-Y(.36));
+    c.fillRect(X(.04),Y(.66),X(.96)-X(.04),Y(.72)-Y(.66));c.fillRect(X(.04),Y(.96),X(.96)-X(.04),Y(.985)-Y(.96));
+    c.fillRect(X(.59),Y(.38),X(.61)-X(.59),Y(.66)-Y(.38));c.fillRect(X(.04),Y(.36),X(.96)-X(.04),Y(.38)-Y(.36));
+  }
+  function bulb(c,x,y,on){ // a hanging bulb on a cord
+    c.strokeStyle='#2a2a2a';c.lineWidth=1.2;c.beginPath();c.moveTo(X(x),Y(.38));c.lineTo(X(x),Y(y));c.stroke();
+    c.fillStyle=on?'#fff0b8':'#cfc6a0';c.beginPath();c.arc(X(x),Y(y)+5,5,0,6.283);c.fill();
+  }
+  function drawBefore(c){
+    shell(c);
+    // roof: faded, patched, missing shingles
+    roofPath(c);c.fillStyle='#8b7660';c.fill();
+    c.save();roofPath(c);c.clip();c.strokeStyle='rgba(50,35,20,.35)';c.lineWidth=1;
+    for(var r=0,y=.06;y<.37;y+=.032,r++){c.beginPath();c.moveTo(X(0),Y(y));c.lineTo(X(1),Y(y));c.stroke()}
+    c.fillStyle='#c9b38c';[[.32,.18,.08],[.6,.25,.1],[.44,.3,.06]].forEach(function(m){c.fillRect(X(m[0]),Y(m[1]),X(m[0]+m[2])-X(m[0]),Y(m[1]+.03)-Y(m[1]))});
+    c.fillStyle='#5d6e8c';c.beginPath();c.moveTo(X(.62),Y(.16));c.lineTo(X(.74),Y(.22));c.lineTo(X(.66),Y(.27));c.lineTo(X(.56),Y(.21));c.closePath();c.fill(); // tarp
+    c.restore();
+    // attic void
+    c.fillStyle='#5a4a3a';c.beginPath();c.moveTo(X(.5),Y(.09));c.lineTo(X(.86),Y(.345));c.lineTo(X(.14),Y(.345));c.closePath();c.fill();
+    // kitchen: dark brown wall, tired cabinets, bare bulb
+    rr(c,.07,.38,.59,.66);c.fillStyle='#8a7357';c.fill();
+    c.strokeStyle='rgba(60,40,20,.25)';c.lineWidth=3;for(var x=.09;x<.59;x+=.04){c.beginPath();c.moveTo(X(x),Y(.38));c.lineTo(X(x),Y(.66));c.stroke()}
+    c.fillStyle='#6b4f33';c.fillRect(X(.10),Y(.41),X(.36)-X(.10),Y(.48)-Y(.41));
+    c.fillStyle='#5e432a';c.fillRect(X(.10),Y(.56),X(.52)-X(.10),Y(.66)-Y(.56));
+    c.fillStyle='#a69a84';c.fillRect(X(.09),Y(.545),X(.53)-X(.09),Y(.56)-Y(.545));
+    c.fillStyle='#d9c9a6';c.fillRect(X(.40),Y(.42),X(.46)-X(.40),Y(.46)-Y(.42)); // peeling paper
+    bulb(c,.30,.44,false);
+    // window wall: small cracked window
+    rr(c,.61,.38,.93,.66);c.fillStyle='#7d6a52';c.fill();
+    rr(c,.70,.45,.84,.57);c.fillStyle='#9fb0b8';c.fill();c.strokeStyle='#4f3b26';c.lineWidth=4;c.stroke();
+    c.strokeStyle='#ffffff';c.lineWidth=1;c.beginPath();c.moveTo(X(.73),Y(.46));c.lineTo(X(.77),Y(.51));c.lineTo(X(.75),Y(.55));c.moveTo(X(.77),Y(.51));c.lineTo(X(.81),Y(.53));c.stroke();
+    // basement: raw concrete, studs, puddle, bulb
+    rr(c,.07,.72,.93,.96);c.fillStyle='#5d5f61';c.fill();
+    c.strokeStyle='#8c7a5c';c.lineWidth=5;for(x=.12;x<.93;x+=.09){c.beginPath();c.moveTo(X(x),Y(.72));c.lineTo(X(x),Y(.96));c.stroke()}
+    c.fillStyle='rgba(120,150,170,.55)';c.beginPath();c.ellipse(X(.62),Y(.955),box.w*.1,4,0,0,6.283);c.fill();
+    c.strokeStyle='#2a2a2a';c.lineWidth=1.2;c.beginPath();c.moveTo(X(.4),Y(.72));c.lineTo(X(.4),Y(.78));c.stroke();c.fillStyle='#cfc6a0';c.beginPath();c.arc(X(.4),Y(.78)+5,5,0,6.283);c.fill();
+  }
+  function drawAfter(c){
+    shell(c);
+    roofPath(c);c.fillStyle='#2f3746';c.fill();
+    c.save();roofPath(c);c.clip();c.strokeStyle='rgba(255,255,255,.13)';c.lineWidth=1;
+    for(var r=0,y=.06;y<.37;y+=.026,r++){c.beginPath();c.moveTo(X(0),Y(y));c.lineTo(X(1),Y(y));c.stroke();for(var xx=(r%2)*.025;xx<1;xx+=.05){c.beginPath();c.moveTo(X(xx),Y(y));c.lineTo(X(xx),Y(y+.026));c.stroke()}}
+    c.restore();
+    c.fillStyle='#f1ede4';c.fillRect(X(.0),Y(.355),X(1.0)-X(.0),Y(.372)-Y(.355)); // new gutter
+    // insulated attic
+    c.fillStyle='#e2c08f';c.beginPath();c.moveTo(X(.5),Y(.09));c.lineTo(X(.86),Y(.345));c.lineTo(X(.14),Y(.345));c.closePath();c.fill();
+    c.strokeStyle='rgba(150,105,60,.35)';c.lineWidth=2;for(var i=0;i<8;i++){c.beginPath();c.moveTo(X(.2+i*.08),Y(.345));c.quadraticCurveTo(X(.24+i*.08),Y(.30),X(.28+i*.08),Y(.345));c.stroke()}
+    // kitchen: white walls, tile, navy base cabinets, pendants on
+    rr(c,.07,.38,.59,.66);c.fillStyle='#f6f2ea';c.fill();
+    c.strokeStyle='#d7dde6';c.lineWidth=1;for(var ty=.49;ty<.545;ty+=.018){c.beginPath();c.moveTo(X(.09),Y(ty));c.lineTo(X(.53),Y(ty));c.stroke()}
+    for(var tx=.09;tx<.53;tx+=.03){c.beginPath();c.moveTo(X(tx),Y(.49));c.lineTo(X(tx),Y(.545));c.stroke()}
+    c.fillStyle='#ffffff';c.fillRect(X(.10),Y(.405),X(.36)-X(.10),Y(.47)-Y(.405));c.strokeStyle='#d8d2c6';c.strokeRect(X(.10),Y(.405),X(.36)-X(.10),Y(.47)-Y(.405));
+    c.fillStyle='#1f3558';c.fillRect(X(.10),Y(.56),X(.52)-X(.10),Y(.66)-Y(.56));
+    c.fillStyle='#e9e4dc';c.fillRect(X(.09),Y(.545),X(.53)-X(.09),Y(.56)-Y(.545));
+    c.fillStyle='#d9a441';[.18,.30,.42].forEach(function(x){c.fillRect(X(x)-1,Y(.595),3,Y(.62)-Y(.595))});
+    [.40,.50].forEach(function(x){c.strokeStyle='#2a2a2a';c.lineWidth=1.2;c.beginPath();c.moveTo(X(x),Y(.38));c.lineTo(X(x),Y(.43));c.stroke();
+      c.fillStyle='#15233b';c.beginPath();c.moveTo(X(x)-9,Y(.45));c.lineTo(X(x)+9,Y(.45));c.lineTo(X(x)+5,Y(.43));c.lineTo(X(x)-5,Y(.43));c.closePath();c.fill();
+      var g=c.createRadialGradient(X(x),Y(.46),0,X(x),Y(.46),40);g.addColorStop(0,'rgba(255,214,120,.55)');g.addColorStop(1,'rgba(255,214,120,0)');c.fillStyle=g;c.fillRect(X(x)-40,Y(.46),80,40)});
+    // window wall: big new window with dusk outside
+    rr(c,.61,.38,.93,.66);c.fillStyle='#eef0f0';c.fill();
+    rr(c,.66,.42,.88,.61);var sg=c.createLinearGradient(0,Y(.42),0,Y(.61));sg.addColorStop(0,'#7fc3f0');sg.addColorStop(1,'#cfe9f7');c.fillStyle=sg;c.fill();
+    c.strokeStyle='#ffffff';c.lineWidth=5;c.stroke();c.lineWidth=3;c.beginPath();c.moveTo(X(.77),Y(.42));c.lineTo(X(.77),Y(.61));c.stroke();
+    c.fillStyle='#3f8a52';c.beginPath();c.ellipse(X(.71),Y(.635),8,10,0,0,6.283);c.fill();c.fillStyle='#b5643d';c.fillRect(X(.71)-6,Y(.64),12,Y(.66)-Y(.64));
+    // basement: finished, warm, sofa, recessed lights
+    rr(c,.07,.72,.93,.96);c.fillStyle='#f3dfb7';c.fill();
+    c.fillStyle='#c98f58';c.fillRect(X(.07),Y(.935),X(.93)-X(.07),Y(.96)-Y(.935));
+    c.fillStyle='#2f5d8f';c.beginPath();c.roundRect(X(.30),Y(.86),X(.62)-X(.30),Y(.935)-Y(.86),5);c.fill();
+    c.fillStyle='#244b75';c.beginPath();c.roundRect(X(.30),Y(.835),X(.62)-X(.30),Y(.875)-Y(.835),5);c.fill();
+    c.fillStyle='#15233b';c.fillRect(X(.72),Y(.80),X(.86)-X(.72),Y(.87)-Y(.80)); // TV, mounted, no wires
+    [.2,.5,.8].forEach(function(x){var g=c.createRadialGradient(X(x),Y(.725),0,X(x),Y(.725),48);g.addColorStop(0,'rgba(255,240,200,.85)');g.addColorStop(1,'rgba(255,240,200,0)');c.fillStyle=g;c.fillRect(X(x)-48,Y(.725),96,48)});
+  }
+
+  // ---------- the lights string ----------
+  function makeRope(){
+    rope=[];links=[];
+    function run(x0,y0,x1,y1,pins,off){
+      var n=24,start=rope.length,slack=1.07,len=Math.hypot(X(x1)-X(x0),Y(y1)-Y(y0))*slack/n;
+      for(var i=0;i<=n;i++){var x=X(x0+(x1-x0)*i/n),y=Y(y0+(y1-y0)*i/n);rope.push({x:x,y:y,px:x,py:y,pin:i%Math.round(n/pins)===0,bulb:i%2?['#ff4636','#2fd27a','#3d8bff','#ffb020','#ff5fb8'][((i>>1)+off)%5]:null})}
+      for(i=0;i<n;i++)links.push([rope[start+i],rope[start+i+1],len]);
+    }
+    run(.5,.025,.99,.36,6,0);run(.5,.025,.01,.36,6,2);
+  }
+  function stepRope(){
+    var now=performance.now();
+    for(var i=0;i<rope.length;i++){var p=rope[i];if(p.pin)continue;var vx=(p.x-p.px)*TUNE.DAMP,vy=(p.y-p.py)*TUNE.DAMP;p.px=p.x;p.py=p.y;p.x+=vx;p.y+=vy+TUNE.GRAV;
+      var d=Math.hypot(p.x-ptr.x,p.y-ptr.y);if(d<TUNE.REACH&&now-ptr.t<120){var k=(1-d/TUNE.REACH)*TUNE.PUSH;p.x+=ptr.vx*k;p.y+=ptr.vy*k}}
+    for(var it=0;it<10;it++)for(i=0;i<links.length;i++){var a=links[i][0],b=links[i][1],dx=b.x-a.x,dy=b.y-a.y,dd=Math.hypot(dx,dy)||1;if(dd<links[i][2])continue;var df=(dd-links[i][2])/dd*.5;if(!a.pin){a.x+=dx*df;a.y+=dy*df}if(!b.pin){b.x-=dx*df;b.y-=dy*df}}
+  }
+  function drawRope(t){
+    var on=R.lights.p;
+    ctx.strokeStyle='#1f3a28';ctx.lineWidth=1.8;
+    for(var s=0;s<2;s++){ctx.beginPath();for(var i=0;i<=24;i++){var p=rope[s*25+i];i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)}ctx.stroke()}
+    for(i=0;i<rope.length;i++){p=rope[i];if(!p.bulb)continue;
+      // lights switch on along the string, peak outward, as the wipe runs
+      var f=Math.abs((p.x-X(.5))/(box.w*.5)),lit=on>=f?1:0,tw=.8+.2*Math.sin(t*2.3+i);
+      if(lit){ctx.globalCompositeOperation='lighter';var g=ctx.createRadialGradient(p.x,p.y+6,0,p.x,p.y+6,18);g.addColorStop(0,p.bulb+'cc');g.addColorStop(1,p.bulb+'00');ctx.globalAlpha=tw;ctx.fillStyle=g;ctx.fillRect(p.x-18,p.y-12,36,36);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over'}
+      ctx.fillStyle='#1f3a28';ctx.fillRect(p.x-2,p.y,4,4);
+      ctx.fillStyle=lit?p.bulb:'#b9b2a2';ctx.beginPath();ctx.ellipse(p.x,p.y+8,3.2,5,0,0,6.283);ctx.fill()}
+  }
+
+  // ---------- painter's-tape labels ----------
+  var LAB={roof:['ROOF',.5,.22,-3],kitchen:['KITCHEN',.20,.395,2],windows:['WINDOWS',.77,.395,-2],basement:['BASEMENT',.5,.745,1.5],lights:['CHRISTMAS LIGHTS',.83,.08,4]};
+  function tape(k){
+    var L=LAB[k];ctx.save();ctx.translate(X(L[1]),Y(L[2]));ctx.rotate(L[3]*Math.PI/180);
+    ctx.font='800 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';var w=ctx.measureText(L[0]).width+14;
+    ctx.fillStyle='rgba(21,35,59,.18)';ctx.fillRect(-w/2+1,-7,w,17);
+    ctx.fillStyle='#3f97d6';ctx.fillRect(-w/2,-9,w,17);
+    ctx.fillStyle='#ffffff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(L[0],0,0);
+    if(R[k].p>=1){ctx.strokeStyle='#ffffff';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(w/2-1,-2);ctx.lineTo(w/2+4,3);ctx.lineTo(w/2+12,-7);ctx.stroke()}
+    ctx.restore();
+  }
+
+  function build(){
+    var r=cv.getBoundingClientRect(),w=Math.round(r.width),h=Math.round(r.height);
+    if(w===W&&h===H)return;W=w;H=h;dpr=Math.min(devicePixelRatio||1,1.5);
+    cv.width=W*dpr;cv.height=H*dpr;box=layout();
+    before=document.createElement('canvas');after=document.createElement('canvas');
+    [before,after].forEach(function(o,i){o.width=cv.width;o.height=cv.height;var c=o.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);i?drawAfter(c):drawBefore(c)});
+    makeRope();for(var i=0;i<80;i++)stepRope();
+  }
+  function hit(x,y){
+    for(var k in ROOM){var b=ROOM[k];if(x>=X(b[0])&&x<=X(b[2])&&y>=Y(b[1])&&y<=Y(b[3])){
+      if(k==='roof'){var fy=(y-box.y)/box.h,half=(fy-.02)/.34*.49;if(Math.abs((x-box.x)/box.w-.5)>half)continue}
+      return k}}
+    for(var i=0;i<rope.length;i++)if(Math.hypot(rope[i].x-x,rope[i].y-y)<22)return 'lights';
+    return null;
+  }
+  function start(k){if(k&&R[k].p<1&&R[k].dir<=0)R[k].dir=1}
+  function frame(now){
+    build();var t=(now-t0)/1000,dt=1/60,idle=(now-lastTouch)/1000;
+    if(reduce){ORDER.forEach(function(k){R[k].p=1})}
+    else{
+      ORDER.forEach(function(k){var r=R[k];if(r.dir){r.p=Math.max(0,Math.min(1,r.p+r.dir*dt/TUNE.WIPE*(r.dir<0?2:1)));if(r.p===1||r.p===0)r.dir=0}});
+      var done=ORDER.every(function(k){return R[k].p>=1});
+      if(idle>TUNE.IDLE){
+        if(!done&&t>autoNext){var nk=ORDER.filter(function(k){return R[k].p<1&&R[k].dir<=0})[0];start(nk);autoNext=t+TUNE.STEP}
+        if(done){if(!allDoneAt)allDoneAt=t;if(t-allDoneAt>TUNE.HOLD){ORDER.forEach(function(k){R[k].dir=-1});allDoneAt=0;autoNext=t+1.4}}
+      }else allDoneAt=0;
+      stepRope();
+    }
+    ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,cv.width,cv.height);
+    ctx.drawImage(before,0,0);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ['basement','kitchen','windows','roof'].forEach(function(k){var r=R[k];if(r.p<=0)return;var b=ROOM[k],x0=X(b[0]),x1=X(b[2]),xe=x0+(x1-x0)*r.p;
+      ctx.save();if(k==='roof'){roofPath(ctx);ctx.clip();ctx.beginPath();ctx.rect(x0,Y(0),xe-x0,Y(.38)-Y(0));ctx.clip()}else{ctx.beginPath();ctx.rect(x0,Y(b[1]),xe-x0,Y(b[3])-Y(b[1]));ctx.clip()}
+      ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(after,0,0);ctx.restore();ctx.setTransform(dpr,0,0,dpr,0,0);
+      if(r.p<1){ctx.fillStyle='#ffffff';ctx.fillRect(xe-3,Y(b[1]),6,Y(b[3])-Y(b[1]))}
+    });
+    drawRope(t);
+    ORDER.forEach(tape);
+    if(!reduce)requestAnimationFrame(frame);
+  }
+  function move(x,y){var r=cv.getBoundingClientRect(),nx=x-r.left,ny=y-r.top,now=performance.now();
+    if(now-ptr.t<100){ptr.vx=nx-ptr.x;ptr.vy=ny-ptr.y}else{ptr.vx=ptr.vy=0}ptr.x=nx;ptr.y=ny;ptr.t=now;
+    var k=hit(nx,ny);if(k){lastTouch=now;start(k)}}
+  addEventListener('pointermove',function(e){if(e.pointerType!=='touch')move(e.clientX,e.clientY)},{passive:true});
+  addEventListener('pointerdown',function(e){move(e.clientX,e.clientY)},{passive:true});
+  addEventListener('touchmove',function(e){var t=e.touches[0];if(t)move(t.clientX,t.clientY)},{passive:true});
+  addEventListener('touchstart',function(e){var t=e.touches[0];if(t){ptr.t=0;move(t.clientX,t.clientY)}},{passive:true});
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

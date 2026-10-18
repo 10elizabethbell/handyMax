@@ -1,7 +1,9 @@
 {
   "detector": {
     "ignoreRules": [],
-    "ignoreFiles": [],
+    "ignoreFiles": [
+      "demos/**"
+    ],
     "ignoreValues": [
       {
         "rule": "clipped-overflow-container",

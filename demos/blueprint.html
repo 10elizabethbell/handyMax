@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HandyMax · Demo A · Blueprint to built</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1d4c86">
+<style>
+:root{
+  --print:#1d4c86;      /* blueprint paper */
+  --print-2:#225797;
+  --line:#e4f0ff;       /* white print line */
+  --text:#f4f8ff;
+  --text-2:#c4d8f2;
+  --gold:#ffc23d;
+  --ink:#13233a;
+  --focus:#ffe08a;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--print);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.hero{position:relative;min-height:clamp(660px,100svh,880px);display:flex;flex-direction:column;overflow:hidden;
+  background:
+    linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px) 0 0/80px 80px,
+    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px) 0 0/80px 80px,
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/16px 16px,
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/16px 16px,
+    radial-gradient(120% 80% at 50% 20%,var(--print-2),var(--print))}
+canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y pinch-zoom}
+.top{position:relative;z-index:2;height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;max-width:1180px;width:100%;margin:0 auto;border-bottom:1px solid rgba(228,240,255,.25)}
+.mark{font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;min-height:44px;display:flex;align-items:center}
+.mark b{color:var(--gold)}
+.phone{margin-left:auto;font-weight:800;text-decoration:none;min-height:44px;display:flex;align-items:center;font-variant-numeric:tabular-nums}
+.copy{position:relative;z-index:2;margin-top:auto;padding:0 16px 40px;max-width:1180px;width:100%;margin-left:auto;margin-right:auto;pointer-events:none}
+.copy a{pointer-events:auto}
+h1{font-weight:900;font-size:clamp(40px,11.2vw,92px);line-height:.95;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance}
+h1 span{color:var(--gold)}
+.promise{margin-top:16px;font-size:18px;color:var(--text-2);max-width:30em}
+.btns{margin-top:26px;display:grid;gap:12px;max-width:420px}
+.btn{display:flex;align-items:center;justify-content:center;min-height:56px;border-radius:999px;font-weight:800;font-size:17px;text-decoration:none;border:2px solid var(--gold)}
+.btn-fill{background:var(--gold);color:var(--ink)}
+.btn-line{color:var(--text)}
+.btn-line:hover{background:rgba(255,194,61,.12)}
+@media (min-width:1024px){
+  .copy{padding-bottom:0;margin-top:0;position:absolute;left:0;right:0;top:50%;transform:translateY(-40%)}
+  .copy>*{max-width:520px}
+  .btns{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<!-- DEMO A · Blueprint to built. The hero is a sheet of blueprint paper with Max's house drawn on it in white print line: roof, windows, door, the basement below grade, the eave where the Christmas lights go. A finger or mouse builds the house under it: roof shingles, lit windows, the finished basement, the lights. Left alone it builds itself, holds, then fades back to the plan. -->
+<header class="hero">
+  <canvas id="c" aria-hidden="true"></canvas>
+  <div class="top"><a class="mark" href="#">Handy<b>Max</b></a><a class="phone" href="tel:+18622393260">862-239-3260</a></div>
+  <div class="copy">
+    <h1>Drawn up. <span>Built right.</span></h1>
+    <p class="promise">Roofs, basements, kitchens, windows, even the Christmas lights. We plan it together, then I build it the way we planned.</p>
+    <div class="btns"><a class="btn btn-fill" href="../#estimate">Get a free estimate</a><a class="btn btn-line" href="../#work">See my work</a></div>
+  </div>
+</header>
+<script>
+(function(){
+  var TUNE={BRUSH:46,AUTO_SECS:4.2,HOLD:2.2,FADE:0.012,IDLE:5};
+  var cv=document.getElementById('c'),ctx=cv.getContext('2d');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W=0,H=0,dpr=1,box,mask,mctx,built,bctx,last={x:null,y:null},lastTouch=-1e9,auto={t:0,on:true},doneAt=0,t0=performance.now();
+  var LINE='#e4f0ff';
+
+  function layout(){
+    var wide=W>=1024;
+    var room=document.querySelector('.copy').getBoundingClientRect().top-cv.getBoundingClientRect().top-84-56;
+    var bw=wide?Math.min(560,W*.42,(H-120)/1.12):Math.max(150,Math.min(W-80,380,room/1.1));
+    var bh=bw*1.08;
+    var bx=wide?W*.52+(W*.46-bw)/2:(W-bw)/2;
+    var by=wide?(H-bh)/2+20:84;
+    return {x:bx,y:by,w:bw,h:bh};
+  }
+  function X(f){return box.x+f*box.w}function Y(f){return box.y+f*box.h}
+  function poly(c,pts){c.beginPath();c.moveTo(X(pts[0][0]),Y(pts[0][1]));for(var i=1;i<pts.length;i++)c.lineTo(X(pts[i][0]),Y(pts[i][1]));c.closePath()}
+  function rect(c,x0,y0,x1,y1){c.beginPath();c.rect(X(x0),Y(y0),X(x1)-X(x0),Y(y1)-Y(y0))}
+  // roof edge line: peak (.5,.03) to eaves (.03,.40)/(.97,.40)
+  function roofY(x){return .03+Math.abs(x-.5)/.47*.37}
+  var ROOF=[[.5,.03],[.97,.40],[.03,.40]];
+  var CHIM=[[.68,.09],[.77,.09],[.77,roofY(.77)],[.68,roofY(.68)]];
+  var WIN=[[.16,.47,.34,.66],[.66,.47,.84,.66]];
+  var DOOR=[.44,.51,.56,.76];
+  var BASE=[.08,.76,.92,.97];
+
+  function drawPlan(c){
+    c.strokeStyle=LINE;c.fillStyle=LINE;c.lineWidth=1.6;c.lineJoin='round';
+    poly(c,ROOF);c.stroke();
+    // shingle courses, sketched
+    c.save();c.globalAlpha=.35;c.lineWidth=1;
+    for(var y=.10;y<.39;y+=.045){var xa=.5-(y-.03)/.37*.47,xb=1-xa;c.beginPath();c.moveTo(X(xa+.02),Y(y));c.lineTo(X(xb-.02),Y(y));c.stroke()}
+    c.restore();
+    poly(c,CHIM);c.stroke();
+    rect(c,.08,.40,.92,.76);c.stroke();
+    c.beginPath();c.arc(X(.5),Y(.25),box.w*.05,0,6.283);c.stroke();
+    c.beginPath();c.moveTo(X(.45),Y(.25));c.lineTo(X(.55),Y(.25));c.moveTo(X(.5),Y(.25)-box.w*.05);c.lineTo(X(.5),Y(.25)+box.w*.05);c.stroke();
+    WIN.forEach(function(w){rect(c,w[0],w[1],w[2],w[3]);c.stroke();c.beginPath();c.moveTo(X((w[0]+w[2])/2),Y(w[1]));c.lineTo(X((w[0]+w[2])/2),Y(w[3]));c.moveTo(X(w[0]),Y((w[1]+w[3])/2));c.lineTo(X(w[2]),Y((w[1]+w[3])/2));c.stroke()});
+    rect(c,DOOR[0],DOOR[1],DOOR[2],DOOR[3]);c.stroke();
+    c.beginPath();c.arc(X(.535),Y(.64),2,0,6.283);c.fill();
+    // ground line
+    c.lineWidth=2.4;c.beginPath();c.moveTo(X(-.04),Y(.76));c.lineTo(X(1.04),Y(.76));c.stroke();
+    // basement below grade, dashed like hidden work on a print
+    c.lineWidth=1.4;c.setLineDash([6,5]);rect(c,BASE[0],BASE[1],BASE[2],BASE[3]);c.stroke();
+    rect(c,.18,.79,.32,.84);c.stroke();rect(c,.68,.79,.82,.84);c.stroke();
+    c.setLineDash([]);
+    // grade hatching
+    c.save();c.globalAlpha=.4;c.lineWidth=1;
+    for(var hx=-.04;hx<1.04;hx+=.035){if(hx>.07&&hx<.93)continue;c.beginPath();c.moveTo(X(hx),Y(.76));c.lineTo(X(hx-.03),Y(.80));c.stroke()}
+    c.restore();
+    // dimension line
+    c.lineWidth=1;c.beginPath();c.moveTo(X(.08),Y(1.02));c.lineTo(X(.92),Y(1.02));
+    c.moveTo(X(.08),Y(.995));c.lineTo(X(.08),Y(1.045));c.moveTo(X(.92),Y(.995));c.lineTo(X(.92),Y(1.045));c.stroke();
+    c.font='600 11px ui-monospace,SFMono-Regular,Menlo,monospace';c.textAlign='center';c.textBaseline='middle';
+    var lab="32'-0\"",tw=c.measureText(lab).width+10;
+    c.clearRect(X(.5)-tw/2,Y(1.02)-7,tw,14);c.fillStyle=LINE;c.fillText(lab,X(.5),Y(1.02));
+  }
+  function notes(c){
+    // leader-line notes; they stay on the sheet built or not
+    var N=[['ROOF',.30,.17,-1],['LIGHTS',.88,.33,1],['WINDOWS',.25,.56,-1],['BASEMENT',.80,.88,1]];
+    c.font='700 10.5px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif';c.textBaseline='middle';
+    N.forEach(function(n){
+      var px=X(n[1]),py=Y(n[2]),lx=n[3]<0?box.x-6:box.x+box.w+6;
+      if(W<1024){lx=n[3]<0?Math.max(8,box.x-4):Math.min(W-8,box.x+box.w+4)}
+      var ly=py-(W<1024?0:0);
+      c.strokeStyle='rgba(228,240,255,.75)';c.lineWidth=1;c.beginPath();c.moveTo(px,py);c.lineTo(lx,ly);c.stroke();
+      c.beginPath();c.arc(px,py,2.5,0,6.283);c.fillStyle=LINE;c.fill();
+      c.save();c.translate(lx,ly);if(W<1024){c.rotate(n[3]<0?-Math.PI/2:Math.PI/2)}
+      c.textAlign='center';var tw=c.measureText(n[0]).width;
+      c.fillStyle='#1d4c86';c.fillRect(-tw/2-4,-8,tw+8,16);c.fillStyle=LINE;c.fillText(n[0],0,0);c.restore();
+    });
+  }
+  function drawBuilt(c,t){
+    // basement: soil cut away, finished room lit warm
+    c.fillStyle='#5b4634';c.fillRect(X(-.04),Y(.76),X(1.04)-X(-.04),Y(1.0)-Y(.76));
+    rect(c,BASE[0],BASE[1],BASE[2],BASE[3]);c.fillStyle='#f3d9a6';c.fill();
+    c.fillStyle='#e3c48c';c.fillRect(X(.08),Y(.93),X(.92)-X(.08),Y(.97)-Y(.93));
+    c.fillStyle='#2f5d8f';c.beginPath();c.roundRect(X(.40),Y(.875),X(.66)-X(.40),Y(.935)-Y(.875),4);c.fill();
+    c.fillStyle='#244b75';c.fillRect(X(.40),Y(.855),X(.66)-X(.40),Y(.89)-Y(.855));
+    c.fillStyle='#fff3cf';[.30,.72].forEach(function(x){c.beginPath();c.arc(X(x),Y(.775),3,0,6.283);c.fill()});
+    // siding and trim
+    rect(c,.08,.40,.92,.76);c.fillStyle='#e9e3d7';c.fill();
+    c.strokeStyle='rgba(60,70,90,.16)';c.lineWidth=1;for(var y=.42;y<.76;y+=.022){c.beginPath();c.moveTo(X(.08),Y(y));c.lineTo(X(.92),Y(y));c.stroke()}
+    // chimney brick
+    poly(c,CHIM);c.fillStyle='#a8543c';c.fill();
+    c.fillStyle='#8c4430';c.fillRect(X(.665),Y(.085),X(.785)-X(.665),Y(.105)-Y(.085));
+    // roof
+    poly(c,ROOF);c.fillStyle='#394150';c.fill();
+    c.save();poly(c,ROOF);c.clip();c.strokeStyle='rgba(255,255,255,.10)';c.lineWidth=1;
+    for(var r=0,yy=.07;yy<.41;yy+=.03,r++){c.beginPath();c.moveTo(X(0),Y(yy));c.lineTo(X(1),Y(yy));c.stroke();
+      for(var xx=(r%2)*.03;xx<1;xx+=.06){c.beginPath();c.moveTo(X(xx),Y(yy));c.lineTo(X(xx),Y(yy+.03));c.stroke()}}
+    c.restore();
+    c.fillStyle='#f4f1ea';c.fillRect(X(.02),Y(.395),X(.98)-X(.02),Y(.415)-Y(.395));
+    // windows, lit
+    function lit(x0,y0,x1,y1){rect(c,x0,y0,x1,y1);var g=c.createLinearGradient(0,Y(y0),0,Y(y1));g.addColorStop(0,'#ffe3a1');g.addColorStop(1,'#ffbf52');c.fillStyle=g;c.fill();
+      c.strokeStyle='#ffffff';c.lineWidth=3;c.stroke();c.lineWidth=2;c.beginPath();c.moveTo(X((x0+x1)/2),Y(y0));c.lineTo(X((x0+x1)/2),Y(y1));c.moveTo(X(x0),Y((y0+y1)/2));c.lineTo(X(x1),Y((y0+y1)/2));c.stroke()}
+    WIN.forEach(function(w){lit(w[0],w[1],w[2],w[3])});
+    c.beginPath();c.arc(X(.5),Y(.25),box.w*.05,0,6.283);c.fillStyle='#ffd27a';c.fill();c.strokeStyle='#fff';c.lineWidth=3;c.stroke();
+    // front door
+    rect(c,DOOR[0],DOOR[1],DOOR[2],DOOR[3]);c.fillStyle='#c4432d';c.fill();c.strokeStyle='#fff';c.lineWidth=3;c.stroke();
+    c.fillStyle='#ffd27a';c.beginPath();c.arc(X(.535),Y(.64),2.6,0,6.283);c.fill();
+    // lawn
+    c.fillStyle='#3d7d4c';c.fillRect(X(-.04),Y(.755),X(1.04)-X(-.04),5);
+    // Christmas lights along both eaves
+    var COL=['#ff4636','#2fd27a','#3d8bff','#ffb020','#ff5fb8'];
+    for(var i=0,n=26;i<=n;i++){var f=i/n,x=f<.5?.03+f*2*.47:.5+(f-.5)*2*.47,yb=roofY(x)+.012+Math.sin(f*Math.PI*13)*.004;
+      var col=COL[i%COL.length],tw=.75+.25*Math.sin(t*2.4+i*1.7),bx=X(x),by=Y(yb);
+      c.globalCompositeOperation='lighter';var g=c.createRadialGradient(bx,by,0,bx,by,13);g.addColorStop(0,col+'bb');g.addColorStop(1,col+'00');c.globalAlpha=tw;c.fillStyle=g;c.fillRect(bx-13,by-13,26,26);
+      c.globalCompositeOperation='source-over';c.globalAlpha=1;c.fillStyle=col;c.beginPath();c.ellipse(bx,by+2,2.4,3.6,0,0,6.283);c.fill()}
+  }
+  function build(){
+    var r=cv.getBoundingClientRect(),w=Math.round(r.width),h=Math.round(r.height);
+    if(w===W&&h===H)return;W=w;H=h;dpr=Math.min(devicePixelRatio||1,1.5);
+    cv.width=W*dpr;cv.height=H*dpr;box=layout();
+    mask=document.createElement('canvas');mask.width=cv.width;mask.height=cv.height;mctx=mask.getContext('2d');
+    built=document.createElement('canvas');built.width=cv.width;built.height=cv.height;bctx=built.getContext('2d');
+    auto={t:0,on:true};doneAt=0;
+  }
+  function stamp(x,y,r){
+    var g=mctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(.6,'rgba(0,0,0,.9)');g.addColorStop(1,'rgba(0,0,0,0)');
+    mctx.fillStyle=g;mctx.fillRect(x-r,y-r,r*2,r*2);
+  }
+  function stroke(x,y){
+    mctx.setTransform(dpr,0,0,dpr,0,0);
+    if(last.x==null){stamp(x,y,TUNE.BRUSH)}else{var d=Math.hypot(x-last.x,y-last.y),n=Math.max(1,Math.ceil(d/8));for(var i=1;i<=n;i++)stamp(last.x+(x-last.x)*i/n,last.y+(y-last.y)*i/n,TUNE.BRUSH)}
+    last.x=x;last.y=y;
+  }
+  function autoPath(f){
+    // zigzag up the house: basement, walls, roof, the way a house goes up
+    var rows=6,row=Math.min(rows-1,Math.floor(f*rows)),fr=f*rows-row,dir=row%2?-1:1;
+    var x=box.x-10+(box.w+20)*(dir>0?fr:1-fr),y=box.y+box.h*(1.0-row/(rows-1)*.98);
+    return [x,y];
+  }
+  function frame(now){
+    build();var t=(now-t0)/1000,idle=(now-lastTouch)/1000;
+    if(reduce){mctx.setTransform(1,0,0,1,0,0);mctx.fillStyle='#000';mctx.fillRect(0,0,mask.width,mask.height)}
+    else if(idle>TUNE.IDLE){
+      if(auto.on){auto.t+=1/60/TUNE.AUTO_SECS;var p=autoPath(Math.min(1,auto.t));stroke(p[0],p[1]);
+        if(auto.t>=1){auto.on=false;doneAt=t;last.x=null;mctx.setTransform(1,0,0,1,0,0);mctx.fillStyle='#000';mctx.fillRect(0,0,mask.width,mask.height)}}
+      else if(t-doneAt>TUNE.HOLD){
+        // the finished house fades back to the plan, then builds again
+        mctx.setTransform(1,0,0,1,0,0);mctx.globalCompositeOperation='destination-out';mctx.fillStyle='rgba(0,0,0,'+TUNE.FADE+')';mctx.fillRect(0,0,mask.width,mask.height);mctx.globalCompositeOperation='source-over';
+        if(t-doneAt>TUNE.HOLD+5){auto={t:0,on:true};mctx.clearRect(0,0,mask.width,mask.height)}}
+    }
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+    drawPlan(ctx);
+    bctx.setTransform(dpr,0,0,dpr,0,0);bctx.globalCompositeOperation='source-over';bctx.clearRect(0,0,W,H);drawBuilt(bctx,t);
+    bctx.setTransform(1,0,0,1,0,0);bctx.globalCompositeOperation='destination-in';bctx.drawImage(mask,0,0);
+    ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(built,0,0);
+    ctx.setTransform(dpr,0,0,dpr,0,0);notes(ctx);
+    if(auto.on&&idle>TUNE.IDLE&&!reduce){var q=autoPath(Math.min(1,auto.t));ctx.strokeStyle='#ffe08a';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(q[0],q[1],9,0,6.283);ctx.moveTo(q[0]-16,q[1]);ctx.lineTo(q[0]+16,q[1]);ctx.moveTo(q[0],q[1]-16);ctx.lineTo(q[0],q[1]+16);ctx.stroke()}
+    if(!reduce)requestAnimationFrame(frame);
+  }
+  function move(x,y){var r=cv.getBoundingClientRect();if(performance.now()-lastTouch>200)last.x=null;lastTouch=performance.now();
+    if(auto.on){auto.on=false;doneAt=1e9}stroke(x-r.left,y-r.top)}
+  addEventListener('pointermove',function(e){if(e.pointerType!=='touch')move(e.clientX,e.clientY)},{passive:true});
+  addEventListener('touchmove',function(e){var t=e.touches[0];if(t)move(t.clientX,t.clientY)},{passive:true});
+  addEventListener('touchstart',function(e){var t=e.touches[0];if(t){last.x=null;move(t.clientX,t.clientY)}},{passive:true});
+  setInterval(function(){if(!auto.on&&doneAt===1e9&&performance.now()-lastTouch>TUNE.IDLE*1000){doneAt=(performance.now()-t0)/1000}},500);
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
