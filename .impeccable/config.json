@@ -107,6 +107,24 @@
         "value": "clamp(28px,8vw,44px)",
         "createdAt": "2026-10-18T00:03:03.247Z",
         "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "20px",
+        "createdAt": "2026-10-18T00:03:12.936Z",
+        "reason": "Claude: fluid endpoint of a shipped, reviewed clamp() (promise, closing wordmark, closing number)"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "52px",
+        "createdAt": "2026-10-18T00:03:13.008Z",
+        "reason": "Claude: fluid endpoint of a shipped, reviewed clamp() (promise, closing wordmark, closing number)"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "28px",
+        "createdAt": "2026-10-18T00:03:13.078Z",
+        "reason": "Claude: fluid endpoint of a shipped, reviewed clamp() (promise, closing wordmark, closing number)"
       }
     ]
   }
