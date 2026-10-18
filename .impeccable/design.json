@@ -1,0 +1,557 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T00:01:18.477056+00:00",
+  "title": "Design System: HandyMax",
+  "extensions": {
+    "colorMeta": {
+      "night-wall": {
+        "role": "neutral",
+        "displayName": "Night Wall",
+        "canonical": "oklch(25.7% 0.049 261.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.049 261.9)",
+          "oklch(26.4% 0.049 261.9)",
+          "oklch(37.9% 0.049 261.9)",
+          "oklch(49.3% 0.049 261.9)",
+          "oklch(60.7% 0.049 261.9)",
+          "oklch(72.1% 0.049 261.9)",
+          "oklch(83.6% 0.049 261.9)",
+          "oklch(95.0% 0.049 261.9)"
+        ]
+      },
+      "night-wall-raised": {
+        "role": "neutral",
+        "displayName": "Raised Night",
+        "canonical": "oklch(29.5% 0.057 261.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.057 261.6)",
+          "oklch(26.4% 0.057 261.6)",
+          "oklch(37.9% 0.057 261.6)",
+          "oklch(49.3% 0.057 261.6)",
+          "oklch(60.7% 0.057 261.6)",
+          "oklch(72.1% 0.057 261.6)",
+          "oklch(83.6% 0.057 261.6)",
+          "oklch(95.0% 0.057 261.6)"
+        ]
+      },
+      "ceiling-band": {
+        "role": "neutral",
+        "displayName": "Ceiling Band",
+        "canonical": "oklch(22.0% 0.042 263.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.042 263.2)",
+          "oklch(26.4% 0.042 263.2)",
+          "oklch(37.9% 0.042 263.2)",
+          "oklch(49.3% 0.042 263.2)",
+          "oklch(60.7% 0.042 263.2)",
+          "oklch(72.1% 0.042 263.2)",
+          "oklch(83.6% 0.042 263.2)",
+          "oklch(95.0% 0.042 263.2)"
+        ]
+      },
+      "wall-rule": {
+        "role": "neutral",
+        "displayName": "Wall Rule",
+        "canonical": "oklch(36.1% 0.064 262.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.064 262.4)",
+          "oklch(26.4% 0.064 262.4)",
+          "oklch(37.9% 0.064 262.4)",
+          "oklch(49.3% 0.064 262.4)",
+          "oklch(60.7% 0.064 262.4)",
+          "oklch(72.1% 0.064 262.4)",
+          "oklch(83.6% 0.064 262.4)",
+          "oklch(95.0% 0.064 262.4)"
+        ]
+      },
+      "can-trim": {
+        "role": "neutral",
+        "displayName": "Can Trim",
+        "canonical": "oklch(35.8% 0.060 263.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.060 263.4)",
+          "oklch(26.4% 0.060 263.4)",
+          "oklch(37.9% 0.060 263.4)",
+          "oklch(49.3% 0.060 263.4)",
+          "oklch(60.7% 0.060 263.4)",
+          "oklch(72.1% 0.060 263.4)",
+          "oklch(83.6% 0.060 263.4)",
+          "oklch(95.0% 0.060 263.4)"
+        ]
+      },
+      "warm-paper-text": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "oklch(94.9% 0.016 79.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.016 79.4)",
+          "oklch(26.4% 0.016 79.4)",
+          "oklch(37.9% 0.016 79.4)",
+          "oklch(49.3% 0.016 79.4)",
+          "oklch(60.7% 0.016 79.4)",
+          "oklch(72.1% 0.016 79.4)",
+          "oklch(83.6% 0.016 79.4)",
+          "oklch(95.0% 0.016 79.4)"
+        ]
+      },
+      "cool-dusk-text": {
+        "role": "neutral",
+        "displayName": "Dusk Gray",
+        "canonical": "oklch(84.1% 0.024 264.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.024 264.4)",
+          "oklch(26.4% 0.024 264.4)",
+          "oklch(37.9% 0.024 264.4)",
+          "oklch(49.3% 0.024 264.4)",
+          "oklch(60.7% 0.024 264.4)",
+          "oklch(72.1% 0.024 264.4)",
+          "oklch(83.6% 0.024 264.4)",
+          "oklch(95.0% 0.024 264.4)"
+        ]
+      },
+      "downlight-amber": {
+        "role": "primary",
+        "displayName": "Downlight Amber",
+        "canonical": "oklch(81.8% 0.156 73.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.116 73.8)",
+          "oklch(26.4% 0.134 73.8)",
+          "oklch(37.9% 0.152 73.8)",
+          "oklch(49.3% 0.156 73.8)",
+          "oklch(60.7% 0.156 73.8)",
+          "oklch(72.1% 0.156 73.8)",
+          "oklch(83.6% 0.149 73.8)",
+          "oklch(95.0% 0.132 73.8)"
+        ]
+      },
+      "downlight-amber-bright": {
+        "role": "primary",
+        "displayName": "Bright Amber",
+        "canonical": "oklch(86.2% 0.127 78.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.100 78.2)",
+          "oklch(26.4% 0.114 78.2)",
+          "oklch(37.9% 0.127 78.2)",
+          "oklch(49.3% 0.127 78.2)",
+          "oklch(60.7% 0.127 78.2)",
+          "oklch(72.1% 0.127 78.2)",
+          "oklch(83.6% 0.127 78.2)",
+          "oklch(95.0% 0.112 78.2)"
+        ]
+      },
+      "lit-plaster": {
+        "role": "neutral",
+        "displayName": "Lit Plaster",
+        "canonical": "oklch(92.5% 0.026 82.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.026 82.4)",
+          "oklch(26.4% 0.026 82.4)",
+          "oklch(37.9% 0.026 82.4)",
+          "oklch(49.3% 0.026 82.4)",
+          "oklch(60.7% 0.026 82.4)",
+          "oklch(72.1% 0.026 82.4)",
+          "oklch(83.6% 0.026 82.4)",
+          "oklch(95.0% 0.026 82.4)"
+        ]
+      },
+      "plaster-field": {
+        "role": "neutral",
+        "displayName": "Plaster Field",
+        "canonical": "oklch(97.7% 0.011 84.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.011 84.6)",
+          "oklch(26.4% 0.011 84.6)",
+          "oklch(37.9% 0.011 84.6)",
+          "oklch(49.3% 0.011 84.6)",
+          "oklch(60.7% 0.011 84.6)",
+          "oklch(72.1% 0.011 84.6)",
+          "oklch(83.6% 0.011 84.6)",
+          "oklch(95.0% 0.011 84.6)"
+        ]
+      },
+      "plaster-edge": {
+        "role": "neutral",
+        "displayName": "Plaster Edge",
+        "canonical": "oklch(81.8% 0.036 82.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.036 82.9)",
+          "oklch(26.4% 0.036 82.9)",
+          "oklch(37.9% 0.036 82.9)",
+          "oklch(49.3% 0.036 82.9)",
+          "oklch(60.7% 0.036 82.9)",
+          "oklch(72.1% 0.036 82.9)",
+          "oklch(83.6% 0.036 82.9)",
+          "oklch(95.0% 0.036 82.9)"
+        ]
+      },
+      "switch-plate": {
+        "role": "neutral",
+        "displayName": "Switch Plate",
+        "canonical": "oklch(91.2% 0.022 83.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.022 83.3)",
+          "oklch(26.4% 0.022 83.3)",
+          "oklch(37.9% 0.022 83.3)",
+          "oklch(49.3% 0.022 83.3)",
+          "oklch(60.7% 0.022 83.3)",
+          "oklch(72.1% 0.022 83.3)",
+          "oklch(83.6% 0.022 83.3)",
+          "oklch(95.0% 0.022 83.3)"
+        ]
+      },
+      "navy-ink": {
+        "role": "neutral",
+        "displayName": "Navy Ink",
+        "canonical": "oklch(25.5% 0.048 264.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.048 264.5)",
+          "oklch(26.4% 0.048 264.5)",
+          "oklch(37.9% 0.048 264.5)",
+          "oklch(49.3% 0.048 264.5)",
+          "oklch(60.7% 0.048 264.5)",
+          "oklch(72.1% 0.048 264.5)",
+          "oklch(83.6% 0.048 264.5)",
+          "oklch(95.0% 0.048 264.5)"
+        ]
+      },
+      "slate-ink": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "canonical": "oklch(43.9% 0.035 267.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.035 267.9)",
+          "oklch(26.4% 0.035 267.9)",
+          "oklch(37.9% 0.035 267.9)",
+          "oklch(49.3% 0.035 267.9)",
+          "oklch(60.7% 0.035 267.9)",
+          "oklch(72.1% 0.035 267.9)",
+          "oklch(83.6% 0.035 267.9)",
+          "oklch(95.0% 0.035 267.9)"
+        ]
+      },
+      "form-blue": {
+        "role": "secondary",
+        "displayName": "Form Blue",
+        "canonical": "oklch(58.1% 0.229 263.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.156 263.9)",
+          "oklch(26.4% 0.182 263.9)",
+          "oklch(37.9% 0.208 263.9)",
+          "oklch(49.3% 0.229 263.9)",
+          "oklch(60.7% 0.229 263.9)",
+          "oklch(72.1% 0.229 263.9)",
+          "oklch(83.6% 0.205 263.9)",
+          "oklch(95.0% 0.179 263.9)"
+        ]
+      },
+      "error-red": {
+        "role": "error",
+        "displayName": "Error Red",
+        "canonical": "oklch(50.1% 0.178 28.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.128 28.7)",
+          "oklch(26.4% 0.148 28.7)",
+          "oklch(37.9% 0.169 28.7)",
+          "oklch(49.3% 0.178 28.7)",
+          "oklch(60.7% 0.178 28.7)",
+          "oklch(72.1% 0.178 28.7)",
+          "oklch(83.6% 0.166 28.7)",
+          "oklch(95.0% 0.146 28.7)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline (two stacked lines, second in amber); closing wordmark at clamp(52px,16vw,96px)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings, uppercase, balanced wrap."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Step titles, uppercase; paired with 900/44px amber numerals."
+      },
+      "body-large": {
+        "displayName": "Body Large",
+        "purpose": "Ledes, service row labels (700), owner paragraph."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default text; hero promise scales 17-20px within 34em."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, form labels; phone number at 16px tabular."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Hints, notes, optional markers, errors, photo tags (800 uppercase .04em)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "hung-frame",
+        "value": "0 30px 60px -28px rgba(5,10,20,.85)",
+        "purpose": "Photos hanging on the wall (portrait: 0 30px 60px -24px rgba(5,10,20,.9))."
+      },
+      {
+        "name": "wall-fixture",
+        "value": "0 10px 18px -6px rgba(5,10,20,.65), 0 2px 4px rgba(5,10,20,.35)",
+        "purpose": "The wall switch plate."
+      },
+      {
+        "name": "knob",
+        "value": "0 6px 16px rgba(5,10,20,.45)",
+        "purpose": "Before/after drag knob."
+      },
+      {
+        "name": "form-focus-halo",
+        "value": "0 0 0 3px rgba(47,107,255,.22)",
+        "purpose": "Input focus inside the estimate form (.3 on the send button)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "color-transition",
+        "value": "background-color .2s, color .2s, border-color .2s",
+        "purpose": "Buttons, arrow circles."
+      },
+      {
+        "name": "form-transition",
+        "value": "border-color .15s, box-shadow .15s",
+        "purpose": "Inputs and chips."
+      },
+      {
+        "name": "press",
+        "value": "transform .15s; translateY(1px) on :active",
+        "purpose": "Button press feedback."
+      },
+      {
+        "name": "TUNE.BASE",
+        "value": "0.24",
+        "purpose": "Resting brightness of every light (0-1)."
+      },
+      {
+        "name": "TUNE.BREATH",
+        "value": "0.05",
+        "purpose": "Slow breathing amplitude (plus 0.025 faster ripple, per-can phase)."
+      },
+      {
+        "name": "TUNE.DECAY",
+        "value": "0.55",
+        "purpose": "Per-second rate a light dims back to BASE."
+      },
+      {
+        "name": "TUNE.RISE",
+        "value": "14",
+        "purpose": "How fast a light rises under a finger."
+      },
+      {
+        "name": "TUNE.REACH",
+        "value": "0.75",
+        "purpose": "Finger influence, in light spacings."
+      },
+      {
+        "name": "TUNE.SWEEP_STEP",
+        "value": "0.13s",
+        "purpose": "Delay between cans in a sweep; each holds full 0.35s."
+      },
+      {
+        "name": "TUNE.IDLE",
+        "value": "6s",
+        "purpose": "Seconds without a finger before a row sweeps itself."
+      },
+      {
+        "name": "TUNE.MOTES",
+        "value": "55 phone / 140 desktop",
+        "purpose": "Dust particle counts."
+      },
+      {
+        "name": "TUNE.PUSH",
+        "value": "80px",
+        "purpose": "Finger radius that shoves dust."
+      },
+      {
+        "name": "light-row-geometry",
+        "value": "can spacing 105px phone / 190px desktop; scallop width max(1.7x spacing, 170px); DPR cap 1.5",
+        "purpose": "Where cans go and how wide each wash is."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "still frame at 0.75 intensity (1.0 with switch on)",
+        "purpose": "prefers-reduced-motion: no loop, redraw on resize only."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small-phone",
+        "value": "max-width:380px"
+      },
+      {
+        "name": "tablet",
+        "value": "700px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      },
+      {
+        "name": "fine-pointer",
+        "value": "(hover:hover) and (pointer:fine)"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Amber pill for the main action (free estimate).",
+      "html": "<a class=\"ds-btn ds-btn-fill\" href=\"#\">Get a free estimate</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;text-decoration:none;border:2px solid #ffb238;transition:background-color .2s,color .2s,border-color .2s,transform .15s} .ds-btn:active{transform:translateY(1px)} .ds-btn:focus-visible{outline:3px solid #ffb238;outline-offset:3px} .ds-btn-fill{background:#ffb238;color:#17223a} .ds-btn-fill:hover{background:#ffc76b;border-color:#ffc76b}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary hero action; same height and border as the primary, on the night wall.",
+      "html": "<div style=\"background:#16233b;padding:20px\"><a class=\"ds-btn-line\" href=\"#\">See my work</a></div>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;text-decoration:none;border:2px solid #ffb238;background:transparent;color:#f4ede2;transition:background-color .2s,transform .15s} .ds-btn-line:hover{background:rgba(255,178,56,.12)} .ds-btn-line:active{transform:translateY(1px)} .ds-btn-line:focus-visible{outline:3px solid #ffb238;outline-offset:3px}"
+    },
+    {
+      "name": "Send Button",
+      "kind": "button",
+      "refersTo": "button-send",
+      "description": "Navy pill on the lit plaster that opens the pre-written text; blue on hover/focus.",
+      "html": "<div style=\"background:#efe5d3;padding:20px\"><button class=\"ds-send\" type=\"button\">Text this to Max</button></div>",
+      "css": ".ds-send{min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;background:#17223a;color:#efe5d3;border:2px solid #17223a;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s} .ds-send:hover,.ds-send:focus-visible{border-color:#2f6bff;outline:none;box-shadow:0 0 0 3px rgba(47,107,255,.3)} .ds-send:active{transform:translateY(1px)}"
+    },
+    {
+      "name": "Service Row",
+      "kind": "custom",
+      "refersTo": "service-row",
+      "description": "Whole-row link with an arrow circle; only the arrow lights on hover/focus.",
+      "html": "<div style=\"background:#16233b;padding:0 20px\"><ul class=\"ds-rows\"><li><a class=\"ds-row\" href=\"#\"><span>TV mounting</span><span class=\"ds-arrow\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a></li><li><a class=\"ds-row\" href=\"#\"><span>Hidden wiring</span><span class=\"ds-arrow\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a></li></ul></div>",
+      "css": ".ds-rows{list-style:none;margin:0;padding:0;border-top:1px solid #2b3d5f} .ds-rows li{border-bottom:1px solid #2b3d5f} .ds-row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;padding:8px 0;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#f4ede2} .ds-arrow{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#1c2c49;transition:background-color .2s} .ds-arrow svg{width:18px;height:18px;stroke:#f4ede2;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s} .ds-row:hover,.ds-row:focus-visible{outline:none;background:none;box-shadow:none} .ds-row:hover .ds-arrow,.ds-row:focus-visible .ds-arrow{background:#ffb238} .ds-row:hover .ds-arrow svg,.ds-row:focus-visible .ds-arrow svg{stroke:#17223a} .ds-row:focus-visible .ds-arrow{outline:3px solid #ffb238;outline-offset:3px}"
+    },
+    {
+      "name": "Choice Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Checkbox chip in the estimate form; blue hover/focus, navy when selected.",
+      "html": "<div style=\"background:#efe5d3;padding:20px;display:flex;gap:10px;flex-wrap:wrap\"><label class=\"ds-chip\"><input type=\"checkbox\"><span>TV mounting</span></label><label class=\"ds-chip\"><input type=\"checkbox\" checked><span>LED lighting</span></label></div>",
+      "css": ".ds-chip{position:relative} .ds-chip input{position:absolute;opacity:0;width:1px;height:1px} .ds-chip span{display:flex;align-items:center;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid #cfc2aa;background:#fbf7ef;color:#17223a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:border-color .15s,background-color .15s,color .15s} .ds-chip span:hover{border-color:#2f6bff} .ds-chip input:focus-visible+span{outline:3px solid #2f6bff;outline-offset:2px;border-color:#2f6bff} .ds-chip input:checked+span{background:#17223a;border-color:#17223a;color:#efe5d3} .ds-chip input:checked+span:hover{border-color:#2f6bff}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Plaster-set input with label; blue border on hover, blue halo on focus.",
+      "html": "<div style=\"background:#efe5d3;padding:20px\"><label class=\"ds-field\"><span class=\"ds-label\">Town <small>(optional)</small></span><input class=\"ds-input\" type=\"text\" placeholder=\"Newark\"></label></div>",
+      "css": ".ds-field{display:grid;gap:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif} .ds-label{font-weight:800;font-size:17px;color:#17223a} .ds-label small{font-weight:600;color:#4a5266;font-size:15px} .ds-input{width:100%;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:17px;color:#17223a;background:#fbf7ef;border:2px solid #cfc2aa;border-radius:12px;padding:14px 16px;min-height:56px;caret-color:#2f6bff;transition:border-color .15s,box-shadow .15s} .ds-input::placeholder{color:#6f6656} .ds-input:hover{border-color:#2f6bff} .ds-input:focus{outline:none;border-color:#2f6bff;box-shadow:0 0 0 3px rgba(47,107,255,.22)}"
+    },
+    {
+      "name": "Header (Ceiling)",
+      "kind": "nav",
+      "refersTo": "",
+      "description": "Ceiling band header: wordmark, language toggle, top-right tap-to-call number.",
+      "html": "<div class=\"ds-top\"><a class=\"ds-mark\" href=\"#\">Handy<b>Max</b></a><button class=\"ds-lang\" type=\"button\">Español</button><a class=\"ds-phone\" href=\"tel:+18622393260\"><svg viewBox=\"0 0 24 24\"><path d=\"M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z\"/></svg>862-239-3260</a></div>",
+      "css": ".ds-top{height:64px;display:flex;align-items:center;gap:10px;padding:0 20px;background:#101a2e;color:#f4ede2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif} .ds-mark{font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;color:inherit} .ds-mark b{color:#ffb238;font-weight:900} .ds-lang{margin-left:auto;min-height:44px;padding:0 10px;border:0;background:none;color:#c3cbdb;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(195,203,219,.45)} .ds-lang:hover{color:#f4ede2} .ds-phone{display:flex;align-items:center;gap:7px;min-height:44px;font-weight:800;font-size:16px;text-decoration:none;color:inherit;font-variant-numeric:tabular-nums} .ds-phone svg{width:17px;height:17px;fill:#ffb238} .ds-phone:hover{color:#ffc76b} .ds-lang:focus-visible,.ds-phone:focus-visible,.ds-mark:focus-visible{outline:3px solid #ffb238;outline-offset:3px;border-radius:6px}"
+    },
+    {
+      "name": "Before/After Slider",
+      "kind": "custom",
+      "refersTo": "photo-frame",
+      "description": "Hung photo frame with a plain amber divider and knob; drag or arrow keys.",
+      "html": "<div style=\"background:#16233b;padding:20px\"><div class=\"ds-ba\" tabindex=\"0\" role=\"slider\" aria-valuenow=\"50\" aria-label=\"Before and after\"><div class=\"ds-ba-before\"></div><div class=\"ds-ba-after\"></div><span class=\"ds-ba-tag ds-l\">Before</span><span class=\"ds-ba-tag ds-r\">After</span><span class=\"ds-ba-bar\"></span><span class=\"ds-ba-knob\"><svg viewBox=\"0 0 24 24\"><path d=\"M9 6l-6 6 6 6M15 6l6 6-6 6\"/></svg></span></div></div>",
+      "css": ".ds-ba{position:relative;aspect-ratio:800/694;max-width:420px;border-radius:18px;overflow:hidden;background:#1c2c49;box-shadow:0 30px 60px -28px rgba(5,10,20,.85);--p:50%;cursor:ew-resize;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif} .ds-ba-before,.ds-ba-after{position:absolute;inset:0} .ds-ba-before{background:linear-gradient(160deg,#5a4a3a,#2e2620)} .ds-ba-after{background:linear-gradient(160deg,#f3eee6,#bfb6a8);clip-path:inset(0 0 0 var(--p))} .ds-ba-bar{position:absolute;top:0;bottom:0;left:var(--p);width:4px;margin-left:-2px;background:#ffb238} .ds-ba-knob{position:absolute;top:50%;left:var(--p);width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#ffb238;display:grid;place-items:center;box-shadow:0 6px 16px rgba(5,10,20,.45)} .ds-ba-knob svg{width:24px;height:24px;stroke:#17223a;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round} .ds-ba-tag{position:absolute;bottom:14px;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)} .ds-l{left:16px} .ds-r{right:16px} .ds-ba:focus-visible{outline:3px solid #ffb238;outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Room When the Lights Come On",
+    "overview": "**Creative North Star: \"The Room When the Lights Come On\"**\n\nThe whole page is one wall in a living room at night. A darker ceiling band runs across the top holding recessed can lights; each can throws a real downlight scallop (a parabola-edged wash of 2700K amber) onto deep navy plaster, with dust drifting in the beam. The visitor's finger or mouse brings the nearest cans up, a wall switch turns every light on, and when nobody touches anything the cans sweep on by themselves. Lower on the page the light-row returns as a ceiling over each major section, and at the estimate section the beams finally \"reveal\" the wall itself: the background turns into lit warm plaster. That turn from night wall to lit wall is the page's story (Max's before/after is literally a dim room turned bright) and it is the one place the ground changes.\n\nEverything else stays plain and heavy so the light carries the craft: the system font stack set in 900-weight uppercase for display, sentence-case body in warm off-white, one amber accent, generous phone-first spacing, and photos framed as softly rounded, shadowed pictures hanging on the wall. The system is governed by Ellie's pitch-site house rules (`ellie-taste.md`, `finishing-rules.md`); the constraints those rules place on contact, hover and form behavior are recorded here as part of the system, not as page-local choices.\n\nConfirmed rejections: the contractor template (toolbelt stock photography, icon cards, a blue-and-orange \"pro\" bar), black page grounds, thin decorative highlight lines, and any sticky bottom action bar.",
+    "keyCharacteristics": [
+      "Night-navy ground with a darker ceiling band; never black.",
+      "Light is rendered, not drawn: canvas downlight scallops and dust, interactive by finger and mouse.",
+      "Amber is the only accent and means \"light\"; blue exists only inside the estimate form for hover and focus.",
+      "System sans, heavy uppercase display, sentence-case body.",
+      "Pill-shaped controls, 18px-rounded photo frames, hairline rules between list rows.",
+      "Phone first: 56px controls, full-width stacked CTAs on phones, contact by text message and tap-to-call."
+    ],
+    "rules": [
+      {
+        "name": "The One Light Rule",
+        "body": "Amber is the only accent on the page and it always means light: the beam, the lit word, the knob, a filled arrow. Never introduce a second decorative hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Blue Stays In The Form Rule",
+        "body": "Form Blue appears only on estimate-form controls (inputs, chips, the send button) and only on hover or focus. Service rows, links and buttons on the night wall never use it.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Black Rule",
+        "body": "The darkest value on the page is the ceiling band. No pure or near-black grounds anywhere.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hover Brings The Accent Rule",
+        "body": "Interactive elements are neutral at rest and take amber on hover (arrow circles fill, links brighten). Amber at rest is reserved for content that represents light (the lit headline word, numerals, the divider) and the primary button.",
+        "section": "colors"
+      },
+      {
+        "name": "The Heavy Caps Only Rule",
+        "body": "Uppercase is for display, headlines, step titles and the photo tags. Body, labels, buttons and form copy stay sentence case.",
+        "section": "typography"
+      },
+      {
+        "name": "The 16px Floor Rule",
+        "body": "Body text never drops below 17px and nothing readable goes under 15px; inputs stay at 17px so phones never zoom.",
+        "section": "typography"
+      },
+      {
+        "name": "The First Screen Rule",
+        "body": "The first phone screen shows wordmark, language toggle and phone number in the header; the benefit headline, the owner's promise, and at most two buttons. No services list, service area, or call button in the hero.",
+        "section": "layout"
+      },
+      {
+        "name": "The Clear Wall Rule",
+        "body": "Nothing in the scene runs through text: scallops fall from the ceiling band and fade before the bottom-anchored copy, and the wall switch sits on the right edge away from the headline.",
+        "section": "layout"
+      },
+      {
+        "name": "The Lit From Above Rule",
+        "body": "Every shadow falls downward and is tinted with the night (rgba 5,10,20), never neutral gray and never a hard offset.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Glint Rule",
+        "body": "No hairline highlights, sheens or films over surfaces or photos.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep amber as the single accent and use it for things that are light or that a hover has just lit.",
+      "Do confine Form Blue to hover and focus on estimate-form controls.",
+      "Do make service-row hover change only the arrow circle (neutral to amber), with the keyboard ring around the circle.",
+      "Do put the phone number in the header's top-right corner as a tap-to-call link and nowhere else on the first screen; it may return in the closing section.",
+      "Do keep the email address in the footer only, and the Facebook link both directly under the before/after and in the footer.",
+      "Do make primary and secondary buttons the same height (56px+) and border; secondary is outlined, never filled.",
+      "Do tune motion through the named TUNE constants and keep one shared loop, off-screen pausing, the DPR cap, and the reduced-motion still frame.",
+      "Do cast shadows downward and navy-tinted, as if lit by the cans."
+    ],
+    "donts": [
+      "Don't add a sticky bottom action bar or any full-width banner fixed to the screen.",
+      "Don't put a call button in the hero, a third button under the title, or the phone number twice on one screen.",
+      "Don't add email buttons, mailto prompts, or a send-by-email option anywhere outside the footer.",
+      "Don't outline, border, ring or tint a service row on hover or focus.",
+      "Don't use black or near-black grounds; the darkest tone is the ceiling band.",
+      "Don't add hairline highlights, glints, sheens, or moving decorations on the before/after divider.",
+      "Don't style non-interactive labels or service-area towns as pills or chips.",
+      "Don't let scallops, dust or the switch run through text.",
+      "Don't introduce icon cards, stock photography, or a blue-and-orange \"pro\" contractor bar."
+    ]
+  }
+}
