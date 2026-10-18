@@ -35,6 +35,78 @@
         ],
         "createdAt": "2026-10-17T23:57:34.598Z",
         "reason": "Claude: typeset/technical/finish reviews all judged it non-material; the detector counts only UI text 15-22px while uppercase 900-weight display at 40-96px carries the hierarchy"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "4px",
+        "createdAt": "2026-10-18T00:03:02.450Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "6px",
+        "createdAt": "2026-10-18T00:03:02.521Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(255, 255, 255)",
+        "createdAt": "2026-10-18T00:03:02.594Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(255,200,130,.20)",
+        "createdAt": "2026-10-18T00:03:02.667Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#d9cfbd",
+        "createdAt": "2026-10-18T00:03:02.739Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0,0,0,.25)",
+        "createdAt": "2026-10-18T00:03:02.809Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "16px",
+        "createdAt": "2026-10-18T00:03:02.882Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "createdAt": "2026-10-18T00:03:02.952Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "44px",
+        "createdAt": "2026-10-18T00:03:03.028Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "clamp(17px,4.6vw,20px)",
+        "createdAt": "2026-10-18T00:03:03.102Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "clamp(52px,16vw,96px)",
+        "createdAt": "2026-10-18T00:03:03.173Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "clamp(28px,8vw,44px)",
+        "createdAt": "2026-10-18T00:03:03.247Z",
+        "reason": "Claude: shipped one-off component value reviewed in the finish review; DESIGN.md documenter deliberately kept one-offs out of the system scale"
       }
     ]
   }
