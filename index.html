@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HandyMax · Handyman &amp; Electrical · New Jersey</title>
-<meta name="description" content="HandyMax: TV mounting, LED and indoor/outdoor lighting, outlets and switches, hidden wiring, security cameras, renovations and general maintenance in New Jersey. Free estimates. Call Max: 862-239-3260.">
-<meta name="theme-color" content="#16233b">
+<title>HandyMax · Handyman, Renovations &amp; Electrical · New Jersey</title>
+<meta name="description" content="HandyMax: roofs, basements, kitchens, windows and Christmas lights, plus TV mounting, lighting, outlets, electrical work and general maintenance in New Jersey. Free estimates. Call Max: 862-239-3260.">
+<meta name="theme-color" content="#ffc83a">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HandyMax · Handyman & Electrical">
-<meta property="og:description" content="TV mounting, lighting, outlets, hidden wiring and more. Free estimates. Call Max: 862-239-3260.">
+<meta property="og:title" content="HandyMax · Roof to basement, inside and out">
+<meta property="og:description" content="Roofs, basements, kitchens, windows, Christmas lights, electrical and more. Free estimates. Call Max: 862-239-3260.">
 <meta property="og:url" content="https://10elizabethbell.github.io/handyMax/">
 <meta property="og:image" content="https://10elizabethbell.github.io/handyMax/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -20,29 +20,32 @@
 <style>
 /* ---------- tokens ---------- */
 :root{
-  --wall:#16233b;        /* the night wall */
-  --wall-2:#1c2c49;
-  --ceiling:#101a2e;
-  --line:#2b3d5f;
-  --text:#f4ede2;
-  --text-2:#c3cbdb;      /* secondary text on the wall */
-  --amber:#ffb238;       /* the light */
-  --amber-2:#ffc76b;
-  --plaster:#efe5d3;     /* the lit wall */
-  --ink:#17223a;
-  --ink-2:#4a5266;
+  --sign:#ffc83a;        /* job-site sign yellow: the hero, services, close */
+  --sign-2:#ffd25c;
+  --sign-text-2:#4a3d12; /* secondary text on yellow, tinted from it */
+  --ink:#15233b;         /* navy ink: type, buttons, the night sections */
+  --ink-2:#22345a;
+  --line:rgba(21,35,59,.22);
+  --night-line:#2b3d5f;
+  --text:#f6f2ea;        /* text on navy */
+  --text-2:#c3cbdb;
+  --drywall:#f6f2ea;     /* the finished wall: estimate */
+  --drywall-2:#fffdf8;
+  --drywall-edge:#d6cdbd;
+  --ink-soft:#4a5266;
+  --tape:#2b7bbd;        /* painter's tape */
   --focus:#2f6bff;       /* form hover/focus outline */
   --pad:20px;
   --max:1160px;
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overscroll-behavior-y:none;background:var(--wall)}
-body{margin:0;font-family:var(--font);font-size:17px;line-height:1.5;color:var(--text);background:var(--wall);overflow-x:hidden;overflow-x:clip}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overscroll-behavior-y:none;background:var(--sign)}
+body{margin:0;font-family:var(--font);font-size:17px;line-height:1.5;color:var(--ink);background:var(--sign);overflow-x:hidden;overflow-x:clip}
 img{display:block;max-width:100%}
 a{color:inherit}
-::selection{background:var(--amber);color:var(--ink)}
-:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+::selection{background:var(--ink);color:var(--sign)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 html[data-lang="es"] .en, html:not([data-lang="es"]) .es{display:none !important}
 
@@ -50,88 +53,78 @@ h1,h2,.display{font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;l
 h2{font-size:clamp(34px,9vw,64px)}
 p{margin:0}
 
-/* ---------- buttons ---------- */
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font:inherit;font-weight:800;font-size:17px;text-decoration:none;cursor:pointer;border:2px solid var(--amber);transition:background-color .2s,color .2s,border-color .2s,transform .15s}
+/* ---------- buttons (navy on yellow) ---------- */
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:999px;font:inherit;font-weight:800;font-size:17px;text-decoration:none;cursor:pointer;border:2px solid var(--ink);transition:background-color .2s,color .2s,border-color .2s,transform .15s}
 .btn:active{transform:translateY(1px)}
-.btn-fill{background:var(--amber);color:var(--ink)}
-.btn-fill:hover{background:var(--amber-2);border-color:var(--amber-2)}
-.btn-line{background:transparent;color:var(--text)}
-.btn-line:hover{background:rgba(255,178,56,.12)}
+.btn-fill{background:var(--ink);color:var(--sign)}
+.btn-fill:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:rgba(21,35,59,.08)}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:clamp(560px,100vh,880px);min-height:clamp(560px,100svh,880px);display:flex;flex-direction:column;isolation:isolate;touch-action:pan-y pinch-zoom}
+/* ---------- hero: the cutaway house ---------- */
+.hero{position:relative;min-height:clamp(640px,100vh,880px);min-height:clamp(640px,100svh,880px);display:flex;flex-direction:column;isolation:isolate;touch-action:pan-y pinch-zoom;background:radial-gradient(120% 70% at 50% 25%,var(--sign-2),var(--sign))}
 .hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
-.hero-still{position:absolute;inset:0;z-index:-2;background:
-  radial-gradient(60% 40% at 25% 12%,rgba(255,200,130,.20),transparent 70%),
-  radial-gradient(60% 40% at 75% 12%,rgba(255,200,130,.20),transparent 70%),
-  linear-gradient(var(--ceiling) 0 64px,var(--wall) 64px)}
 .top{height:64px;display:flex;align-items:center;gap:12px}
 .top .wrap{display:flex;align-items:center;gap:10px;width:100%}
 .mark{display:flex;align-items:center;min-height:44px;font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;white-space:nowrap}
-.mark b{color:var(--amber);font-weight:900}
-.lang{flex:none;margin-left:auto;min-height:44px;min-width:44px;padding:0 10px;border:0;background:none;color:var(--text-2);font:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(195,203,219,.45)}
-.lang:hover{color:var(--text)}
+.mark b{font-weight:900;background:var(--ink);color:var(--sign);padding:0 5px;margin-left:2px;border-radius:3px}
+.lang{flex:none;margin-left:auto;min-height:44px;min-width:44px;padding:0 10px;border:0;background:none;color:var(--ink);font:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(21,35,59,.4)}
+.lang:hover{text-decoration-color:var(--ink)}
 .phone{display:flex;align-items:center;gap:7px;min-height:44px;font-weight:800;font-size:16px;text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums}
-.phone svg{width:17px;height:17px;fill:var(--amber);flex:none}
-.phone:hover{color:var(--amber-2)}
+.phone svg{width:17px;height:17px;fill:var(--ink);flex:none}
+.phone:hover{text-decoration:underline;text-underline-offset:4px}
 
 .hero-body > .wrap{width:100%}
 .hero-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:max(28px,env(safe-area-inset-bottom))}
-.hero h1{font-size:clamp(40px,11.4vw,96px);margin-bottom:18px}
-.hero h1 span{display:block}
-.hero h1 .lit{color:var(--amber)}
-.promise{font-size:clamp(17px,4.6vw,20px);line-height:1.45;color:var(--text);max-width:34em;margin-bottom:26px}
+.hero h1{font-size:clamp(34px,8.8vw,92px);margin-bottom:14px;text-wrap:wrap}
+.hero h1 span span{display:block}
+.promise{font-size:clamp(17px,4.6vw,20px);line-height:1.45;color:var(--sign-text-2);font-weight:500;max-width:34em;margin-bottom:24px}
 .cta{display:grid;gap:12px}
 
-/* the wall switch */
-.switch{position:absolute;right:max(var(--pad),calc((100% - var(--max))/2 + var(--pad)));top:calc(64px + 13%);width:48px;height:76px;border:0;padding:0;border-radius:8px;background:#e9e1d2;box-shadow:0 10px 18px -6px rgba(5,10,20,.65),0 2px 4px rgba(5,10,20,.35);cursor:pointer;display:grid;place-items:center;-webkit-tap-highlight-color:transparent}
-.switch::before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:#c9bfae;top:7px;left:21px;box-shadow:0 56px 0 #c9bfae}
-.switch i{display:block;width:20px;height:38px;border-radius:4px;background:linear-gradient(#fbf7ef 0 50%,#d9cfbd 50%);box-shadow:0 2px 3px rgba(0,0,0,.25);transition:background .2s,transform .1s}
-.switch:active i{transform:scale(.94)}
-.switch[aria-pressed="true"] i{background:linear-gradient(#d9cfbd 0 50%,#fbf7ef 50%)}
-.switch:focus-visible{outline-offset:5px}
-
-/* ---------- services ---------- */
+/* ---------- services (still on the yellow sign) ---------- */
 .section{position:relative;padding:72px 0}
+.services{padding-top:40px}
 .services h2{margin-bottom:10px}
 .desk{display:none}
 @media (hover:hover) and (pointer:fine){.desk{display:inline}.touch{display:none}}
-.lede{color:var(--text-2);font-size:19px;margin-bottom:26px}
+.lede{color:var(--sign-text-2);font-size:19px;margin-bottom:26px}
 .rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .rows li{border-bottom:1px solid var(--line)}
 .row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;padding:8px 0;text-decoration:none;font-size:19px;font-weight:700}
-.arrow{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--wall-2);transition:background-color .2s}
-.arrow svg{width:18px;height:18px;stroke:var(--text);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
+.arrow{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(21,35,59,.1);transition:background-color .2s}
+.arrow svg{width:18px;height:18px;stroke:var(--ink);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}
 .row:hover,.row:focus-visible{outline:none;background:none;box-shadow:none}
-.row:hover .arrow,.row:focus-visible .arrow{background:var(--amber)}
-.row:hover .arrow svg,.row:focus-visible .arrow svg{stroke:var(--ink)}
-.row:focus-visible .arrow{outline:3px solid var(--amber);outline-offset:3px}
+.row:hover .arrow,.row:focus-visible .arrow{background:var(--ink)}
+.row:hover .arrow svg,.row:focus-visible .arrow svg{stroke:var(--sign)}
+.row:focus-visible .arrow{outline:3px solid var(--ink);outline-offset:3px}
 
-/* ---------- light rows (section ceilings) ---------- */
-.lightrow{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:0}
+/* ---------- light strings (section tops) ---------- */
+.string{position:absolute;left:0;top:0;width:100%;pointer-events:none;z-index:0}
 .section > .wrap{position:relative;z-index:1}
 
-/* ---------- work ---------- */
-.work{padding-top:120px}
+/* ---------- the night sections: work, Max, how it works ---------- */
+.night{background:var(--ink);color:var(--text)}
+.night :focus-visible{outline-color:var(--sign)}
+.work{padding-top:130px}
 .work h2{margin-bottom:26px}
 .work-grid{display:grid;grid-template-areas:"h" "ba" "side"}
 .work-grid h2{grid-area:h}.work-grid .ba{grid-area:ba}.work-side{grid-area:side}
-.ba{position:relative;aspect-ratio:800/694;border-radius:18px;overflow:hidden;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none;cursor:ew-resize;background:var(--wall-2);box-shadow:0 30px 60px -28px rgba(5,10,20,.85);--p:50%;max-width:720px}
+.ba{position:relative;aspect-ratio:800/694;border-radius:18px;overflow:hidden;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none;cursor:ew-resize;background:var(--ink-2);box-shadow:0 30px 60px -28px rgba(5,10,20,.85);--p:50%;max-width:720px}
 .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
 .ba .after{clip-path:inset(0 0 0 var(--p))}
-.ba .bar{position:absolute;top:0;bottom:0;left:var(--p);width:4px;margin-left:-2px;background:var(--amber)}
-.ba .knob{position:absolute;top:50%;left:var(--p);width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:var(--amber);display:grid;place-items:center;box-shadow:0 6px 16px rgba(5,10,20,.45)}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--p);width:4px;margin-left:-2px;background:var(--sign)}
+.ba .knob{position:absolute;top:50%;left:var(--p);width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:var(--sign);display:grid;place-items:center;box-shadow:0 6px 16px rgba(5,10,20,.45)}
 .ba .knob svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
-.ba .tag{position:absolute;bottom:14px;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8);pointer-events:none}
-.ba .tag-b{left:16px}.ba .tag-a{right:16px}
-.ba:focus-visible{outline:3px solid var(--amber);outline-offset:4px}
+/* before/after tags: strips of painter's tape */
+.ba .tag{position:absolute;bottom:16px;padding:3px 10px;background:var(--tape);color:#fff;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.05em;box-shadow:0 2px 4px rgba(5,10,20,.3);pointer-events:none}
+.ba .tag-b{left:14px;transform:rotate(-2deg)}.ba .tag-a{right:14px;transform:rotate(2deg)}
+.ba:focus-visible{outline:3px solid var(--sign);outline-offset:4px}
 .hint{color:var(--text-2);font-size:15px;margin-top:12px}
-.fb{display:inline-flex;align-items:center;gap:14px;margin-top:30px;min-height:60px;padding:10px 24px 10px 12px;border-radius:999px;border:2px solid var(--amber);text-decoration:none;font-weight:800;font-size:19px;transition:background-color .2s}
-.fb .fbi{width:40px;height:40px;border-radius:50%;background:var(--amber);display:grid;place-items:center;flex:none}
+.fb{display:inline-flex;align-items:center;gap:14px;margin-top:30px;min-height:60px;padding:10px 24px 10px 12px;border-radius:999px;border:2px solid var(--sign);text-decoration:none;font-weight:800;font-size:19px;transition:background-color .2s}
+.fb .fbi{width:40px;height:40px;border-radius:50%;background:var(--sign);display:grid;place-items:center;flex:none}
 .fb .fbi svg{width:22px;height:22px;fill:var(--ink)}
-.fb:hover{background:rgba(255,178,56,.12)}
+.fb:hover{background:rgba(255,200,58,.12)}
 
-/* ---------- Max ---------- */
 .max{padding-top:40px}
 .max-grid{display:grid;gap:28px;align-items:center}
 .portrait{position:relative;width:min(300px,64%)}
@@ -139,63 +132,61 @@ p{margin:0}
 .max h2{margin-bottom:16px}
 .max p{font-size:19px;max-width:30em;color:var(--text)}
 .max p+p{margin-top:14px}
-.tagline{margin-top:18px;color:var(--amber);font-weight:800;letter-spacing:.02em}
 
-/* ---------- steps ---------- */
 .steps h2{margin-bottom:28px}
 .steps ol{list-style:none;margin:0;padding:0;display:grid;gap:26px;counter-reset:s}
-.steps li{display:grid;grid-template-columns:52px 1fr;gap:4px 16px;counter-increment:s}
-.steps li::before{content:counter(s);grid-row:span 2;font-weight:900;font-size:44px;line-height:1;color:var(--amber)}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:4px 16px;counter-increment:s;align-content:start}
+.steps li::before{content:counter(s);grid-row:span 2;font-weight:900;font-size:44px;line-height:1;color:var(--sign)}
 .steps b{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:-0.01em}
 .steps li > span{color:var(--text-2)}
-.steps li{align-content:start}
 
-/* ---------- estimate (the lit wall) ---------- */
-.estimate{background:var(--plaster);color:var(--ink);padding-top:150px}
-.estimate .lede{color:var(--ink-2)}
+/* ---------- estimate (the finished drywall) ---------- */
+.estimate{background:var(--drywall);color:var(--ink);padding-top:130px}
+.estimate .lede{color:var(--ink-soft)}
 .estimate :focus-visible{outline-color:var(--focus)}
 .estimate h2{margin-bottom:10px}
 form{display:grid;gap:22px;max-width:640px}
 .field{display:grid;gap:8px}
 .label{font-weight:800;font-size:17px}
-.label small{font-weight:600;color:var(--ink-2);font-size:15px}
-input[type=text],textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:#fbf7ef;border:2px solid #cfc2aa;border-radius:12px;padding:14px 16px;min-height:56px;transition:border-color .15s,box-shadow .15s;caret-color:var(--focus)}
+.label small{font-weight:600;color:var(--ink-soft);font-size:15px}
+input[type=text],textarea{width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--drywall-2);border:2px solid var(--drywall-edge);border-radius:12px;padding:14px 16px;min-height:56px;transition:border-color .15s,box-shadow .15s;caret-color:var(--focus)}
 textarea{min-height:110px;resize:vertical}
 input[type=text]:hover,textarea:hover{border-color:var(--focus)}
 input[type=text]:focus,textarea:focus{outline:none;border-color:var(--focus);box-shadow:0 0 0 3px rgba(47,107,255,.22)}
-::placeholder{color:#6f6656}
+::placeholder{color:#6b6458}
 .chips{display:flex;flex-wrap:wrap;gap:10px;border:0;margin:0;padding:0}
 .chip{position:relative}
 .chip input{position:absolute;opacity:0;width:1px;height:1px}
-.chip > span{display:flex;align-items:center;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid #cfc2aa;background:#fbf7ef;font-weight:700;font-size:16px;cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
+.chip > span{display:flex;align-items:center;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid var(--drywall-edge);background:var(--drywall-2);font-weight:700;font-size:16px;cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}
 .chip > span:hover{border-color:var(--focus)}
 .chip input:focus-visible + span{outline:3px solid var(--focus);outline-offset:2px;border-color:var(--focus)}
-.chip input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--plaster)}
+.chip input:checked + span{background:var(--ink);border-color:var(--ink);color:var(--drywall)}
 .chip input:checked + span:hover{border-color:var(--focus)}
 .err{color:#b3261e;font-weight:700;font-size:15px;min-height:0}
 .err:empty{display:none}
-.send{background:var(--ink);color:var(--plaster);border-color:var(--ink)}
+.send{background:var(--ink);color:var(--drywall);border-color:var(--ink)}
 .send:hover,.send:focus-visible{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px rgba(47,107,255,.3)}
-.note{color:var(--ink-2);font-size:15px}
-.talk{margin-top:4px;font-size:17px;color:var(--ink-2)}
+.note{color:var(--ink-soft);font-size:15px}
+.talk{margin-top:4px;font-size:17px;color:var(--ink-soft)}
 .talk a{display:inline-block;padding:11px 0;color:var(--ink);font-weight:800;text-underline-offset:3px;white-space:nowrap}
 .sent{display:none;font-weight:700}
 .sent.show{display:block}
 
-/* ---------- close + footer ---------- */
-.close{padding:150px 0 64px;text-align:left}
-.close .display{font-size:clamp(52px,16vw,96px)}
-.close .display b{color:var(--amber);font-weight:900}
-.close .tagline{font-size:19px;margin-top:14px}
-.close p.where{color:var(--text-2);font-size:19px;margin-top:8px}
+/* ---------- close (back on the sign) + footer ---------- */
+.close{padding:130px 0 64px;text-align:left}
+.close .display{font-size:clamp(44px,13.5vw,96px)}
+.close .display b{font-weight:900;background:var(--ink);color:var(--sign);padding:0 .08em;margin-left:.04em;border-radius:.05em}
+.close .tagline{font-size:19px;margin-top:16px;font-weight:800;letter-spacing:.02em}
+.close p.where{color:var(--sign-text-2);font-size:19px;margin-top:8px}
 .bignum{display:inline-flex;align-items:center;gap:12px;margin-top:28px;font-weight:900;font-size:clamp(28px,8vw,44px);text-decoration:none;font-variant-numeric:tabular-nums;min-height:56px}
-.bignum svg{width:.8em;height:.8em;fill:var(--amber)}
-.bignum:hover{color:var(--amber-2)}
-footer{border-top:1px solid var(--line);padding:28px 0 calc(32px + env(safe-area-inset-bottom));color:var(--text-2);font-size:16px}
+.bignum svg{width:.8em;height:.8em;fill:var(--ink)}
+.bignum:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:3px}
+footer{background:var(--ink);padding:28px 0 calc(32px + env(safe-area-inset-bottom));color:var(--text-2);font-size:16px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center}
 footer a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
-footer a:hover{color:var(--amber-2)}
+footer a:hover{color:var(--sign)}
 footer strong{color:var(--text);font-weight:900}
+footer :focus-visible{outline-color:var(--sign)}
 
 /* ---------- desktop ---------- */
 @media (min-width:700px){
@@ -204,12 +195,13 @@ footer strong{color:var(--text);font-weight:900}
   .rows{columns:2;column-gap:56px;border-top:0}
   .rows li{break-inside:avoid;border-top:0}
   .section{padding:96px 0}
-  .work{padding-top:150px}
-  .estimate{padding-top:180px}
-  .close{padding-top:180px}
+  .services{padding-top:56px}
+  .work,.estimate,.close{padding-top:160px}
 }
 @media (min-width:1024px){
-  .hero-body{padding-bottom:72px}
+  .hero{min-height:clamp(600px,100svh,820px)}
+  .hero-body{justify-content:center;padding-bottom:40px}
+  .hero-body .wrap > *{max-width:min(500px,40vw)}
   .work-grid{grid-template-columns:1.3fr 1fr;grid-template-areas:"ba h" "ba side";grid-template-rows:auto 1fr;column-gap:56px}
   .work-grid h2{align-self:end}
   .work-side .fb{margin-top:36px}
@@ -219,17 +211,16 @@ footer strong{color:var(--text);font-weight:900}
   .est-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start}
 }
 @media (max-width:380px){.top .wrap{gap:4px}.mark{font-size:20px}.lang{padding:0 6px;font-size:14px}.phone{gap:5px;font-size:15px}.phone svg{width:14px;height:14px}}
-@media (min-width:1024px){.hero{min-height:clamp(560px,100svh,800px)}.switch{top:auto;bottom:250px;width:58px;height:92px}.switch i{width:24px;height:46px}.switch::before{left:26px;box-shadow:0 70px 0 #c9bfae}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <!--
-  THESIS: HandyMax is the moment the lights come on in your room; the visitor switches Max's downlights on with a finger. Refuses the contractor template (toolbelt stock photo, icon cards, blue-orange "pro" bar).
-  OWN-WORLD: A living-room wall at night in deep navy (#16233b), a darker ceiling band holding recessed can lights, each throwing a real wall scallop of 2700K amber (#ffb238) with dust drifting in the beam; the estimate section is the lit plaster wall (#efe5d3). Heavy uppercase system sans, amber as the only accent, arrow-in-circle rows.
-  STORY: Max sees his name over a wall his own lights just lit, then his before/after, his face, his services in English and Spanish; a homeowner taps a job or fills three fields and a pre-written text to Max opens.
-  FIRST VIEWPORT: Header is the ceiling: wordmark left, Español toggle, tap-to-call number top-right. Cans light the wall in a sweep; a real wall switch sits on the right. Bottom-anchored: "Lights on. Wires gone." at ~50px phone / 96px desktop, Max's promise, amber "Get a free estimate" + outlined "See my work".
-  FORM: Recessed downlights on a night wall (own list #1, chosen by the pitch-site rule over roll seed 979b58ed's assignment #4, breaker panel; runner-up: headlamp in an open stud wall).
+  THESIS: HandyMax fixes up the whole house; the visitor renovates Max's house room by room with a finger. Refuses the contractor template (job photo hero, blue-and-orange bar, icon cards) and the can-light mood of the first build.
+  OWN-WORLD: A job-site sign: yellow (#ffc83a) field, navy ink (#15233b), a dollhouse cutaway of a house (slate roof, kitchen, window wall, basement under the dirt line), painter's-tape labels (#2b7bbd), a paint-roller wipe, and C9 Christmas-light strings on rope physics. Night sections in navy, the estimate on finished drywall (#f6f2ea).
+  STORY: Max sees his kind of house go from tired to finished; a homeowner finds their job (roof, basement, kitchen, windows, lights, electrical) and texts Max a free-estimate request.
+  FIRST VIEWPORT: Header: wordmark, Español, tap-to-call top-right. Phone: the cutaway fills the space under the header, labels on tape; bottom-anchored "Roof to basement. Inside and out.", one-line promise, navy "Get a free estimate" + outlined "See my work". Desktop: copy left, house right.
+  FORM: Cutaway house (own list #1, IMPECCABLE'S PICK; roll a5ee8a45 assigned #3, blueprint-to-built; chosen by Ellie from working demos).
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -241,7 +232,6 @@ footer strong{color:var(--text);font-weight:900}
 </svg>
 
 <header class="hero" id="top">
-  <div class="hero-still" aria-hidden="true"></div>
   <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
   <div class="top">
     <div class="wrap">
@@ -250,16 +240,15 @@ footer strong{color:var(--text);font-weight:900}
       <a class="phone" href="tel:+18622393260"><svg aria-hidden="true"><use href="#i-phone"/></svg>862-239-3260</a>
     </div>
   </div>
-  <button class="switch" id="wallSwitch" type="button" aria-pressed="false" data-en="Light switch: all the lights" data-es="Interruptor: todas las luces" aria-label="Light switch: all the lights"><i></i></button>
   <div class="hero-body">
     <div class="wrap">
       <h1>
-        <span class="en"><span>Lights on.</span><span class="lit">Wires gone.</span></span>
-        <span class="es" lang="es"><span>Más luz.</span><span class="lit">Cero cables.</span></span>
+        <span class="en"><span>Roof to basement.</span><span>Inside and out.</span></span>
+        <span class="es" lang="es"><span>Del techo al sótano.</span><span>Por dentro y por fuera.</span></span>
       </h1>
       <p class="promise">
-        <span class="en">I take care of your home like it's my own: careful with your walls, straight with you on price, and nothing left behind but the finished job.</span>
-        <span class="es" lang="es">Trato tu casa como si fuera mía: con cuidado en cada pared, claro con el precio, y sin dejar desorden, solo el trabajo terminado.</span>
+        <span class="en">Roofs, basements, kitchens, windows, even the Christmas lights. I take care of your home like it's my own.</span>
+        <span class="es" lang="es">Techos, sótanos, cocinas, ventanas y hasta las luces de Navidad. Cuido tu casa como si fuera mía.</span>
       </p>
       <div class="cta">
         <a class="btn btn-fill" href="#estimate"><span class="en">Get a free estimate</span><span class="es" lang="es">Estimado gratis</span></a>
@@ -278,8 +267,8 @@ footer strong{color:var(--text);font-weight:900}
     </div>
   </section>
 
-  <section class="section work" id="work" aria-labelledby="work-h">
-    <canvas class="lightrow" data-lights="work" aria-hidden="true"></canvas>
+  <section class="section night work" id="work" aria-labelledby="work-h">
+    <canvas class="string" data-string="work" aria-hidden="true"></canvas>
     <div class="wrap work-grid">
       <h2 id="work-h"><span class="en">Before &amp; after</span><span class="es" lang="es">Antes y después</span></h2>
       <div class="ba" id="ba" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-en="Before and after: drag to compare" data-es="Antes y después: desliza para comparar" aria-label="Before and after: drag to compare">
@@ -300,7 +289,7 @@ footer strong{color:var(--text);font-weight:900}
     </div>
   </section>
 
-  <section class="section max" id="max" aria-labelledby="max-h">
+  <section class="section night max" id="max" aria-labelledby="max-h">
     <div class="wrap max-grid">
       <div class="portrait" id="portrait"><img src="img/max.webp" loading="lazy" decoding="async" alt="Max, owner of HandyMax, wearing a headlamp on the job" width="480" height="480" draggable="false"></div>
       <div>
@@ -311,11 +300,11 @@ footer strong{color:var(--text);font-weight:900}
     </div>
   </section>
 
-  <section class="section steps" id="how" aria-labelledby="how-h">
+  <section class="section night steps" id="how" aria-labelledby="how-h">
     <div class="wrap">
       <h2 id="how-h"><span class="en">How it works</span><span class="es" lang="es">Cómo funciona</span></h2>
       <ol>
-        <li><b><span class="en">Tell me the job</span><span class="es" lang="es">Cuéntame el trabajo</span></b><span><span class="en">Text or call. A photo of the wall or the TV helps.</span><span class="es" lang="es">Escríbeme o llámame. Una foto de la pared o la TV ayuda.</span></span></li>
+        <li><b><span class="en">Tell me the job</span><span class="es" lang="es">Cuéntame el trabajo</span></b><span><span class="en">Text or call. A photo of the job helps.</span><span class="es" lang="es">Escríbeme o llámame. Una foto del trabajo ayuda.</span></span></li>
         <li><b><span class="en">Free estimate</span><span class="es" lang="es">Estimado gratis</span></b><span><span class="en">You know the price before I start.</span><span class="es" lang="es">Sabes el precio antes de que empiece.</span></span></li>
         <li><b><span class="en">Done and clean</span><span class="es" lang="es">Listo y limpio</span></b><span><span class="en">I finish the job and clean up after myself.</span><span class="es" lang="es">Termino el trabajo y dejo todo limpio.</span></span></li>
       </ol>
@@ -323,7 +312,7 @@ footer strong{color:var(--text);font-weight:900}
   </section>
 
   <section class="section estimate" id="estimate" aria-labelledby="est-h">
-    <canvas class="lightrow" data-lights="estimate" aria-hidden="true"></canvas>
+    <canvas class="string" data-string="estimate" aria-hidden="true"></canvas>
     <div class="wrap est-grid">
       <div>
         <h2 id="est-h"><span class="en">Free estimate</span><span class="es" lang="es">Estimado gratis</span></h2>
@@ -357,7 +346,7 @@ footer strong{color:var(--text);font-weight:900}
   </section>
 
   <section class="section close" aria-label="HandyMax">
-    <canvas class="lightrow" data-lights="close" aria-hidden="true"></canvas>
+    <canvas class="string" data-string="close" aria-hidden="true"></canvas>
     <div class="wrap">
       <p class="display">Handy<b>Max</b></p>
       <p class="tagline">Reliable • Professional • Affordable</p>
@@ -376,9 +365,14 @@ footer strong{color:var(--text);font-weight:900}
 </footer>
 
 <script>
-/* ===== content: services (English + Spanish, from both Facebook posts) ===== */
+/* ===== content: services (English + Spanish; the first five from Ellie, the rest from both Facebook posts) ===== */
 var PHONE = '+18622393260';
 var SERVICES = [
+  ['Roofs', 'Techos'],
+  ['Basements', 'Sótanos'],
+  ['Kitchens', 'Cocinas'],
+  ['Windows', 'Ventanas'],
+  ['Christmas lights', 'Luces de Navidad'],
   ['TV mounting', 'Instalación de TV'],
   ['Electrical work', 'Trabajos eléctricos'],
   ['Electrical panels & subpanels', 'Paneles eléctricos y subpaneles'],
@@ -477,215 +471,312 @@ function serviceText(i){
   });
 })();
 
-/* ===== the lights: recessed cans washing the wall, one shared loop ===== */
+/* ===== the house and the lights: one shared loop ===== */
 (function(){
   var TUNE = {
-    BASE: 0.24,          // resting brightness of every light (0..1)
-    BREATH: 0.05,        // slow breathing amplitude
-    DECAY: 0.55,         // how fast a light dims back to BASE (per second)
-    RISE: 14,            // how fast a light comes up under a finger
-    REACH: 0.75,         // finger influence, in light spacings
-    SWEEP_STEP: 0.13,    // seconds between lights in a sweep
-    IDLE: 6,             // seconds without a finger before the lights sweep by themselves
-    MOTES_PHONE: 55, MOTES_DESKTOP: 140,
-    PUSH: 80             // finger radius that pushes dust (px)
+    WIPE: 0.75,          // seconds for the roller to renovate one room
+    STEP: 1.1,           // seconds between rooms when Max renovates the house by himself
+    HOLD: 3.2,           // seconds the finished house holds before it goes back to tired
+    IDLE: 5,             // seconds without a finger before Max takes over again
+    GRAV: 0.35,          // light-string physics: gravity per frame
+    DAMP: 0.982,         //   velocity kept per frame (lower = settles sooner)
+    PUSH: 0.6,           //   how hard a finger shoves the string
+    REACH: 40,           //   how far from the finger the string feels it (px)
+    LIGHT_UP: 0.8        // seconds for a string to switch on, end to end
   };
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var phone = window.matchMedia('(max-width: 699px)').matches;
   var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+  var BULBS = ['#ff4636', '#2fd27a', '#3d8bff', '#ffb020', '#ff5fb8'];
 
   /* pointer, read every frame against each canvas rect (works while the page scrolls under a finger) */
   var P = { x: -9999, y: -9999, vx: 0, vy: 0, last: -99 };
   function move(x, y){
     var now = performance.now() / 1000;
-    if (P.x > -9000) { P.vx = P.vx * 0.6 + (x - P.x) * 0.4; P.vy = P.vy * 0.6 + (y - P.y) * 0.4; }
+    if (P.x > -9000 && now - P.last < 0.1) { P.vx = x - P.x; P.vy = y - P.y; } else { P.vx = P.vy = 0; }
     P.x = x; P.y = y; P.last = now;
   }
   window.addEventListener('pointermove', function(e){ if (e.pointerType === 'mouse') move(e.clientX, e.clientY); }, { passive: true });
-  window.addEventListener('touchstart', function(e){ var t = e.touches[0]; P.x = -9999; move(t.clientX, t.clientY); }, { passive: true });
+  window.addEventListener('pointerdown', function(e){ if (e.pointerType === 'mouse') move(e.clientX, e.clientY); }, { passive: true });
+  window.addEventListener('touchstart', function(e){ var t = e.touches[0]; P.last = -99; move(t.clientX, t.clientY); }, { passive: true });
   window.addEventListener('touchmove', function(e){ var t = e.touches[0]; move(t.clientX, t.clientY); }, { passive: true });
 
-  /* the scallop a downlight throws on a wall: dark above a parabola, bright under it, fading down */
-  function scallop(u, v){
-    var edge = 0.05 + 0.42 * u * u, d = v - edge, side = Math.exp(-u * u / 0.3), val;
-    if (d < 0) val = 0.85 * Math.exp(d / 0.016);
-    else val = (0.5 + 0.5 * Math.exp(-d / 0.05)) * Math.exp(-d / 0.42);
-    val = val * side * (1 - u * u) * Math.pow(1 - v, 1.6) + 0.55 * Math.exp(-(u * u * 34 + v * v * 160));
-    return val > 1 ? 1 : val;
-  }
-  var SPRITE = (function(){
-    var w = 220, h = 420, c = document.createElement('canvas'); c.width = w; c.height = h;
-    var g = c.getContext('2d'), im = g.createImageData(w, h), d = im.data;
-    for (var y = 0; y < h; y++) for (var x = 0; x < w; x++) {
-      var a = scallop((x + 0.5) / w * 2 - 1, (y + 0.5) / h), k = (y * w + x) * 4;
-      d[k] = 255; d[k + 1] = 196; d[k + 2] = 122; d[k + 3] = Math.round(a * 235);
+  /* ---------- a string of Christmas lights: a verlet rope hung from clips ---------- */
+  function String_(x0, y0, x1, y1, clips, slack, off){
+    var n = Math.max(4, Math.round(Math.hypot(x1 - x0, y1 - y0) * slack / 11)), pts = [], links = [];
+    var every = Math.max(1, Math.round(n / (clips - 1)));
+    for (var i = 0; i <= n; i++) {
+      var x = x0 + (x1 - x0) * i / n, y = y0 + (y1 - y0) * i / n;
+      pts.push({ x: x, y: y, px: x, py: y, pin: i % every === 0 || i === n, bulb: i % 2 ? BULBS[((i >> 1) + off) % BULBS.length] : null, ph: Math.random() * 6.28 });
     }
-    g.putImageData(im, 0, 0);
-    return c;
-  })();
+    var rest = Math.hypot(x1 - x0, y1 - y0) * slack / n;
+    for (i = 0; i < n; i++) links.push([pts[i], pts[i + 1], rest]);
+    this.pts = pts; this.links = links;
+  }
+  String_.prototype.step = function(px, py, fresh){
+    var P_ = this.pts;
+    for (var i = 0; i < P_.length; i++) {
+      var p = P_[i]; if (p.pin) continue;
+      var vx = (p.x - p.px) * TUNE.DAMP, vy = (p.y - p.py) * TUNE.DAMP;
+      p.px = p.x; p.py = p.y; p.x += vx; p.y += vy + TUNE.GRAV;
+      if (fresh) { var d = Math.hypot(p.x - px, p.y - py); if (d < TUNE.REACH) { var k = (1 - d / TUNE.REACH) * TUNE.PUSH; p.x += P.vx * k; p.y += P.vy * k; } }
+    }
+    for (var it = 0; it < 10; it++) for (i = 0; i < this.links.length; i++) {
+      var L = this.links[i], a = L[0], b = L[1], dx = b.x - a.x, dy = b.y - a.y, dd = Math.hypot(dx, dy) || 1;
+      if (dd < L[2]) continue;                               /* a wire goes slack, it doesn't push */
+      var f = (dd - L[2]) / dd * 0.5;
+      if (!a.pin) { a.x += dx * f; a.y += dy * f; } if (!b.pin) { b.x -= dx * f; b.y -= dy * f; }
+    }
+  };
+  /* lit(p) -> 0..1 for each bulb; glow only reads on dark or mid grounds */
+  String_.prototype.draw = function(g, t, lit, glow, wire){
+    var P_ = this.pts, i, p;
+    g.beginPath(); g.moveTo(P_[0].x, P_[0].y); for (i = 1; i < P_.length; i++) g.lineTo(P_[i].x, P_[i].y);
+    g.strokeStyle = wire || '#1f3a28'; g.lineWidth = 1.8; g.lineJoin = 'round'; g.stroke();
+    for (i = 0; i < P_.length; i++) {
+      p = P_[i]; if (!p.bulb) continue;
+      var on = lit(p), tw = 0.8 + 0.2 * Math.sin(t * 2.3 + p.ph);
+      if (on > 0 && glow) {
+        g.globalCompositeOperation = 'lighter';
+        var gr = g.createRadialGradient(p.x, p.y + 7, 0, p.x, p.y + 7, 20);
+        gr.addColorStop(0, p.bulb + 'cc'); gr.addColorStop(1, p.bulb + '00');
+        g.globalAlpha = on * tw; g.fillStyle = gr; g.fillRect(p.x - 20, p.y - 13, 40, 40);
+        g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
+      }
+      g.fillStyle = '#1f3a28'; g.fillRect(p.x - 2, p.y, 4, 4);
+      g.fillStyle = on > 0.5 ? p.bulb : '#b9b2a2';
+      g.beginPath(); g.ellipse(p.x, p.y + 8, 3.2, 5, 0, 0, 6.2832); g.fill();
+      if (on > 0.5) { g.fillStyle = 'rgba(255,255,255,.55)'; g.beginPath(); g.ellipse(p.x - 1, p.y + 6.5, 0.9, 2, 0, 0, 6.2832); g.fill(); }
+    }
+  };
 
-  var rows = [];
-  function Row(canvas, opts){
-    this.c = canvas; this.g = canvas.getContext('2d'); this.o = opts;
-    this.w = 0; this.h = 0; this.lights = []; this.motes = []; this.visible = false;
-    this.nextSweep = 0; this.on = false; this.offAt = -9;
+  /* ---------- the hero: Max's house, cut open ---------- */
+  var heroC = document.getElementById('heroCanvas'), hg = heroC.getContext('2d');
+  var H = { w: 0, h: 0, box: null, before: null, after: null, strings: [], visible: true, lastTouch: -99, autoNext: 0, doneAt: 0 };
+  var ORDER = ['basement', 'kitchen', 'windows', 'roof', 'lights'];
+  var R = {}; ORDER.forEach(function(k){ R[k] = { p: 0, dir: 0 }; });
+  var ROOM = { roof: [.01, .02, .99, .36], kitchen: [.07, .38, .59, .66], windows: [.61, .38, .93, .66], basement: [.07, .72, .93, .96] };
+  /* painter's-tape labels: [english, spanish, x, y, tilt in degrees] */
+  var LAB = { roof: ['ROOF', 'TECHO', .5, .22, -3], kitchen: ['KITCHEN', 'COCINA', .20, .395, 2], windows: ['WINDOWS', 'VENTANAS', .77, .395, -2],
+              basement: ['BASEMENT', 'SÓTANO', .5, .745, 1.5], lights: ['CHRISTMAS LIGHTS', 'LUCES DE NAVIDAD', .84, .06, 4] };
+  var box;
+  function X(f){ return box.x + f * box.w; } function Y(f){ return box.y + f * box.h; }
+  function rr(c, x0, y0, x1, y1){ c.beginPath(); c.rect(X(x0), Y(y0), X(x1) - X(x0), Y(y1) - Y(y0)); }
+  function roofPath(c){ c.beginPath(); c.moveTo(X(.5), Y(.02)); c.lineTo(X(.99), Y(.36)); c.lineTo(X(.01), Y(.36)); c.closePath(); }
+
+  function shell(c){
+    /* the dirt the basement sits in, the lawn, then the house in section: walls and floors */
+    c.fillStyle = '#7a5a3c'; c.fillRect(X(-.06), Y(.68), X(1.06) - X(-.06), Y(1) - Y(.68));
+    c.fillStyle = 'rgba(0,0,0,.12)';
+    for (var i = 0; i < 40; i++) { var sx = ((i * 73) % 100) / 100, sy = .70 + ((i * 37) % 28) / 100; c.fillRect(X(-.04 + sx * 1.08), Y(sy), 2, 2); }
+    c.fillStyle = '#4f9a4f'; c.fillRect(X(-.06), Y(.675), X(1.06) - X(-.06), Y(.69) - Y(.675));
+    c.fillStyle = '#e8dfcf';
+    c.fillRect(X(.04), Y(.36), X(.07) - X(.04), Y(.97) - Y(.36)); c.fillRect(X(.93), Y(.36), X(.96) - X(.93), Y(.97) - Y(.36));
+    c.fillRect(X(.04), Y(.66), X(.96) - X(.04), Y(.72) - Y(.66)); c.fillRect(X(.04), Y(.96), X(.96) - X(.04), Y(.985) - Y(.96));
+    c.fillRect(X(.59), Y(.38), X(.61) - X(.59), Y(.66) - Y(.38)); c.fillRect(X(.04), Y(.36), X(.96) - X(.04), Y(.38) - Y(.36));
   }
-  Row.prototype.layout = function(){
-    var r = this.c.getBoundingClientRect(), w = Math.round(r.width), h = Math.round(this.o.height ? this.o.height() : r.height);
-    if (w === this.w && h === this.h) return;          /* the address bar fires resize mid-drag; only rebuild on a real change */
-    var first = !this.w;
-    this.w = w; this.h = h;
-    if (this.o.height) this.c.style.height = h + 'px';
-    this.c.width = Math.round(w * DPR); this.c.height = Math.round(h * DPR);
-    var xs = this.o.xs(w), old = this.lights;
-    this.lights = xs.map(function(x, i){ var o = old[i]; return { x: x, I: o ? o.I : 0.03, ph: i * 1.7 + Math.random(), kick: o ? o.kick : -1 }; });
-    this.spacing = xs.length > 1 ? xs[1] - xs[0] : (phone ? 150 : 200);
-    if (this.o.motes && (first || !this.motes.length)) {
-      var n = phone ? TUNE.MOTES_PHONE : TUNE.MOTES_DESKTOP, m = [];
-      for (var i = 0; i < n; i++) m.push({ x: Math.random() * w, y: this.o.ceil + Math.random() * h * 0.7, vx: 0, vy: 0, s: 0.6 + Math.random() * 1.6, ph: Math.random() * 6.28 });
-      this.motes = m;
-    }
-  };
-  Row.prototype.sweep = function(t, dir){
-    var n = this.lights.length;
-    this.lights.forEach(function(L, i){ L.kick = t + (dir < 0 ? n - 1 - i : i) * TUNE.SWEEP_STEP; L.kicked = false; });
-  };
-  Row.prototype.lightAt = function(x, y){
-    var sw = this.sw, sh = this.sh, top = this.o.ceil, s = 0;
-    for (var i = 0; i < this.lights.length; i++) {
-      var L = this.lights[i], u = (x - L.x) / (sw / 2), v = (y - top) / sh;
-      if (u > -1 && u < 1 && v > 0 && v < 1) s += L.I * scallop(u, v);
-    }
-    return s;
-  };
-  Row.prototype.step = function(t, dt){
-    var r = this.c.getBoundingClientRect(), px = P.x - r.left, py = P.y - r.top;
-    var touching = (t - P.last) < 0.25 && px >= 0 && px <= this.w && py >= -30 && py <= this.h + 30;
-    if (touching) this.nextSweep = t + TUNE.IDLE;
-    else if (t > this.nextSweep && !this.on) { this.sweep(t, this.dir = -(this.dir || -1)); this.nextSweep = t + TUNE.IDLE + 2; }
-    var reach = this.spacing * TUNE.REACH, self = this;
-    this.lights.forEach(function(L){
-      var target = self.on ? 1 : TUNE.BASE + TUNE.BREATH * Math.sin(t * 0.9 + L.ph) + 0.025 * Math.sin(t * 2.3 + L.ph * 2);
-      var up = 0;
-      if (touching) { var dx = (px - L.x) / reach; up = Math.exp(-dx * dx); }
-      if (L.kick > 0 && t >= L.kick && t < L.kick + 0.35) up = Math.max(up, 1);
-      if (up > 0.02 && L.I < up) L.I += (up - L.I) * Math.min(1, dt * TUNE.RISE);
-      else L.I += (target - L.I) * (1 - Math.exp(-dt * (self.on || t - self.offAt < 0.4 ? 9 : TUNE.DECAY)));
+  function drawBefore(c){
+    shell(c);
+    /* roof: faded, patched, missing shingles, a tarp */
+    roofPath(c); c.fillStyle = '#8b7660'; c.fill();
+    c.save(); roofPath(c); c.clip(); c.strokeStyle = 'rgba(50,35,20,.35)'; c.lineWidth = 1;
+    for (var y = .06; y < .37; y += .032) { c.beginPath(); c.moveTo(X(0), Y(y)); c.lineTo(X(1), Y(y)); c.stroke(); }
+    c.fillStyle = '#c9b38c'; [[.32, .18, .08], [.6, .25, .1], [.44, .3, .06]].forEach(function(m){ c.fillRect(X(m[0]), Y(m[1]), X(m[0] + m[2]) - X(m[0]), Y(m[1] + .03) - Y(m[1])); });
+    c.fillStyle = '#5d6e8c'; c.beginPath(); c.moveTo(X(.62), Y(.16)); c.lineTo(X(.74), Y(.22)); c.lineTo(X(.66), Y(.27)); c.lineTo(X(.56), Y(.21)); c.closePath(); c.fill();
+    c.restore();
+    c.fillStyle = '#5a4a3a'; c.beginPath(); c.moveTo(X(.5), Y(.09)); c.lineTo(X(.86), Y(.345)); c.lineTo(X(.14), Y(.345)); c.closePath(); c.fill();
+    /* kitchen: dark brown wall, tired cabinets, peeling paper, a bare bulb */
+    rr(c, .07, .38, .59, .66); c.fillStyle = '#8a7357'; c.fill();
+    c.strokeStyle = 'rgba(60,40,20,.25)'; c.lineWidth = 3; for (var x = .09; x < .59; x += .04) { c.beginPath(); c.moveTo(X(x), Y(.38)); c.lineTo(X(x), Y(.66)); c.stroke(); }
+    c.fillStyle = '#6b4f33'; c.fillRect(X(.10), Y(.41), X(.36) - X(.10), Y(.48) - Y(.41));
+    c.fillStyle = '#5e432a'; c.fillRect(X(.10), Y(.56), X(.52) - X(.10), Y(.66) - Y(.56));
+    c.fillStyle = '#a69a84'; c.fillRect(X(.09), Y(.545), X(.53) - X(.09), Y(.56) - Y(.545));
+    c.fillStyle = '#d9c9a6'; c.fillRect(X(.40), Y(.42), X(.46) - X(.40), Y(.46) - Y(.42));
+    c.strokeStyle = '#2a2a2a'; c.lineWidth = 1.2; c.beginPath(); c.moveTo(X(.30), Y(.38)); c.lineTo(X(.30), Y(.44)); c.stroke();
+    c.fillStyle = '#cfc6a0'; c.beginPath(); c.arc(X(.30), Y(.44) + 5, 5, 0, 6.2832); c.fill();
+    /* window wall: a small cracked window */
+    rr(c, .61, .38, .93, .66); c.fillStyle = '#7d6a52'; c.fill();
+    rr(c, .70, .45, .84, .57); c.fillStyle = '#9fb0b8'; c.fill(); c.strokeStyle = '#4f3b26'; c.lineWidth = 4; c.stroke();
+    c.strokeStyle = '#ffffff'; c.lineWidth = 1; c.beginPath(); c.moveTo(X(.73), Y(.46)); c.lineTo(X(.77), Y(.51)); c.lineTo(X(.75), Y(.55)); c.moveTo(X(.77), Y(.51)); c.lineTo(X(.81), Y(.53)); c.stroke();
+    /* basement: raw concrete, open studs, a puddle, a bare bulb */
+    rr(c, .07, .72, .93, .96); c.fillStyle = '#5d5f61'; c.fill();
+    c.strokeStyle = '#8c7a5c'; c.lineWidth = 5; for (x = .12; x < .93; x += .09) { c.beginPath(); c.moveTo(X(x), Y(.72)); c.lineTo(X(x), Y(.96)); c.stroke(); }
+    c.fillStyle = 'rgba(120,150,170,.55)'; c.beginPath(); c.ellipse(X(.62), Y(.955), box.w * .1, 4, 0, 0, 6.2832); c.fill();
+    c.strokeStyle = '#2a2a2a'; c.lineWidth = 1.2; c.beginPath(); c.moveTo(X(.4), Y(.72)); c.lineTo(X(.4), Y(.78)); c.stroke();
+    c.fillStyle = '#cfc6a0'; c.beginPath(); c.arc(X(.4), Y(.78) + 5, 5, 0, 6.2832); c.fill();
+  }
+  function drawAfter(c){
+    shell(c);
+    /* roof: new slate shingles, new gutter, insulated attic */
+    roofPath(c); c.fillStyle = '#2f3746'; c.fill();
+    c.save(); roofPath(c); c.clip(); c.strokeStyle = 'rgba(255,255,255,.13)'; c.lineWidth = 1;
+    for (var r = 0, y = .06; y < .37; y += .026, r++) { c.beginPath(); c.moveTo(X(0), Y(y)); c.lineTo(X(1), Y(y)); c.stroke(); for (var xx = (r % 2) * .025; xx < 1; xx += .05) { c.beginPath(); c.moveTo(X(xx), Y(y)); c.lineTo(X(xx), Y(y + .026)); c.stroke(); } }
+    c.restore();
+    c.fillStyle = '#f1ede4'; c.fillRect(X(0), Y(.355), X(1) - X(0), Y(.372) - Y(.355));
+    c.fillStyle = '#e2c08f'; c.beginPath(); c.moveTo(X(.5), Y(.09)); c.lineTo(X(.86), Y(.345)); c.lineTo(X(.14), Y(.345)); c.closePath(); c.fill();
+    c.strokeStyle = 'rgba(150,105,60,.35)'; c.lineWidth = 2;
+    for (var i = 0; i < 8; i++) { c.beginPath(); c.moveTo(X(.2 + i * .08), Y(.345)); c.quadraticCurveTo(X(.24 + i * .08), Y(.30), X(.28 + i * .08), Y(.345)); c.stroke(); }
+    /* kitchen: white walls, tile, navy base cabinets, pendants on */
+    rr(c, .07, .38, .59, .66); c.fillStyle = '#f6f2ea'; c.fill();
+    c.strokeStyle = '#d7dde6'; c.lineWidth = 1;
+    for (var ty = .49; ty < .545; ty += .018) { c.beginPath(); c.moveTo(X(.09), Y(ty)); c.lineTo(X(.53), Y(ty)); c.stroke(); }
+    for (var tx = .09; tx < .53; tx += .03) { c.beginPath(); c.moveTo(X(tx), Y(.49)); c.lineTo(X(tx), Y(.545)); c.stroke(); }
+    c.fillStyle = '#ffffff'; c.fillRect(X(.10), Y(.405), X(.36) - X(.10), Y(.47) - Y(.405)); c.strokeStyle = '#d8d2c6'; c.strokeRect(X(.10), Y(.405), X(.36) - X(.10), Y(.47) - Y(.405));
+    c.fillStyle = '#1f3558'; c.fillRect(X(.10), Y(.56), X(.52) - X(.10), Y(.66) - Y(.56));
+    c.fillStyle = '#e9e4dc'; c.fillRect(X(.09), Y(.545), X(.53) - X(.09), Y(.56) - Y(.545));
+    c.fillStyle = '#d9a441'; [.18, .30, .42].forEach(function(x){ c.fillRect(X(x) - 1, Y(.595), 3, Y(.62) - Y(.595)); });
+    [.40, .50].forEach(function(x){
+      c.strokeStyle = '#2a2a2a'; c.lineWidth = 1.2; c.beginPath(); c.moveTo(X(x), Y(.38)); c.lineTo(X(x), Y(.43)); c.stroke();
+      c.fillStyle = '#15233b'; c.beginPath(); c.moveTo(X(x) - 9, Y(.45)); c.lineTo(X(x) + 9, Y(.45)); c.lineTo(X(x) + 5, Y(.43)); c.lineTo(X(x) - 5, Y(.43)); c.closePath(); c.fill();
+      var g = c.createRadialGradient(X(x), Y(.46), 0, X(x), Y(.46), 40); g.addColorStop(0, 'rgba(255,214,120,.55)'); g.addColorStop(1, 'rgba(255,214,120,0)'); c.fillStyle = g; c.fillRect(X(x) - 40, Y(.46), 80, 40);
     });
-    /* dust: drifts on layered slow currents, shoved and carried by the finger, then settles back into the drift */
-    if (this.motes.length) {
-      var near = touching ? TUNE.PUSH : 0;
-      for (var i = 0; i < this.motes.length; i++) {
-        var m = this.motes[i];
-        var fx = Math.sin(t * 0.31 + m.ph + m.y * 0.011) * 9 + Math.sin(t * 0.13 + m.ph * 2.1) * 5;
-        var fy = Math.cos(t * 0.23 + m.ph * 1.7 + m.x * 0.009) * 6 + 2.5;
-        m.vx += (fx - m.vx) * Math.min(1, dt * 1.2); m.vy += (fy - m.vy) * Math.min(1, dt * 1.2);
-        if (near) {
-          var ddx = m.x - px, ddy = m.y - py, d = Math.sqrt(ddx * ddx + ddy * ddy);
-          if (d < near && d > 0.1) { var f = (1 - d / near); m.vx += (ddx / d * 900 * f + P.vx * 30 * f) * dt; m.vy += (ddy / d * 900 * f + P.vy * 30 * f) * dt; }
-        }
-        m.x += m.vx * dt; m.y += m.vy * dt;
-        if (m.x < -10) m.x = this.w + 10; else if (m.x > this.w + 10) m.x = -10;
-        if (m.y > this.h * 0.8) m.y = this.o.ceil + 4; else if (m.y < this.o.ceil) m.y = this.h * 0.8;
+    /* window wall: a big new window */
+    rr(c, .61, .38, .93, .66); c.fillStyle = '#eef0f0'; c.fill();
+    rr(c, .66, .42, .88, .61); var sg = c.createLinearGradient(0, Y(.42), 0, Y(.61)); sg.addColorStop(0, '#7fc3f0'); sg.addColorStop(1, '#cfe9f7'); c.fillStyle = sg; c.fill();
+    c.strokeStyle = '#ffffff'; c.lineWidth = 5; c.stroke(); c.lineWidth = 3; c.beginPath(); c.moveTo(X(.77), Y(.42)); c.lineTo(X(.77), Y(.61)); c.stroke();
+    c.fillStyle = '#3f8a52'; c.beginPath(); c.ellipse(X(.71), Y(.635), 8, 10, 0, 0, 6.2832); c.fill(); c.fillStyle = '#b5643d'; c.fillRect(X(.71) - 6, Y(.64), 12, Y(.66) - Y(.64));
+    /* basement: finished and warm, a sofa, a TV mounted with no wires, recessed lights */
+    rr(c, .07, .72, .93, .96); c.fillStyle = '#f3dfb7'; c.fill();
+    c.fillStyle = '#c98f58'; c.fillRect(X(.07), Y(.935), X(.93) - X(.07), Y(.96) - Y(.935));
+    c.fillStyle = '#2f5d8f'; c.beginPath(); c.roundRect(X(.30), Y(.86), X(.62) - X(.30), Y(.935) - Y(.86), 5); c.fill();
+    c.fillStyle = '#244b75'; c.beginPath(); c.roundRect(X(.30), Y(.835), X(.62) - X(.30), Y(.875) - Y(.835), 5); c.fill();
+    c.fillStyle = '#15233b'; c.fillRect(X(.72), Y(.80), X(.86) - X(.72), Y(.87) - Y(.80));
+    [.2, .5, .8].forEach(function(x){ var g = c.createRadialGradient(X(x), Y(.725), 0, X(x), Y(.725), 48); g.addColorStop(0, 'rgba(255,240,200,.85)'); g.addColorStop(1, 'rgba(255,240,200,0)'); c.fillStyle = g; c.fillRect(X(x) - 48, Y(.725), 96, 48); });
+  }
+  function heroLayout(){
+    var r = heroC.getBoundingClientRect(), w = Math.round(r.width), h = Math.round(r.height);
+    if (w === H.w && h === H.h) return false;                 /* the address bar fires resize mid-drag; only rebuild on a real change */
+    H.w = w; H.h = h;
+    heroC.width = Math.round(w * DPR); heroC.height = Math.round(h * DPR);
+    var wide = w >= 1024, bw;
+    if (wide) {
+      bw = Math.min(520, w * .4, h - 130);
+      var right = (w + Math.min(w, 1160)) / 2 - 32;
+      box = { x: right - bw, y: (h - bw) / 2 + 26, w: bw, h: bw };
+    } else {
+      /* the house fills the space between the header and Max's words */
+      var copyTop = document.querySelector('.hero-body .wrap').getBoundingClientRect().top - r.top;
+      bw = Math.max(150, Math.min(w - 48, 420, copyTop - 80 - 26));
+      box = { x: (w - bw) / 2, y: 80, w: bw, h: bw };
+    }
+    H.box = box;
+    H.before = document.createElement('canvas'); H.after = document.createElement('canvas');
+    [H.before, H.after].forEach(function(o, i){
+      o.width = heroC.width; o.height = heroC.height;
+      var c = o.getContext('2d'); c.setTransform(DPR, 0, 0, DPR, 0, 0); if (i) drawAfter(c); else drawBefore(c);
+    });
+    /* the lights along both slopes of the roof */
+    H.strings = [new String_(X(.5), Y(.025), X(.99), Y(.36), 6, 1.07, 0), new String_(X(.5), Y(.025), X(.01), Y(.36), 6, 1.07, 2)];
+    for (var i = 0; i < 80; i++) H.strings.forEach(function(s){ s.step(0, 0, false); });
+    return true;
+  }
+  function hit(x, y){
+    for (var k in ROOM) {
+      var b = ROOM[k];
+      if (x >= X(b[0]) && x <= X(b[2]) && y >= Y(b[1]) && y <= Y(b[3])) {
+        if (k === 'roof') { var fy = (y - box.y) / box.h, half = (fy - .02) / .34 * .49; if (Math.abs((x - box.x) / box.w - .5) > half) continue; }
+        return k;
       }
     }
-  };
-  Row.prototype.draw = function(t){
-    var g = this.g, w = this.w, h = this.h, top = this.o.ceil, self = this;
+    for (var s = 0; s < H.strings.length; s++) { var pts = H.strings[s].pts; for (var i = 0; i < pts.length; i++) if (Math.hypot(pts[i].x - x, pts[i].y - y) < 22) return 'lights'; }
+    return null;
+  }
+  function renovate(k){ if (k && R[k].p < 1 && R[k].dir <= 0) R[k].dir = 1; }
+  function tape(k){
+    var L = LAB[k], g = hg, lang = document.documentElement.getAttribute('data-lang') === 'es' ? 1 : 0;
+    g.save(); g.translate(X(L[2]), Y(L[3])); g.rotate(L[4] * Math.PI / 180);
+    g.font = '800 ' + Math.max(9, Math.min(10.5, box.w / 28)).toFixed(1) + 'px ' + getComputedStyle(document.body).fontFamily;
+    var txt = L[lang], w = g.measureText(txt).width + 14;
+    g.fillStyle = 'rgba(21,35,59,.18)'; g.fillRect(-w / 2 + 1, -7, w, 17);
+    g.fillStyle = '#2b7bbd'; g.fillRect(-w / 2, -9, w, 17);
+    g.fillStyle = '#ffffff'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(txt, 0, 0);
+    if (R[k].p >= 1) { g.strokeStyle = '#ffffff'; g.lineWidth = 2; g.beginPath(); g.moveTo(w / 2 - 1, -2); g.lineTo(w / 2 + 4, 3); g.lineTo(w / 2 + 12, -7); g.stroke(); }
+    g.restore();
+  }
+  function heroStep(t, dt){
+    var r = heroC.getBoundingClientRect(), px = P.x - r.left, py = P.y - r.top, fresh = t - P.last < 0.12;
+    if (fresh) { var k = hit(px, py); if (k) { H.lastTouch = t; renovate(k); } }
+    ORDER.forEach(function(k){ var s = R[k]; if (s.dir) { s.p = Math.max(0, Math.min(1, s.p + s.dir * dt / TUNE.WIPE * (s.dir < 0 ? 2 : 1))); if (s.p === 1 || s.p === 0) s.dir = 0; } });
+    var done = ORDER.every(function(k){ return R[k].p >= 1; });
+    if (t - H.lastTouch > TUNE.IDLE) {
+      if (!done && t > H.autoNext) { renovate(ORDER.filter(function(k){ return R[k].p < 1 && R[k].dir <= 0; })[0]); H.autoNext = t + TUNE.STEP; }
+      if (done) { if (!H.doneAt) H.doneAt = t; if (t - H.doneAt > TUNE.HOLD) { ORDER.forEach(function(k){ R[k].dir = -1; }); H.doneAt = 0; H.autoNext = t + 1.4; } }
+    } else H.doneAt = 0;
+    H.strings.forEach(function(s){ s.step(px, py, fresh); });
+  }
+  function heroDraw(t){
+    var g = hg;
+    g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, heroC.width, heroC.height); g.drawImage(H.before, 0, 0);
     g.setTransform(DPR, 0, 0, DPR, 0, 0);
-    g.clearRect(0, 0, w, h);
-    this.sw = Math.max(this.spacing * 1.7, 170); this.sh = Math.min(this.o.reachH(h), this.o.maxH || 560);
-    var sw = this.sw, sh = this.sh;
-    if (this.o.reveal) {                                    /* lit plaster below: darkness above the scallops */
-      g.fillStyle = '#16233b'; g.fillRect(0, 0, w, h);
-      g.globalCompositeOperation = 'destination-out';
-      var grad = g.createLinearGradient(0, h * 0.35, 0, h);
-      grad.addColorStop(0, 'rgba(0,0,0,0)'); grad.addColorStop(1, 'rgba(0,0,0,1)');
-      g.fillStyle = grad; g.fillRect(0, 0, w, h);
-      this.lights.forEach(function(L){ g.globalAlpha = Math.min(1, L.I * 1.25); g.drawImage(SPRITE, L.x - sw / 2, top, sw, sh); });
-      g.globalCompositeOperation = 'source-over';             /* the revealed wall is lit warm, 2700K like the hero */
-      this.lights.forEach(function(L){ g.globalAlpha = Math.min(1, L.I) * 0.55; g.drawImage(SPRITE, L.x - sw / 2, top, sw, sh); });
-      g.globalAlpha = 1;
-    } else {
-      if (this.o.ceilingBand) { g.fillStyle = '#101a2e'; g.fillRect(0, 0, w, top); }
-      g.globalCompositeOperation = 'lighter';
-      this.lights.forEach(function(L){ g.globalAlpha = Math.min(1, L.I); g.drawImage(SPRITE, L.x - sw / 2, top, sw, sh); });
-      g.globalAlpha = 1;
-      /* dust in the beams */
-      for (var i = 0; i < this.motes.length; i++) {
-        var m = this.motes[i], a = Math.min(1, this.lightAt(m.x, m.y) * 1.6) * 0.75;
-        if (a < 0.03) continue;
-        g.fillStyle = 'rgba(255,232,196,' + a.toFixed(3) + ')';
-        g.beginPath(); g.arc(m.x, m.y, m.s, 0, 6.2832); g.fill();
-      }
-      g.globalCompositeOperation = 'source-over';
-    }
-    /* the cans: trim ring and lens */
-    var rx = phone ? 13 : 16, ry = phone ? 4 : 5;
-    this.lights.forEach(function(L){
-      var I = Math.min(1, L.I);
-      if (self.o.ceilingBand) {                            /* glow on the ceiling around the trim */
-        var cg = g.createRadialGradient(L.x, top, 0, L.x, top, 46);
-        cg.addColorStop(0, 'rgba(255,214,150,' + (0.28 * I).toFixed(3) + ')'); cg.addColorStop(1, 'rgba(255,214,150,0)');
-        g.fillStyle = cg; g.fillRect(L.x - 46, top - 46, 92, 46);
-      }
-      g.fillStyle = '#2c3c5c';
-      g.beginPath(); g.ellipse(L.x, top, rx, ry, 0, 0, 6.2832); g.fill();
-      var lr = Math.round(70 + 185 * I), lg = Math.round(82 + 160 * I), lb = Math.round(110 + 110 * I);
-      g.fillStyle = 'rgb(' + lr + ',' + lg + ',' + lb + ')';
-      g.beginPath(); g.ellipse(L.x, top + 0.5, rx - 4, ry - 1.5, 0, 0, 6.2832); g.fill();
+    ['basement', 'kitchen', 'windows', 'roof'].forEach(function(k){
+      var s = R[k]; if (s.p <= 0) return;
+      var b = ROOM[k], x0 = X(b[0]), x1 = X(b[2]), xe = x0 + (x1 - x0) * s.p;
+      g.save();
+      if (k === 'roof') { roofPath(g); g.clip(); g.beginPath(); g.rect(x0, Y(0), xe - x0, Y(.38) - Y(0)); g.clip(); }
+      else { g.beginPath(); g.rect(x0, Y(b[1]), xe - x0, Y(b[3]) - Y(b[1])); g.clip(); }
+      g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(H.after, 0, 0); g.restore(); g.setTransform(DPR, 0, 0, DPR, 0, 0);
+      if (s.p < 1) { g.fillStyle = '#ffffff'; g.fillRect(xe - 3, Y(b[1]), 6, Y(b[3]) - Y(b[1])); }   /* the roller's edge */
     });
-  };
-
-  /* where the cans go */
-  function evenly(minGap){ return function(w){ var n = Math.max(2, Math.round(w / minGap)), gap = w / n, a = []; for (var i = 0; i < n; i++) a.push(gap * (i + 0.5)); return a; }; }
-  var hero = document.getElementById('heroCanvas');
-  rows.push(new Row(hero, { ceil: 64, ceilingBand: true, motes: true, maxH: phone ? 560 : 860, xs: evenly(phone ? 105 : 190), reachH: function(h){ return h * (phone ? 0.62 : 0.9); } }));
-  document.querySelectorAll('canvas.lightrow').forEach(function(c){
-    var kind = c.getAttribute('data-lights');
-    if (kind === 'estimate') {
-      rows.push(new Row(c, { ceil: 6, reveal: true, height: function(){ return phone ? 150 : 180; }, xs: evenly(phone ? 105 : 190), reachH: function(h){ return h * 1.6; } }));
-    } else {
-      rows.push(new Row(c, { ceil: 6, motes: kind === 'work', height: function(){ return phone ? 340 : 440; }, xs: evenly(phone ? 105 : 190), reachH: function(h){ return h; } }));
-    }
-  });
-
-  rows.forEach(function(r){ r.layout(); });
-  window.addEventListener('resize', function(){ rows.forEach(function(r){ r.layout(); }); });
-
-  /* the wall switch: everything on, or back to the finger */
-  var sw = document.getElementById('wallSwitch');
-  sw.addEventListener('click', function(){
-    var on = sw.getAttribute('aria-pressed') !== 'true';
-    sw.setAttribute('aria-pressed', on ? 'true' : 'false');
-    rows.forEach(function(r){ r.on = on; if (!on) { r.offAt = performance.now() / 1000; r.nextSweep = r.offAt + TUNE.IDLE; } });
-    if (reduce) still(on ? 1 : 0.75);
-  });
-  /* a sent estimate: the estimate wall's lights sweep on */
-  window.addEventListener('hm:sent', function(){
-    if (reduce) return;
-    var t = performance.now() / 1000; rows.forEach(function(r){ if (r.o.reveal) r.sweep(t, 1); });
-  });
-
-  function still(I){ rows.forEach(function(r){ r.layout(); r.lights.forEach(function(L){ L.I = I; }); r.draw(0); }); }
-  if (reduce) {                                            /* a still frame with the lights on */
-    still(0.75);
-    window.addEventListener('resize', function(){ still(sw.getAttribute('aria-pressed') === 'true' ? 1 : 0.75); });
-    return;
+    var on = R.lights.p;
+    H.strings.forEach(function(s){ s.draw(g, t, function(p){ return on >= Math.abs((p.x - X(.5)) / (box.w * .5)) ? 1 : 0; }, true); });
+    ORDER.forEach(tape);
   }
 
+  /* ---------- light strings across the tops of sections ---------- */
+  var rows = [];
+  document.querySelectorAll('canvas.string').forEach(function(c){
+    rows.push({ c: c, g: c.getContext('2d'), kind: c.getAttribute('data-string'), w: 0, h: 0, s: null, visible: false, litAt: -1 });
+  });
+  function rowLayout(r){
+    var w = Math.round(r.c.getBoundingClientRect().width), h = phone ? 96 : 120;
+    if (w === r.w) return;
+    r.w = w; r.h = h; r.c.style.height = h + 'px';
+    r.c.width = Math.round(w * DPR); r.c.height = Math.round(h * DPR);
+    var clips = Math.max(3, Math.round(w / (phone ? 120 : 170)) + 1);
+    r.s = new String_(-6, 8, w + 6, 8, clips, 1.16, r.kind === 'close' ? 1 : 3);
+    for (var i = 0; i < 120; i++) r.s.step(0, 0, false);
+  }
+  function rowLit(r, t){
+    if (r.kind !== 'estimate') return function(){ return 1; };
+    /* the estimate's string stays dark until an estimate is sent, then lights up left to right */
+    if (r.litAt < 0) return function(){ return 0; };
+    return function(p){ return t - r.litAt > (p.x / r.w) * TUNE.LIGHT_UP ? 1 : 0; };
+  }
+  function rowStep(r, t){
+    var b = r.c.getBoundingClientRect(), fresh = t - P.last < 0.12;
+    r.s.step(P.x - b.left, P.y - b.top, fresh);
+  }
+  function rowDraw(r, t){
+    var g = r.g; g.setTransform(DPR, 0, 0, DPR, 0, 0); g.clearRect(0, 0, r.w, r.h);
+    r.s.draw(g, t, rowLit(r, t), r.kind !== 'estimate', r.kind === 'close' ? '#15233b' : '#1f3a28');
+  }
+  window.addEventListener('hm:sent', function(){ rows.forEach(function(r){ if (r.kind === 'estimate' && r.litAt < 0) r.litAt = performance.now() / 1000; }); if (reduce) still(); });
+
+  /* ---------- run ---------- */
+  function still(){
+    ORDER.forEach(function(k){ R[k].p = 1; });
+    H.w = 0; heroLayout(); heroDraw(0);
+    rows.forEach(function(r){ r.w = 0; rowLayout(r); if (r.litAt >= 0) r.litAt = -99; rowDraw(r, 0); });
+  }
+  document.getElementById('langBtn').addEventListener('click', function(){ if (reduce) setTimeout(still, 0); });
+  if (reduce) { still(); window.addEventListener('resize', still); return; }
+
+  heroLayout(); rows.forEach(rowLayout);
   var running = false, lastT = 0;
   var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){ rows.forEach(function(r){ if (r.c === e.target) { r.visible = e.isIntersecting; if (r.visible && r.nextSweep === 0) { r.sweep(performance.now() / 1000 + 0.3, 1); r.nextSweep = performance.now() / 1000 + TUNE.IDLE + 2; } } }); });
-    if (!running && rows.some(function(r){ return r.visible; })) { running = true; lastT = performance.now(); requestAnimationFrame(tick); }
+    es.forEach(function(e){
+      if (e.target === heroC) H.visible = e.isIntersecting;
+      rows.forEach(function(r){ if (r.c === e.target) r.visible = e.isIntersecting; });
+    });
+    if (!running && (H.visible || rows.some(function(r){ return r.visible; }))) { running = true; lastT = performance.now(); requestAnimationFrame(tick); }
   }, { rootMargin: '80px' });
-  rows.forEach(function(r){ io.observe(r.c); });
+  io.observe(heroC); rows.forEach(function(r){ io.observe(r.c); });
 
   function tick(now){
     var dt = Math.min(0.05, (now - lastT) / 1000); lastT = now;
     var t = now / 1000, any = false;
-    rows.forEach(function(r){ if (!r.visible) return; any = true; r.layout(); r.step(t, dt); r.draw(t); });
-    P.vx *= 0.9; P.vy *= 0.9;
+    if (H.visible) { any = true; heroLayout(); heroStep(t, dt); heroDraw(t); }
+    rows.forEach(function(r){ if (!r.visible) return; any = true; rowLayout(r); rowStep(r, t); rowDraw(r, t); });
     if (any) requestAnimationFrame(tick); else running = false;
   }
 })();
