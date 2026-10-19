@@ -77,8 +77,8 @@ p{margin:0}
 .hero-body > .wrap{width:100%}
 .hero-body{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:max(28px,env(safe-area-inset-bottom))}
 .hero h1{font-size:clamp(34px,8.8vw,92px);margin-bottom:14px;text-wrap:wrap}
-.hero h1 span span{display:block}
-.promise{font-size:clamp(17px,4.6vw,20px);line-height:1.45;color:var(--sign-text-2);font-weight:500;max-width:34em;margin-bottom:24px}
+.hero h1 span span{display:block;text-wrap:balance}
+.promise{font-size:clamp(17px,4.6vw,20px);line-height:1.45;color:var(--sign-text-2);font-weight:500;max-width:34em;margin-bottom:24px;text-wrap:pretty}
 .cta{display:grid;gap:12px}
 
 /* ---------- services (still on the yellow sign) ---------- */
@@ -247,8 +247,8 @@ footer :focus-visible{outline-color:var(--sign)}
         <span class="es" lang="es"><span>Del techo al sótano.</span><span>Por dentro y por fuera.</span></span>
       </h1>
       <p class="promise">
-        <span class="en">Roofs, basements, kitchens, windows, even the Christmas lights. I take care of your home like it's my own.</span>
-        <span class="es" lang="es">Techos, sótanos, cocinas, ventanas y hasta las luces de Navidad. Cuido tu casa como si fuera mía.</span>
+        <span class="en">I take care of your home like it's my own.</span>
+        <span class="es" lang="es">Cuido tu casa como si fuera mía.</span>
       </p>
       <div class="cta">
         <a class="btn btn-fill" href="#estimate"><span class="en">Get a free estimate</span><span class="es" lang="es">Estimado gratis</span></a>
@@ -476,7 +476,6 @@ function serviceText(i){
   var TUNE = {
     WIPE: 0.75,          // seconds for the roller to renovate one room
     STEP: 1.1,           // seconds between rooms when Max renovates the house by himself
-    HOLD: 3.2,           // seconds the finished house holds before it goes back to tired
     IDLE: 5,             // seconds without a finger before Max takes over again
     GRAV: 0.35,          // light-string physics: gravity per frame
     DAMP: 0.982,         //   velocity kept per frame (lower = settles sooner)
@@ -552,13 +551,13 @@ function serviceText(i){
 
   /* ---------- the hero: Max's house, cut open ---------- */
   var heroC = document.getElementById('heroCanvas'), hg = heroC.getContext('2d');
-  var H = { w: 0, h: 0, box: null, before: null, after: null, strings: [], visible: true, lastTouch: -99, autoNext: 0, doneAt: 0 };
+  var H = { w: 0, h: 0, box: null, before: null, after: null, strings: [], visible: true, lastTouch: -99, autoNext: 0 };
   var ORDER = ['basement', 'kitchen', 'windows', 'roof', 'lights'];
   var R = {}; ORDER.forEach(function(k){ R[k] = { p: 0, dir: 0 }; });
   var ROOM = { roof: [.01, .02, .99, .36], kitchen: [.07, .38, .59, .66], windows: [.61, .38, .93, .66], basement: [.07, .72, .93, .96] };
   /* painter's-tape labels: [english, spanish, x, y, tilt in degrees] */
   var LAB = { roof: ['ROOF', 'TECHO', .5, .22, -3], kitchen: ['KITCHEN', 'COCINA', .20, .395, 2], windows: ['WINDOWS', 'VENTANAS', .77, .395, -2],
-              basement: ['BASEMENT', 'SÓTANO', .5, .745, 1.5], lights: ['CHRISTMAS LIGHTS', 'LUCES DE NAVIDAD', .84, .06, 4] };
+              basement: ['BASEMENT', 'SÓTANO', .5, .745, 1.5], lights: ['CHRISTMAS LIGHTS', 'LUCES DE NAVIDAD', .80, .135, 34] };
   var box;
   function X(f){ return box.x + f * box.w; } function Y(f){ return box.y + f * box.h; }
   function rr(c, x0, y0, x1, y1){ c.beginPath(); c.rect(X(x0), Y(y0), X(x1) - X(x0), Y(y1) - Y(y0)); }
@@ -566,11 +565,16 @@ function serviceText(i){
 
   function shell(c){
     /* the dirt the basement sits in, the lawn, then the house in section: walls and floors */
-    c.fillStyle = '#7a5a3c'; c.fillRect(X(-.06), Y(.68), X(1.06) - X(-.06), Y(1) - Y(.68));
+    var gx0 = H.w < 1024 ? 0 : X(-.06), gx1 = H.w < 1024 ? H.w : X(1.06);
+    c.fillStyle = '#7a5a3c'; c.fillRect(gx0, Y(.68), gx1 - gx0, Y(1) - Y(.68));
     c.fillStyle = 'rgba(0,0,0,.12)';
-    for (var i = 0; i < 40; i++) { var sx = ((i * 73) % 100) / 100, sy = .70 + ((i * 37) % 28) / 100; c.fillRect(X(-.04 + sx * 1.08), Y(sy), 2, 2); }
-    c.fillStyle = '#4f9a4f'; c.fillRect(X(-.06), Y(.675), X(1.06) - X(-.06), Y(.69) - Y(.675));
-    c.fillStyle = '#e8dfcf';
+    for (var i = 0; i < 60; i++) { var sx = ((i * 73) % 100) / 100, sy = .70 + ((i * 37) % 28) / 100; c.fillRect(gx0 + sx * (gx1 - gx0), Y(sy), 2 + (i % 3), 2); }
+    /* stones in the dirt, and a lawn with a ragged top edge */
+    c.fillStyle = '#9a7a58'; for (i = 0; i < 9; i++) { var stx = gx0 + ((i * 41 + 7) % 100) / 100 * (gx1 - gx0); if (stx > X(.03) && stx < X(.97)) continue; c.beginPath(); c.ellipse(stx, Y(.74 + (i * 13 % 20) / 100), 3 + i % 3, 2 + i % 2, 0, 0, 6.2832); c.fill(); }
+    c.fillStyle = '#4f9a4f'; c.beginPath(); c.moveTo(gx0, Y(.69));
+    for (var gx = gx0; gx <= gx1; gx += 4) c.lineTo(gx, Y(.675) - ((gx * 7) % 5));
+    c.lineTo(gx1, Y(.69)); c.closePath(); c.fill();
+    c.fillStyle = '#d9cdb6';
     c.fillRect(X(.04), Y(.36), X(.07) - X(.04), Y(.97) - Y(.36)); c.fillRect(X(.93), Y(.36), X(.96) - X(.93), Y(.97) - Y(.36));
     c.fillRect(X(.04), Y(.66), X(.96) - X(.04), Y(.72) - Y(.66)); c.fillRect(X(.04), Y(.96), X(.96) - X(.04), Y(.985) - Y(.96));
     c.fillRect(X(.59), Y(.38), X(.61) - X(.59), Y(.66) - Y(.38)); c.fillRect(X(.04), Y(.36), X(.96) - X(.04), Y(.38) - Y(.36));
@@ -614,14 +618,18 @@ function serviceText(i){
     c.restore();
     c.fillStyle = '#f1ede4'; c.fillRect(X(0), Y(.355), X(1) - X(0), Y(.372) - Y(.355));
     c.fillStyle = '#e2c08f'; c.beginPath(); c.moveTo(X(.5), Y(.09)); c.lineTo(X(.86), Y(.345)); c.lineTo(X(.14), Y(.345)); c.closePath(); c.fill();
-    c.strokeStyle = 'rgba(150,105,60,.35)'; c.lineWidth = 2;
-    for (var i = 0; i < 8; i++) { c.beginPath(); c.moveTo(X(.2 + i * .08), Y(.345)); c.quadraticCurveTo(X(.24 + i * .08), Y(.30), X(.28 + i * .08), Y(.345)); c.stroke(); }
+    /* insulation batts laid between the attic joists */
+    c.save(); c.beginPath(); c.moveTo(X(.5), Y(.09)); c.lineTo(X(.86), Y(.345)); c.lineTo(X(.14), Y(.345)); c.closePath(); c.clip();
+    c.fillStyle = '#f2c94c'; c.fillRect(X(.1), Y(.305), X(.9) - X(.1), Y(.345) - Y(.305));
+    c.strokeStyle = 'rgba(160,110,20,.35)'; c.lineWidth = 1; for (var i = 0; i < 40; i++) { var ix = .12 + i * .019; c.beginPath(); c.moveTo(X(ix), Y(.31)); c.quadraticCurveTo(X(ix + .008), Y(.325), X(ix), Y(.34)); c.stroke(); }
+    c.fillStyle = '#9c6b3e'; for (i = 0; i < 9; i++) c.fillRect(X(.14 + i * .09), Y(.30), 3, Y(.345) - Y(.30));
+    c.restore();
     /* kitchen: white walls, tile, navy base cabinets, pendants on */
     rr(c, .07, .38, .59, .66); c.fillStyle = '#f6f2ea'; c.fill();
     c.strokeStyle = '#d7dde6'; c.lineWidth = 1;
     for (var ty = .49; ty < .545; ty += .018) { c.beginPath(); c.moveTo(X(.09), Y(ty)); c.lineTo(X(.53), Y(ty)); c.stroke(); }
     for (var tx = .09; tx < .53; tx += .03) { c.beginPath(); c.moveTo(X(tx), Y(.49)); c.lineTo(X(tx), Y(.545)); c.stroke(); }
-    c.fillStyle = '#ffffff'; c.fillRect(X(.10), Y(.405), X(.36) - X(.10), Y(.47) - Y(.405)); c.strokeStyle = '#d8d2c6'; c.strokeRect(X(.10), Y(.405), X(.36) - X(.10), Y(.47) - Y(.405));
+    [.10, .1867, .2733].forEach(function(x){ c.fillStyle = '#ffffff'; c.fillRect(X(x) + 1, Y(.405), X(x + .0867) - X(x) - 2, Y(.47) - Y(.405)); c.strokeStyle = '#d0c9bc'; c.lineWidth = 1; c.strokeRect(X(x) + 1.5, Y(.405) + .5, X(x + .0867) - X(x) - 3, Y(.47) - Y(.405) - 1); c.fillStyle = '#c9a24a'; c.fillRect(X(x + .07) - 1, Y(.448), 2, Y(.465) - Y(.448)); });
     c.fillStyle = '#1f3558'; c.fillRect(X(.10), Y(.56), X(.52) - X(.10), Y(.66) - Y(.56));
     c.fillStyle = '#e9e4dc'; c.fillRect(X(.09), Y(.545), X(.53) - X(.09), Y(.56) - Y(.545));
     c.fillStyle = '#d9a441'; [.18, .30, .42].forEach(function(x){ c.fillRect(X(x) - 1, Y(.595), 3, Y(.62) - Y(.595)); });
@@ -656,8 +664,8 @@ function serviceText(i){
     } else {
       /* the house fills the space between the header and Max's words */
       var copyTop = document.querySelector('.hero-body .wrap').getBoundingClientRect().top - r.top;
-      bw = Math.max(150, Math.min(w - 48, 420, copyTop - 80 - 26));
-      box = { x: (w - bw) / 2, y: 80, w: bw, h: bw };
+      bw = Math.max(150, Math.min(w - 16, 420, copyTop - 76 - 22));
+      box = { x: (w - bw) / 2, y: Math.max(76, copyTop - 22 - bw), w: bw, h: bw };   /* tall phones: the house stands on the headline, not under the header */
     }
     H.box = box;
     H.before = document.createElement('canvas'); H.after = document.createElement('canvas');
@@ -685,12 +693,16 @@ function serviceText(i){
   function tape(k){
     var L = LAB[k], g = hg, lang = document.documentElement.getAttribute('data-lang') === 'es' ? 1 : 0;
     g.save(); g.translate(X(L[2]), Y(L[3])); g.rotate(L[4] * Math.PI / 180);
-    g.font = '800 ' + Math.max(9, Math.min(10.5, box.w / 28)).toFixed(1) + 'px ' + getComputedStyle(document.body).fontFamily;
-    var txt = L[lang], w = g.measureText(txt).width + 14;
-    g.fillStyle = 'rgba(21,35,59,.18)'; g.fillRect(-w / 2 + 1, -7, w, 17);
-    g.fillStyle = '#2b7bbd'; g.fillRect(-w / 2, -9, w, 17);
+    g.font = '800 ' + Math.max(10, Math.min(15, box.w / 26)).toFixed(1) + 'px ' + getComputedStyle(document.body).fontFamily;
+    var txt = L[lang], fs = parseFloat(g.font.split(' ')[1]), w = g.measureText(txt).width + fs * 1.3, th = fs * 1.65, hh = th / 2;
+    /* a strip of tape: soft shadow, torn ends */
+    g.shadowColor = 'rgba(21,35,59,.28)'; g.shadowBlur = 3; g.shadowOffsetY = 1.5;
+    g.fillStyle = '#2b7bbd'; g.beginPath(); g.moveTo(-w / 2, -hh);
+    for (var i = 0; i <= 4; i++) g.lineTo(-w / 2 + (i % 2 ? 2 : 0), -hh + th * i / 4);
+    g.lineTo(w / 2, hh); for (i = 4; i >= 0; i--) g.lineTo(w / 2 - (i % 2 ? 2 : 0), -hh + th * i / 4);
+    g.closePath(); g.fill(); g.shadowColor = 'transparent'; g.shadowBlur = 0; g.shadowOffsetY = 0;
     g.fillStyle = '#ffffff'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(txt, 0, 0);
-    if (R[k].p >= 1) { g.strokeStyle = '#ffffff'; g.lineWidth = 2; g.beginPath(); g.moveTo(w / 2 - 1, -2); g.lineTo(w / 2 + 4, 3); g.lineTo(w / 2 + 12, -7); g.stroke(); }
+    if (R[k].p >= 1) { g.strokeStyle = '#ffffff'; g.lineWidth = 2; g.beginPath(); g.moveTo(w / 2 + 2, -1); g.lineTo(w / 2 + 6, 4); g.lineTo(w / 2 + 14, -hh); g.stroke(); }
     g.restore();
   }
   function heroStep(t, dt){
@@ -700,9 +712,19 @@ function serviceText(i){
     var done = ORDER.every(function(k){ return R[k].p >= 1; });
     if (t - H.lastTouch > TUNE.IDLE) {
       if (!done && t > H.autoNext) { renovate(ORDER.filter(function(k){ return R[k].p < 1 && R[k].dir <= 0; })[0]); H.autoNext = t + TUNE.STEP; }
-      if (done) { if (!H.doneAt) H.doneAt = t; if (t - H.doneAt > TUNE.HOLD) { ORDER.forEach(function(k){ R[k].dir = -1; }); H.doneAt = 0; H.autoNext = t + 1.4; } }
-    } else H.doneAt = 0;
+    }
     H.strings.forEach(function(s){ s.step(px, py, fresh); });
+  }
+  /* the paint roller riding the wipe: wet edge, sleeve, wire frame, grip */
+  function roller(g, x, top, bot){
+    var h = bot - top, s0 = top + h * .12, s1 = bot - h * .12, cy = (s0 + s1) / 2, sw = Math.max(7, box.w * .022);
+    g.fillStyle = 'rgba(255,255,255,.55)'; g.fillRect(x - 2, top, 3, h);
+    g.strokeStyle = '#15233b'; g.lineWidth = 2; g.lineJoin = 'round';
+    g.beginPath(); g.moveTo(x, s1 + 2); g.lineTo(x, s1 + 6); g.lineTo(x + sw * 2.2, s1 + 6); g.lineTo(x + sw * 2.2, cy + h * .25); g.stroke();
+    g.fillStyle = '#15233b'; g.beginPath(); g.roundRect(x + sw * 2.2 - 3.5, cy + h * .25, 7, Math.max(16, h * .35), 3); g.fill();
+    g.fillStyle = '#fffdf8'; g.beginPath(); g.roundRect(x - sw / 2, s0, sw, s1 - s0, sw / 2); g.fill();
+    g.strokeStyle = 'rgba(21,35,59,.35)'; g.lineWidth = 1; g.stroke();
+    g.strokeStyle = 'rgba(21,35,59,.12)'; for (var y = s0 + 4; y < s1 - 2; y += 4) { g.beginPath(); g.moveTo(x - sw / 2 + 2, y); g.lineTo(x + sw / 2 - 2, y + 1); g.stroke(); }
   }
   function heroDraw(t){
     var g = hg;
@@ -715,7 +737,7 @@ function serviceText(i){
       if (k === 'roof') { roofPath(g); g.clip(); g.beginPath(); g.rect(x0, Y(0), xe - x0, Y(.38) - Y(0)); g.clip(); }
       else { g.beginPath(); g.rect(x0, Y(b[1]), xe - x0, Y(b[3]) - Y(b[1])); g.clip(); }
       g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(H.after, 0, 0); g.restore(); g.setTransform(DPR, 0, 0, DPR, 0, 0);
-      if (s.p < 1) { g.fillStyle = '#ffffff'; g.fillRect(xe - 3, Y(b[1]), 6, Y(b[3]) - Y(b[1])); }   /* the roller's edge */
+      if (s.p < 1) roller(g, xe, k === 'roof' ? Y(.02 + Math.abs((xe - box.x) / box.w - .5) / .49 * .34) : Y(b[1]), Y(b[3]));
     });
     var on = R.lights.p;
     H.strings.forEach(function(s){ s.draw(g, t, function(p){ return on >= Math.abs((p.x - X(.5)) / (box.w * .5)) ? 1 : 0; }, true); });
@@ -765,7 +787,11 @@ function serviceText(i){
   var running = false, lastT = 0;
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){
-      if (e.target === heroC) H.visible = e.isIntersecting;
+      if (e.target === heroC) {
+        H.visible = e.isIntersecting;
+        /* the finished house goes back to tired only where nobody sees it undone */
+        if (!H.visible && ORDER.every(function(k){ return R[k].p >= 1; })) { ORDER.forEach(function(k){ R[k].p = 0; R[k].dir = 0; }); H.autoNext = performance.now() / 1000 + 0.8; H.lastTouch = -99; }
+      }
       rows.forEach(function(r){ if (r.c === e.target) r.visible = e.isIntersecting; });
     });
     if (!running && (H.visible || rows.some(function(r){ return r.visible; }))) { running = true; lastT = performance.now(); requestAnimationFrame(tick); }
