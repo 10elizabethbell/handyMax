@@ -6,3 +6,5 @@ src-assets/
 .shoot-*
 .pitch-site-done
 .impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/

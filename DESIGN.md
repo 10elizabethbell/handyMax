@@ -1,318 +1,275 @@
 ---
 name: HandyMax
-description: A living-room wall at night whose recessed downlights the visitor switches on with a finger.
+description: A job-site sign for a one-person handyman; a cutaway house the visitor renovates room by room.
 colors:
-  night-wall: "#16233b"
-  night-wall-raised: "#1c2c49"
-  ceiling-band: "#101a2e"
-  wall-rule: "#2b3d5f"
-  can-trim: "#2c3c5c"
-  warm-paper-text: "#f4ede2"
-  cool-dusk-text: "#c3cbdb"
-  downlight-amber: "#ffb238"
-  downlight-amber-bright: "#ffc76b"
-  lit-plaster: "#efe5d3"
-  plaster-field: "#fbf7ef"
-  plaster-edge: "#cfc2aa"
-  switch-plate: "#e9e1d2"
-  navy-ink: "#17223a"
-  slate-ink: "#4a5266"
+  sign-yellow: "#ffc83a"
+  sign-yellow-light: "#ffd25c"
+  sign-text-2: "#4a3d12"
+  navy-ink: "#15233b"
+  navy-ink-2: "#22345a"
+  night-line: "#2b3d5f"
+  text-on-navy: "#f6f2ea"
+  text-on-navy-2: "#c3cbdb"
+  drywall: "#f6f2ea"
+  drywall-bright: "#fffdf8"
+  drywall-edge: "#d6cdbd"
+  ink-soft: "#4a5266"
+  painters-tape: "#2b7bbd"
   form-blue: "#2f6bff"
   error-red: "#b3261e"
 typography:
   display:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
-    fontSize: "clamp(40px, 11.4vw, 96px)"
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "clamp(34px, 8.8vw, 92px)"
     fontWeight: 900
     lineHeight: 0.95
     letterSpacing: "-0.02em"
   headline:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
     fontSize: "clamp(34px, 9vw, 64px)"
     fontWeight: 900
     lineHeight: 0.95
     letterSpacing: "-0.02em"
   title:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
-    fontSize: "22px"
-    fontWeight: 800
-    lineHeight: 1.2
-    letterSpacing: "-0.01em"
-  body-large:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "19px"
+    fontWeight: 700
+    lineHeight: 1.5
+  body:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "17px"
+    fontWeight: 400
+    lineHeight: 1.5
+  lede:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
     fontSize: "19px"
     fontWeight: 400
     lineHeight: 1.5
-  body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
-    fontSize: "17px"
-    fontWeight: 400
-    lineHeight: 1.5
   label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
     fontSize: "17px"
     fontWeight: 800
     lineHeight: 1.5
-  small:
-    fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
-    fontSize: "15px"
-    fontWeight: 400
-    lineHeight: 1.5
+  tape:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "14px"
+    fontWeight: 800
+    letterSpacing: "0.05em"
 rounded:
-  switch: "8px"
+  wordmark: "3px"
   field: "12px"
-  frame: "18px"
+  media: "18px"
   pill: "999px"
+  circle: "50%"
 spacing:
   gutter-phone: "20px"
-  gutter-desktop: "32px"
+  gutter-wide: "32px"
   container: "1160px"
   section-phone: "72px"
-  section-desktop: "96px"
-  stack-sm: "12px"
-  stack-md: "22px"
-  stack-lg: "28px"
-  column-gap: "56px"
+  section-wide: "96px"
+  string-top-phone: "130px"
+  string-top-wide: "160px"
 components:
   button-primary:
-    backgroundColor: "{colors.downlight-amber}"
+    backgroundColor: "{colors.navy-ink}"
+    textColor: "{colors.sign-yellow}"
+    rounded: "{rounded.pill}"
+    padding: "0 26px"
+    height: "56px"
+  button-primary-hover:
+    backgroundColor: "{colors.navy-ink-2}"
+  button-outline:
+    backgroundColor: "transparent"
     textColor: "{colors.navy-ink}"
     rounded: "{rounded.pill}"
     padding: "0 26px"
     height: "56px"
-    typography: "{typography.label}"
-  button-primary-hover:
-    backgroundColor: "{colors.downlight-amber-bright}"
-  button-outline:
-    backgroundColor: "transparent"
-    textColor: "{colors.warm-paper-text}"
-    rounded: "{rounded.pill}"
-    padding: "0 26px"
-    height: "56px"
-    typography: "{typography.label}"
   button-send:
     backgroundColor: "{colors.navy-ink}"
-    textColor: "{colors.lit-plaster}"
+    textColor: "{colors.drywall}"
     rounded: "{rounded.pill}"
-    padding: "0 26px"
     height: "56px"
-  service-row:
-    backgroundColor: "transparent"
-    textColor: "{colors.warm-paper-text}"
-    height: "62px"
-    padding: "8px 0"
-  service-row-arrow:
-    backgroundColor: "{colors.night-wall-raised}"
-    rounded: "{rounded.pill}"
-    size: "40px"
-  service-row-arrow-hover:
-    backgroundColor: "{colors.downlight-amber}"
+  input-field:
+    backgroundColor: "{colors.drywall-bright}"
+    textColor: "{colors.navy-ink}"
+    rounded: "{rounded.field}"
+    padding: "14px 16px"
+    height: "56px"
   chip:
-    backgroundColor: "{colors.plaster-field}"
+    backgroundColor: "{colors.drywall-bright}"
     textColor: "{colors.navy-ink}"
     rounded: "{rounded.pill}"
     padding: "0 16px"
     height: "46px"
   chip-selected:
     backgroundColor: "{colors.navy-ink}"
-    textColor: "{colors.lit-plaster}"
-  input-text:
-    backgroundColor: "{colors.plaster-field}"
+    textColor: "{colors.drywall}"
+  service-row:
     textColor: "{colors.navy-ink}"
-    rounded: "{rounded.field}"
-    padding: "14px 16px"
-    height: "56px"
-  photo-frame:
-    backgroundColor: "{colors.night-wall-raised}"
-    rounded: "{rounded.frame}"
+    typography: "{typography.title}"
+    height: "62px"
+  tape-label:
+    backgroundColor: "{colors.painters-tape}"
+    textColor: "#ffffff"
+    typography: "{typography.tape}"
+    padding: "3px 10px"
 ---
 
 # Design System: HandyMax
 
 ## Overview
 
-**Creative North Star: "The Room When the Lights Come On"**
+**Creative North Star: "The Job-Site Sign"**
 
-The whole page is one wall in a living room at night. A darker ceiling band runs across the top holding recessed can lights; each can throws a real downlight scallop (a parabola-edged wash of 2700K amber) onto deep navy plaster, with dust drifting in the beam. The visitor's finger or mouse brings the nearest cans up, a wall switch turns every light on, and when nobody touches anything the cans sweep on by themselves. Lower on the page the light-row returns as a ceiling over each major section, and at the estimate section the beams finally "reveal" the wall itself: the background turns into lit warm plaster. That turn from night wall to lit wall is the page's story (Max's before/after is literally a dim room turned bright) and it is the one place the ground changes.
+HandyMax reads like a yellow sign staked in a front lawn: one loud field of sign yellow, navy ink set heavy and uppercase, and everything else made of the materials of the job itself. Painter's tape labels the work, a paint roller does the renovating, C9 Christmas-light strings hang on real rope physics across the tops of sections, and the estimate form sits on clean finished drywall. The hero is a dollhouse cutaway of a house (slate roof, kitchen, window wall, basement under the dirt line) that goes from tired to finished room by room, under a finger or on its own.
 
-Everything else stays plain and heavy so the light carries the craft: the system font stack set in 900-weight uppercase for display, sentence-case body in warm off-white, one amber accent, generous phone-first spacing, and photos framed as softly rounded, shadowed pictures hanging on the wall. The system is governed by Ellie's pitch-site house rules (`ellie-taste.md`, `finishing-rules.md`); the constraints those rules place on contact, hover and form behavior are recorded here as part of the system, not as page-local choices.
+The page alternates three grounds in a fixed order: the sign (hero, services, close), the night (navy: work, Max, how it works), and the drywall (estimate). Each change of ground is announced by a light string hung across the section top. Density is low and phone-first: one column, big tap targets, a single display voice.
 
-Confirmed rejections: the contractor template (toolbelt stock photography, icon cards, a blue-and-orange "pro" bar), black page grounds, thin decorative highlight lines, and any sticky bottom action bar.
+It refuses the contractor template (job-photo hero, blue-and-orange bar, icon cards) and the earlier can-light night-wall world this replaced.
 
 **Key Characteristics:**
-- Night-navy ground with a darker ceiling band; never black.
-- Light is rendered, not drawn: canvas downlight scallops and dust, interactive by finger and mouse.
-- Amber is the only accent and means "light"; blue exists only inside the estimate form for hover and focus.
-- System sans, heavy uppercase display, sentence-case body.
-- Pill-shaped controls, 18px-rounded photo frames, hairline rules between list rows.
-- Phone first: 56px controls, full-width stacked CTAs on phones, contact by text message and tap-to-call.
+- One yellow field, one navy ink; navy carries every type and button on yellow.
+- Heavy uppercase system-sans display (900, -0.02em, 0.95 leading).
+- Job materials as UI: tape labels, roller wipe, C9 light strings, drywall form.
+- Three grounds in order: sign, night, drywall, back to sign; never black.
+- Pills for actions, 18px corners for photos, 12px for fields.
 
 ## Colors
 
-A two-ground palette (night wall and lit plaster) with a single warm accent standing in for the light itself.
+A two-color sign (yellow and navy) with a warm drywall neutral and one blue borrowed from painter's tape.
 
 ### Primary
-- **Downlight Amber** (`downlight-amber`): the color of the light. Primary button fill, the lit word in the hero headline ("Wires gone."), the "Max" half of the wordmark, phone glyphs, step numerals, the before/after divider and knob, the filled arrow circle on hover, focus rings on the night wall, and text selection. Its hue matches the canvas sprite's 2700K beam (rgb 255,196,122) so type and light read as one source.
-- **Bright Amber** (`downlight-amber-bright`): the hover state of anything amber (primary button, phone links, footer links). A light turned up, never a new hue.
+- **Job-Site Sign Yellow** (#ffc83a): the ground of the hero, services and close, the `html` background and `theme-color`. On navy it becomes the accent: step numerals, the before/after bar and knob, the Facebook ring, focus rings, footer link hover. The hero lifts it with a radial wash toward Sign Yellow Light (#ffd25c) behind the house.
+- **Sign Text Brown** (#4a3d12): secondary text on yellow (promise, ledes, the "where" line), tinted from the yellow rather than a grey.
 
 ### Secondary
-- **Form Blue** (`form-blue`): hover borders, focus borders, focus rings (22-30% alpha halo) and the caret, used only on controls inside the estimate form. It exists because the form's primary button is already a fill and amber would not stand out from plaster as a focus signal.
+- **Navy Ink** (#15233b): all type and lines on yellow, the fill of primary buttons, the night-section ground, the footer, the wordmark's "Max" block, the roller frame in the hero. Navy Ink 2 (#22345a) is its hover and the photo placeholder fill.
+
+### Tertiary
+- **Painter's Tape Blue** (#2b7bbd): only on tape strips: the hero's room labels and the Before/After tags. White 800-weight uppercase text on it.
+- **Form Blue** (#2f6bff): hover and focus on estimate-form controls only (inputs, textarea, chips, send button, caret).
 
 ### Neutral
-- **Night Wall** (`night-wall`): the page ground, theme color, and the darkness the estimate reveal canvas paints above the lit plaster.
-- **Raised Night** (`night-wall-raised`): resting fill of the arrow circles and the photo frame's loading ground; the only "surface" on the night wall.
-- **Ceiling Band** (`ceiling-band`): the 64px header strip that holds the cans.
-- **Wall Rule** (`wall-rule`): 1px row dividers and the footer's top rule.
-- **Can Trim** (`can-trim`): the trim ring drawn around each recessed can lens on canvas.
-- **Warm Paper** (`warm-paper-text`): primary text on the night wall; warm so it sits inside the amber light.
-- **Dusk Gray** (`cool-dusk-text`): secondary text on the night wall (ledes, hints, step descriptions, footer, the language toggle).
-- **Lit Plaster** (`lit-plaster`): the estimate section ground, and text on navy-ink buttons and selected chips.
-- **Plaster Field** (`plaster-field`): fill of text inputs and unselected chips; a step lighter than the plaster so fields read as set into the wall.
-- **Plaster Edge** (`plaster-edge`): 2px resting border on inputs and chips.
-- **Switch Plate** (`switch-plate`): the hero's wall-switch plate (with its rocker and screw tones derived from it).
-- **Navy Ink** (`navy-ink`): text on plaster and on amber; the send button and selected chip fill.
-- **Slate Ink** (`slate-ink`): secondary text on plaster (lede, notes, "(optional)").
-- **Error Red** (`error-red`): inline form error text only.
+- **Finished Drywall** (#f6f2ea): the estimate ground; also primary text on navy.
+- **Drywall Bright** (#fffdf8): input and chip fill; the roller sleeve.
+- **Drywall Edge** (#d6cdbd): 2px resting border for inputs and chips.
+- **Soft Ink** (#4a5266): secondary text on drywall (lede, notes, optional tags).
+- **Night Secondary** (#c3cbdb): secondary text on navy and the footer's text.
+- **Hairline** (rgba(21,35,59,.22)): service-row dividers on yellow.
+- **Error Red** (#b3261e): inline form errors, 700 weight.
 
 ### Named Rules
-**The One Light Rule.** Amber is the only accent on the page and it always means light: the beam, the lit word, the knob, a filled arrow. Never introduce a second decorative hue.
+**The Two-Inks Rule.** On yellow, everything is navy; on navy, accents are yellow. No third color competes on either ground; tape blue appears only as tape.
 
-**The Blue Stays In The Form Rule.** Form Blue appears only on estimate-form controls (inputs, chips, the send button) and only on hover or focus. Service rows, links and buttons on the night wall never use it.
+**The Never-Black Rule.** The darkest ground is Navy Ink (#15233b). No section, footer or overlay goes black.
 
-**The No Black Rule.** The darkest value on the page is the ceiling band. No pure or near-black grounds anywhere.
-
-**The Hover Brings The Accent Rule.** Interactive elements are neutral at rest and take amber on hover (arrow circles fill, links brighten). Amber at rest is reserved for content that represents light (the lit headline word, numerals, the divider) and the primary button.
+**The Form-Blue Rule.** Form Blue (#2f6bff) exists only for hover and focus on estimate-form controls. It never appears at rest and never outside the form.
 
 ## Typography
 
-**Display Font:** system stack (-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif)
-**Body Font:** the same system stack
+**Display Font:** system sans stack (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif)
+**Body Font:** the same stack
 
-**Character:** One family at two extremes: black-weight uppercase display set tight (-0.02em, 0.95 line-height) that reads like painted signage, against plain sentence-case body. Mandated by the house style (`ellie-taste.md` section 2): fast on cellular and proven on prior builds.
+**Character:** One family doing a sign painter's job: black weight, uppercase, tight tracking for anything that announces; plain 17px reading text for anything Max says.
 
 ### Hierarchy
-- **Display** (900, clamp 40-96px, 0.95, uppercase): the hero headline only, two short stacked lines with the second in amber. The closing wordmark uses the same treatment one step larger on phones (clamp 52-96px, 16vw).
-- **Headline** (900, clamp 34-64px, 0.95, uppercase, balanced wrap): section headings.
-- **Title** (800, 22px, uppercase, -0.01em): step titles. Step numerals sit beside them at 900 / 44px in amber.
-- **Body Large** (400-700, 19px, 1.5): section ledes, service row labels (700), Max's paragraph (max 30em), closing lines.
-- **Body** (400, 17px, 1.5): default text; the hero promise scales 17-20px and stays within 34em.
-- **Label** (800, 17px): buttons, form labels, the phone number (16px, tabular figures).
-- **Small** (400-800, 15px): hints, notes, "(optional)", errors, the before/after tags (800, uppercase, 0.04em).
+- **Display** (900, clamp(34px, 8.8vw, 92px), 0.95, uppercase, -0.02em): the hero headline only, balanced line by line. The close's wordmark uses the same voice larger (clamp(44px, 13.5vw, 96px)).
+- **Headline** (900, clamp(34px, 9vw, 64px), 0.95, uppercase, -0.02em): every section h2.
+- **Title** (700 to 800, 19 to 22px): service rows (19px/700), step titles (22px/800 uppercase, -0.01em), the Facebook link (19px/800).
+- **Body** (400, 17px, 1.5): default text; Max's paragraphs run 19px at max 30em.
+- **Lede** (400 to 500, 19px or clamp(17px, 4.6vw, 20px) for the hero promise): one-line section introductions in the secondary ink of the ground.
+- **Label** (800, 17px): form labels, with a 600/15px "(optional)" in Soft Ink.
+- **Tape** (800, 14px, 0.05em, uppercase): text on painter's tape; the canvas labels scale 10 to 15px with the house.
+- **Numerals** (900, 44px, Sign Yellow): step counters on navy. Phone numbers use tabular figures.
 
 ### Named Rules
-**The Heavy Caps Only Rule.** Uppercase is for display, headlines, step titles and the photo tags. Body, labels, buttons and form copy stay sentence case.
+**The System-Stack Rule.** The system font stack only. No webfonts, no second family; weight and case do the work.
 
-**The 16px Floor Rule.** Body text never drops below 17px and nothing readable goes under 15px; inputs stay at 17px so phones never zoom.
+**The Shout-Then-Talk Rule.** Uppercase 900 is for headlines, step titles and tape. Everything Max says to the visitor is sentence case at reading weight.
 
 ## Layout
 
-Phone first (designed at 360-430px). A single centered container (`container`, 1160px max) with 20px gutters on phones and 32px from 700px up. Sections breathe on a 72px (phone) / 96px (desktop) vertical rhythm; sections that carry a light-row ceiling get extra top padding so the scallops have room above the content (work 120/150px, estimate 150/180px, close 150/180px).
+Single column on phones with a 20px gutter, widening to 32px at 700px; content caps at 1160px. Sections pad 72px vertically on phones and 96px from 700px. A section that carries a light string at its top gets 130px top padding (160px from 700px) so the string hangs in clear space; the string canvas is 96px tall on phones and 120px wide.
 
-The hero is a full-height room (clamped 560-880px, 800px max on desktop): the 64px ceiling band holds the header, and the content is bottom-anchored (headline, promise, two CTAs) so the lit wall above it stays clear. CTAs stack full width on phones and sit side by side from 700px.
+The hero fills the first screen (clamp(640px, 100svh, 880px)). On phones the copy is bottom-anchored and the house is sized to fill the space between header and headline. From 1024px the copy sits left (max 500px or 40vw), vertically centered, with the house on the right edge of the container.
 
-Breakpoints: 700px (wider gutters, two-column service rows, side-by-side CTAs) and 1024px (before/after beside its heading, portrait beside text, three-column steps, estimate heading beside the form). A 380px step tightens the header for small phones. Inside components, gaps step through 10, 12, 16, 22, 26 and 28px; desktop columns separate by 56-64px.
+At 700px the hero buttons go side by side and the services list breaks into two columns (56px gap). At 1024px the before/after takes the wider column with the heading and Facebook link beside it, Max's portrait sits beside his words, the three steps run in a row, and the estimate splits into intro and form (1fr / 1.3fr). Under 380px the header tightens so wordmark, language and phone fit on one line.
 
 ### Named Rules
-**The First Screen Rule.** The first phone screen shows wordmark, language toggle and phone number in the header; the benefit headline, the owner's promise, and at most two buttons. No services list, service area, or call button in the hero.
-
-**The Clear Wall Rule.** Nothing in the scene runs through text: scallops fall from the ceiling band and fade before the bottom-anchored copy, and the wall switch sits on the right edge away from the headline.
+**The Phone-Top-Right Rule.** On the first screen the phone number appears only in the header, top-right. It may return in the close. There is no call button in the hero and no sticky bottom bar.
 
 ## Elevation & Depth
 
-Depth comes from light, not from stacked surfaces. The ground is flat navy; the canvas downlights add the only atmosphere (additive "lighter" compositing on the night wall, scallops fading with distance, dust lit only where it is inside a beam). Physical objects hanging on the wall (the switch plate, the before/after frame, the portrait) cast soft, downward, navy-tinted shadows as if lit from the ceiling. Controls are flat; no shadows on buttons, rows or chips.
+Flat grounds; depth belongs only to physical things. Photos cast long, soft, navy-black shadows as if hung on the wall; tape strips carry a tight drop as if stuck on; the before/after knob floats. Buttons, rows, chips and fields never cast shadows. On navy, the light strings glow with additive radial halos; on yellow and drywall the bulbs read by color alone, and the estimate's string stays unlit until an estimate is sent.
 
 ### Shadow Vocabulary
-- **Hung frame** (`box-shadow: 0 30px 60px -28px rgba(5,10,20,.85)`; portrait uses `-24px` spread and `.9`): photos hanging on the wall.
-- **Wall fixture** (`box-shadow: 0 10px 18px -6px rgba(5,10,20,.65), 0 2px 4px rgba(5,10,20,.35)`): the switch plate.
-- **Knob** (`box-shadow: 0 6px 16px rgba(5,10,20,.45)`): the before/after drag knob.
-- **Form focus halo** (`box-shadow: 0 0 0 3px rgba(47,107,255,.22)`; `.3` on the send button): focus only, inside the form.
+- **Hung photo** (`box-shadow: 0 30px 60px -28px rgba(5,10,20,.85)`): the before/after frame and Max's portrait (portrait at -24px, .9).
+- **Tape** (`box-shadow: 0 2px 4px rgba(5,10,20,.3)`): Before/After tags; the canvas tape uses an equivalent 3px navy blur.
+- **Knob** (`box-shadow: 0 6px 16px rgba(5,10,20,.45)`): the before/after drag handle.
+- **Form focus halo** (`box-shadow: 0 0 0 3px rgba(47,107,255,.22)`): focused fields; .3 on the send button.
 
 ### Named Rules
-**The Lit From Above Rule.** Every shadow falls downward and is tinted with the night (rgba 5,10,20), never neutral gray and never a hard offset.
-
-**The No Glint Rule.** No hairline highlights, sheens or films over surfaces or photos.
+**The Only-Objects-Cast Rule.** Shadows belong to objects in the world (photos, tape, the knob). Interface controls stay flat.
 
 ## Shapes
 
-Soft and domestic. Every control is a full pill (`pill`): buttons, chips, the Facebook link, arrow circles, the drag knob. Photos sit in 18px-rounded frames (`frame`); inputs are 12px (`field`); the switch plate is 8px (`switch`). The only lines are 1px Wall Rule dividers between service rows and above the footer, and the 4px solid amber before/after divider. Circles appear only where something is pressable or a light source (arrow circles, knob, can lenses as flattened ellipses).
+Pills (999px) for every action: buttons, chips, the Facebook link. Circles for icon carriers: the service-row arrow (40px), the Facebook badge (40px), the before/after knob (48px). Photos round at 18px. Fields round at 12px. The wordmark's "Max" block is a 3px-rounded navy slug. Tape strips are the one deliberately crooked shape: square-ended, rotated a few degrees (±2° on tags, -3° to 34° in the hero), torn at the ends in the canvas.
 
 ## Components
 
 ### Buttons
-Confident, chunky pills that match in pairs.
-- **Shape:** full pill (`pill`), 56px minimum height, 2px border, 800-weight 17px label.
-- **Primary:** amber fill with navy ink text; hover brightens to Bright Amber (fill and border).
-- **Outline (secondary):** transparent with the same 2px amber border and the same height; hover adds a 12% amber wash. Primary and outline always share outline width and height.
-- **Send (on plaster):** navy ink fill with plaster text; hover and focus switch the border to Form Blue with a blue halo.
-- **Press:** every button nudges down 1px on `:active`. Transitions 0.2s on color, 0.15s on transform.
+Heavy, round, sign-painted.
+- **Shape:** full pill (999px), min height 56px, 26px side padding, 2px navy border, 800 weight 17px.
+- **Primary:** Navy Ink fill, Sign Yellow text. Hover to Navy Ink 2.
+- **Outline:** transparent with navy border and text; hover tints with 8% navy.
+- **Send (estimate):** Navy fill, Drywall text; hover and focus swap the border to Form Blue with a blue halo.
+- **Press:** 1px downward nudge on all buttons.
+- **Pairing:** the two hero buttons are always the same height, stacked full-width on phones and side by side from 700px.
 
 ### Chips
-- **Style:** choice chips in the estimate form only. Plaster Field fill, 2px Plaster Edge border, 46px pill, 700 / 16px.
-- **State:** hover turns the border Form Blue; selected becomes a navy-ink fill with plaster text (border stays blue on hover); keyboard focus gets a 3px blue ring. Chips are real checkboxes; non-interactive labels are never chip-shaped.
-
-### Cards / Containers
-There are no cards. Content sits directly on the wall.
-- **Photo frames:** 18px corners, Raised Night loading ground, Hung frame shadow, no border.
+- **Style:** Drywall Bright pill, 2px Drywall Edge border, 46px tall, 700 weight 16px.
+- **State:** hover turns the border Form Blue; checked fills Navy Ink with Drywall text; keyboard focus gets a 3px Form Blue ring.
 
 ### Inputs / Fields
-- **Style:** Plaster Field fill, 2px Plaster Edge border, 12px corners, 14px 16px padding, 56px minimum (110px textarea, vertical resize), warm brown placeholder.
-- **Hover / Focus:** border goes Form Blue on hover; on focus the border stays blue and a 3px 22% blue halo appears; the caret is blue.
-- **Error:** 700 / 15px Error Red text under the field, announced as an alert; the field is marked invalid. Hidden when empty.
+- **Style:** Drywall Bright fill, 2px Drywall Edge border, 12px radius, 14px 16px padding, 56px min height (textarea 110px); caret in Form Blue.
+- **Focus:** border to Form Blue plus a 3px 22% Form Blue halo; hover also turns the border Form Blue.
+- **Error:** a 700-weight Error Red line under the field; the control gets `aria-invalid`.
 
 ### Navigation
-- **Header (the ceiling):** wordmark "Handy" + amber "Max" at 900 / 22px on the left; the language toggle (an underlined Dusk Gray text button, "Español" / "English") pushed right; the tap-to-call number with an amber phone glyph in the top-right corner. All targets 44px+. Not sticky.
-- **Footer:** a single wrapped line: the bolded name, the email address, the Facebook link, all in Dusk Gray brightening to amber on hover.
+The header is the hero's top 64px: wordmark left (22px, 900, "Max" in a navy slug), then the language toggle (an underlined text button, 15px/700) and the phone link (16px/800, tabular, inline phone glyph) pushed right. No menu. The footer is navy with the name in 900, then the email and Facebook links, Night Secondary text turning Sign Yellow on hover.
 
-### Service Rows (signature)
-The whole row is the link; one arrow-in-circle per row is the only cue.
-- **Layout:** full-width rows, 62px minimum, 19px / 700 label left, 40px Raised Night circle with a 2.4px-stroke arrow right, 1px Wall Rule between rows; two CSS columns (56px gap) from 700px.
-- **Hover / Focus:** only the arrow changes: the circle fills amber and the arrow strokes navy ink. The row never gets an outline, border, ring or background tint; the keyboard focus ring (3px amber, 3px offset) goes around the arrow circle.
-- **Behavior:** on touch devices a row opens a pre-written text to Max naming that job; on fine-pointer desktops it ticks that job's chip in the estimate form and moves focus there.
+### Service Row
+A full-width list on the yellow, 62px tall, 19px/700 job name left and a 40px circle with an arrow right, divided by navy hairlines. Hover and keyboard focus change only the arrow circle: it fills Navy Ink and the arrow turns Sign Yellow. The row itself never highlights. On touch a row opens a pre-written text; on desktop it selects that job in the estimate form.
 
-### Light-Row Canvas (signature)
-The world's motion system: one shared animation loop drawing recessed cans and their wall scallops on every canvas that carries them.
-- **Scallop:** a precomputed 220x420 sprite of a real downlight wash: dark above a parabolic cutoff, brightest just under it, fading downward and toward the edges, plus a hot spot at the lens. Tinted rgb(255,196,122) at up to 92% alpha.
-- **Cans:** flattened ellipses (13x4 phone, 16x5 desktop) in Can Trim with a lens that warms from cool gray to near-white as intensity rises; under the hero's ceiling band each can also glows on the ceiling.
-- **Placement:** cans spaced evenly (about every 105px on phones, 190px on desktop, at least two); scallop width is 1.7x the spacing (170px minimum).
-- **Instances:** the hero (64px ceiling band, dust, full-height beams); a work-section ceiling (340/440px tall, with dust); the estimate "reveal" (150/180px: paints Night Wall above, then cuts it away under each beam with a gradient so the lit plaster shows through, warmed with a 55% beam overlay); the closing section ceiling (340/440px, no dust).
-- **Interaction:** a finger or mouse brings up the cans nearest it and pushes and carries dust; the pointer is read against each canvas every frame so it works while the page scrolls under a finger. Idle rows sweep on, one can after another, alternating direction. The wall switch sets every row to full and back. A sent estimate sweeps the estimate wall's lights on.
-- **Performance and access:** paused off screen via IntersectionObserver; device pixel ratio capped at 1.5; fewer motes on phones; `prefers-reduced-motion` gets one still frame with the lights at 75% (100% with the switch on), redrawn only on resize. Canvases never take pointer events.
-- **TUNE constants (the tuning surface; keep them named at the top of the IIFE):**
-  - `BASE` 0.24: resting brightness of every light (0-1).
-  - `BREATH` 0.05: slow breathing amplitude around BASE (plus a faster 0.025 ripple, each can on its own phase).
-  - `DECAY` 0.55: per-second rate a light dims back to BASE.
-  - `RISE` 14: how fast a light comes up under a finger.
-  - `REACH` 0.75: finger influence radius, in light spacings.
-  - `SWEEP_STEP` 0.13: seconds between cans in a sweep (each can holds full for 0.35s).
-  - `IDLE` 6: seconds without a finger before a row sweeps by itself.
-  - `MOTES_PHONE` 55 / `MOTES_DESKTOP` 140: dust particle counts.
-  - `PUSH` 80: finger radius (px) that shoves dust.
+### Painter's-Tape Label
+Tape Blue strip, white 800 uppercase tracked text, tilted, small drop shadow. Used for the hero room labels and the Before/After tags. A label marks a real thing in the picture; it is never a section kicker.
 
-### Wall Switch
-A real two-screw rocker plate (Switch Plate, 8px corners, Wall fixture shadow) on the right edge of the hero, 48x76 on phones and 58x92 on desktop. Pressing it toggles every light row fully on; the rocker flips and `aria-pressed` reflects state.
+### Light String
+A C9 Christmas-light string drawn on canvas as a verlet rope hung from evenly spaced clips: dark green wire (#1f3a28; navy on the close), bulbs cycling red, green, blue, amber and pink, a gentle twinkle, and a finger or cursor can shove it. Strings hang across the top of each change of ground (work, estimate, close) and along both slopes of the hero roof. Under reduced motion everything renders still and fully finished.
 
-### Before/After Slider
-Two matched photos stacked in a hung frame; the after image clips from a CSS position variable. Plain 4px solid amber divider, 48px amber knob with a navy double-chevron, uppercase white tags at the bottom corners. Drag horizontally by touch (vertical drags still scroll), drag or click by mouse, arrow keys step 4% (10% with Shift), Home/End jump. The Facebook link sits directly under it as a 60px amber-outlined pill with a filled amber icon circle.
+### Signature: The Cutaway House
+The hero canvas: a dollhouse cross-section with roof, kitchen, window wall and basement below a dirt line. Each room starts tired; a tap (or Max, after 5s idle, every 1.1s) sends a paint roller across it in 0.75s, wiping the finished room in. The roof's lights switch on from the ridge outward last. When the finished house scrolls out of view it resets, so it is never seen going backwards.
+
+### Before / After
+An 18px-rounded photo frame with a hung-photo shadow, a 4px Sign Yellow divider and a 48px yellow knob; drag or arrow keys move the split. Tape tags label each side. The Facebook link (a yellow-ringed pill with a yellow Facebook badge) sits directly under it.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep amber as the single accent and use it for things that are light or that a hover has just lit.
-- **Do** confine Form Blue to hover and focus on estimate-form controls.
-- **Do** make service-row hover change only the arrow circle (neutral to amber), with the keyboard ring around the circle.
-- **Do** put the phone number in the header's top-right corner as a tap-to-call link and nowhere else on the first screen; it may return in the closing section.
-- **Do** keep the email address in the footer only, and the Facebook link both directly under the before/after and in the footer.
-- **Do** make primary and secondary buttons the same height (56px+) and border; secondary is outlined, never filled.
-- **Do** tune motion through the named TUNE constants and keep one shared loop, off-screen pausing, the DPR cap, and the reduced-motion still frame.
-- **Do** cast shadows downward and navy-tinted, as if lit by the cans.
+- **Do** keep every ground yellow (#ffc83a), navy (#15233b) or drywall (#f6f2ea), in the order sign, night, drywall, sign.
+- **Do** set headlines in the system stack at 900, uppercase, -0.02em, 0.95 leading.
+- **Do** announce a change of ground with a light string hung across the section top, and give that section 130px (160px wide) of top padding.
+- **Do** use pills (999px) at 56px height for actions, and keep paired buttons the same height.
+- **Do** label things in the picture with painter's tape (#2b7bbd), tilted, white uppercase.
+- **Do** put the Facebook link under the before/after and again in the footer; put the email in the footer only.
+- **Do** render every animation as a finished still under `prefers-reduced-motion`.
 
 ### Don't:
-- **Don't** add a sticky bottom action bar or any full-width banner fixed to the screen.
-- **Don't** put a call button in the hero, a third button under the title, or the phone number twice on one screen.
-- **Don't** add email buttons, mailto prompts, or a send-by-email option anywhere outside the footer.
-- **Don't** outline, border, ring or tint a service row on hover or focus.
-- **Don't** use black or near-black grounds; the darkest tone is the ceiling band.
-- **Don't** add hairline highlights, glints, sheens, or moving decorations on the before/after divider.
-- **Don't** style non-interactive labels or service-area towns as pills or chips.
-- **Don't** let scallops, dust or the switch run through text.
-- **Don't** introduce icon cards, stock photography, or a blue-and-orange "pro" contractor bar.
+- **Don't** let the ground go black, anywhere.
+- **Don't** load a webfont or add a second family.
+- **Don't** show the phone number on the first screen anywhere but the header's top-right, add a call button to the hero, or add a sticky bottom bar.
+- **Don't** highlight a whole service row on hover; only the arrow circle changes.
+- **Don't** use Form Blue (#2f6bff) at rest or outside the estimate form's hover and focus states.
+- **Don't** use tape strips as section kickers or eyebrows above headings.
+- **Don't** put shadows on buttons, chips, rows or fields.
+- **Don't** fall back to the contractor template: job-photo hero, blue-and-orange bar, icon cards.

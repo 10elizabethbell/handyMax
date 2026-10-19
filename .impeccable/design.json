@@ -1,405 +1,349 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-18T00:01:18.477056+00:00",
+  "generatedAt": "2026-10-19T14:40:00.133553+00:00",
   "title": "Design System: HandyMax",
   "extensions": {
     "colorMeta": {
-      "night-wall": {
-        "role": "neutral",
-        "displayName": "Night Wall",
-        "canonical": "oklch(25.7% 0.049 261.9)",
-        "tonalRamp": [
-          "oklch(15.0% 0.049 261.9)",
-          "oklch(26.4% 0.049 261.9)",
-          "oklch(37.9% 0.049 261.9)",
-          "oklch(49.3% 0.049 261.9)",
-          "oklch(60.7% 0.049 261.9)",
-          "oklch(72.1% 0.049 261.9)",
-          "oklch(83.6% 0.049 261.9)",
-          "oklch(95.0% 0.049 261.9)"
-        ]
-      },
-      "night-wall-raised": {
-        "role": "neutral",
-        "displayName": "Raised Night",
-        "canonical": "oklch(29.5% 0.057 261.6)",
-        "tonalRamp": [
-          "oklch(15.0% 0.057 261.6)",
-          "oklch(26.4% 0.057 261.6)",
-          "oklch(37.9% 0.057 261.6)",
-          "oklch(49.3% 0.057 261.6)",
-          "oklch(60.7% 0.057 261.6)",
-          "oklch(72.1% 0.057 261.6)",
-          "oklch(83.6% 0.057 261.6)",
-          "oklch(95.0% 0.057 261.6)"
-        ]
-      },
-      "ceiling-band": {
-        "role": "neutral",
-        "displayName": "Ceiling Band",
-        "canonical": "oklch(22.0% 0.042 263.2)",
-        "tonalRamp": [
-          "oklch(15.0% 0.042 263.2)",
-          "oklch(26.4% 0.042 263.2)",
-          "oklch(37.9% 0.042 263.2)",
-          "oklch(49.3% 0.042 263.2)",
-          "oklch(60.7% 0.042 263.2)",
-          "oklch(72.1% 0.042 263.2)",
-          "oklch(83.6% 0.042 263.2)",
-          "oklch(95.0% 0.042 263.2)"
-        ]
-      },
-      "wall-rule": {
-        "role": "neutral",
-        "displayName": "Wall Rule",
-        "canonical": "oklch(36.1% 0.064 262.4)",
-        "tonalRamp": [
-          "oklch(15.0% 0.064 262.4)",
-          "oklch(26.4% 0.064 262.4)",
-          "oklch(37.9% 0.064 262.4)",
-          "oklch(49.3% 0.064 262.4)",
-          "oklch(60.7% 0.064 262.4)",
-          "oklch(72.1% 0.064 262.4)",
-          "oklch(83.6% 0.064 262.4)",
-          "oklch(95.0% 0.064 262.4)"
-        ]
-      },
-      "can-trim": {
-        "role": "neutral",
-        "displayName": "Can Trim",
-        "canonical": "oklch(35.8% 0.060 263.4)",
-        "tonalRamp": [
-          "oklch(15.0% 0.060 263.4)",
-          "oklch(26.4% 0.060 263.4)",
-          "oklch(37.9% 0.060 263.4)",
-          "oklch(49.3% 0.060 263.4)",
-          "oklch(60.7% 0.060 263.4)",
-          "oklch(72.1% 0.060 263.4)",
-          "oklch(83.6% 0.060 263.4)",
-          "oklch(95.0% 0.060 263.4)"
-        ]
-      },
-      "warm-paper-text": {
-        "role": "neutral",
-        "displayName": "Warm Paper",
-        "canonical": "oklch(94.9% 0.016 79.4)",
-        "tonalRamp": [
-          "oklch(15.0% 0.016 79.4)",
-          "oklch(26.4% 0.016 79.4)",
-          "oklch(37.9% 0.016 79.4)",
-          "oklch(49.3% 0.016 79.4)",
-          "oklch(60.7% 0.016 79.4)",
-          "oklch(72.1% 0.016 79.4)",
-          "oklch(83.6% 0.016 79.4)",
-          "oklch(95.0% 0.016 79.4)"
-        ]
-      },
-      "cool-dusk-text": {
-        "role": "neutral",
-        "displayName": "Dusk Gray",
-        "canonical": "oklch(84.1% 0.024 264.4)",
-        "tonalRamp": [
-          "oklch(15.0% 0.024 264.4)",
-          "oklch(26.4% 0.024 264.4)",
-          "oklch(37.9% 0.024 264.4)",
-          "oklch(49.3% 0.024 264.4)",
-          "oklch(60.7% 0.024 264.4)",
-          "oklch(72.1% 0.024 264.4)",
-          "oklch(83.6% 0.024 264.4)",
-          "oklch(95.0% 0.024 264.4)"
-        ]
-      },
-      "downlight-amber": {
+      "sign-yellow": {
         "role": "primary",
-        "displayName": "Downlight Amber",
-        "canonical": "oklch(81.8% 0.156 73.8)",
+        "displayName": "Job-Site Sign Yellow",
+        "canonical": "#ffc83a",
         "tonalRamp": [
-          "oklch(15.0% 0.116 73.8)",
-          "oklch(26.4% 0.134 73.8)",
-          "oklch(37.9% 0.152 73.8)",
-          "oklch(49.3% 0.156 73.8)",
-          "oklch(60.7% 0.156 73.8)",
-          "oklch(72.1% 0.156 73.8)",
-          "oklch(83.6% 0.149 73.8)",
-          "oklch(95.0% 0.132 73.8)"
+          "#4c3700",
+          "#856000",
+          "#bd8800",
+          "#f5b000",
+          "#ffc52e",
+          "#ffd466",
+          "#ffe5a3",
+          "#fff8e5"
         ]
       },
-      "downlight-amber-bright": {
+      "sign-yellow-light": {
         "role": "primary",
-        "displayName": "Bright Amber",
-        "canonical": "oklch(86.2% 0.127 78.2)",
+        "displayName": "Sign Yellow Light",
+        "canonical": "#ffd25c",
         "tonalRamp": [
-          "oklch(15.0% 0.100 78.2)",
-          "oklch(26.4% 0.114 78.2)",
-          "oklch(37.9% 0.127 78.2)",
-          "oklch(49.3% 0.127 78.2)",
-          "oklch(60.7% 0.127 78.2)",
-          "oklch(72.1% 0.127 78.2)",
-          "oklch(83.6% 0.127 78.2)",
-          "oklch(95.0% 0.112 78.2)"
+          "#4c3700",
+          "#856000",
+          "#bd8900",
+          "#f5b100",
+          "#ffc52e",
+          "#ffd566",
+          "#ffe6a3",
+          "#fff8e5"
         ]
       },
-      "lit-plaster": {
-        "role": "neutral",
-        "displayName": "Lit Plaster",
-        "canonical": "oklch(92.5% 0.026 82.4)",
+      "sign-text-2": {
+        "role": "primary",
+        "displayName": "Sign Text Brown",
+        "canonical": "#4a3d12",
         "tonalRamp": [
-          "oklch(15.0% 0.026 82.4)",
-          "oklch(26.4% 0.026 82.4)",
-          "oklch(37.9% 0.026 82.4)",
-          "oklch(49.3% 0.026 82.4)",
-          "oklch(60.7% 0.026 82.4)",
-          "oklch(72.1% 0.026 82.4)",
-          "oklch(83.6% 0.026 82.4)",
-          "oklch(95.0% 0.026 82.4)"
-        ]
-      },
-      "plaster-field": {
-        "role": "neutral",
-        "displayName": "Plaster Field",
-        "canonical": "oklch(97.7% 0.011 84.6)",
-        "tonalRamp": [
-          "oklch(15.0% 0.011 84.6)",
-          "oklch(26.4% 0.011 84.6)",
-          "oklch(37.9% 0.011 84.6)",
-          "oklch(49.3% 0.011 84.6)",
-          "oklch(60.7% 0.011 84.6)",
-          "oklch(72.1% 0.011 84.6)",
-          "oklch(83.6% 0.011 84.6)",
-          "oklch(95.0% 0.011 84.6)"
-        ]
-      },
-      "plaster-edge": {
-        "role": "neutral",
-        "displayName": "Plaster Edge",
-        "canonical": "oklch(81.8% 0.036 82.9)",
-        "tonalRamp": [
-          "oklch(15.0% 0.036 82.9)",
-          "oklch(26.4% 0.036 82.9)",
-          "oklch(37.9% 0.036 82.9)",
-          "oklch(49.3% 0.036 82.9)",
-          "oklch(60.7% 0.036 82.9)",
-          "oklch(72.1% 0.036 82.9)",
-          "oklch(83.6% 0.036 82.9)",
-          "oklch(95.0% 0.036 82.9)"
-        ]
-      },
-      "switch-plate": {
-        "role": "neutral",
-        "displayName": "Switch Plate",
-        "canonical": "oklch(91.2% 0.022 83.3)",
-        "tonalRamp": [
-          "oklch(15.0% 0.022 83.3)",
-          "oklch(26.4% 0.022 83.3)",
-          "oklch(37.9% 0.022 83.3)",
-          "oklch(49.3% 0.022 83.3)",
-          "oklch(60.7% 0.022 83.3)",
-          "oklch(72.1% 0.022 83.3)",
-          "oklch(83.6% 0.022 83.3)",
-          "oklch(95.0% 0.022 83.3)"
+          "#3e330f",
+          "#6b581a",
+          "#987d25",
+          "#c5a230",
+          "#d6b957",
+          "#e1cb84",
+          "#ede0b5",
+          "#faf6ea"
         ]
       },
       "navy-ink": {
-        "role": "neutral",
+        "role": "secondary",
         "displayName": "Navy Ink",
-        "canonical": "oklch(25.5% 0.048 264.5)",
+        "canonical": "#15233b",
         "tonalRamp": [
-          "oklch(15.0% 0.048 264.5)",
-          "oklch(26.4% 0.048 264.5)",
-          "oklch(37.9% 0.048 264.5)",
-          "oklch(49.3% 0.048 264.5)",
-          "oklch(60.7% 0.048 264.5)",
-          "oklch(72.1% 0.048 264.5)",
-          "oklch(83.6% 0.048 264.5)",
-          "oklch(95.0% 0.048 264.5)"
+          "#142138",
+          "#233a62",
+          "#32538b",
+          "#406bb5",
+          "#6589c8",
+          "#8ea9d7",
+          "#bbcbe7",
+          "#ecf1f8"
         ]
       },
-      "slate-ink": {
-        "role": "neutral",
-        "displayName": "Slate Ink",
-        "canonical": "oklch(43.9% 0.035 267.9)",
+      "navy-ink-2": {
+        "role": "secondary",
+        "displayName": "Navy Ink 2",
+        "canonical": "#22345a",
         "tonalRamp": [
-          "oklch(15.0% 0.035 267.9)",
-          "oklch(26.4% 0.035 267.9)",
-          "oklch(37.9% 0.035 267.9)",
-          "oklch(49.3% 0.035 267.9)",
-          "oklch(60.7% 0.035 267.9)",
-          "oklch(72.1% 0.035 267.9)",
-          "oklch(83.6% 0.035 267.9)",
-          "oklch(95.0% 0.035 267.9)"
+          "#152038",
+          "#243860",
+          "#344f89",
+          "#4367b2",
+          "#6786c6",
+          "#90a6d5",
+          "#bccae6",
+          "#ecf0f8"
+        ]
+      },
+      "night-line": {
+        "role": "secondary",
+        "displayName": "Night Line",
+        "canonical": "#2b3d5f",
+        "tonalRamp": [
+          "#182235",
+          "#293b5b",
+          "#3b5382",
+          "#4c6ca9",
+          "#6f8abe",
+          "#96aacf",
+          "#c0cce2",
+          "#edf1f7"
+        ]
+      },
+      "text-on-navy": {
+        "role": "neutral",
+        "displayName": "Text on Navy",
+        "canonical": "#f6f2ea",
+        "tonalRamp": [
+          "#362b17",
+          "#5d4b28",
+          "#846b39",
+          "#ab8b49",
+          "#c0a46d",
+          "#d1bd94",
+          "#e3d7bf",
+          "#f7f4ed"
+        ]
+      },
+      "text-on-navy-2": {
+        "role": "neutral",
+        "displayName": "Night Secondary",
+        "canonical": "#c3cbdb",
+        "tonalRamp": [
+          "#1d2330",
+          "#323d53",
+          "#475676",
+          "#5c7099",
+          "#7c8eb1",
+          "#9facc6",
+          "#c6cddd",
+          "#eff1f5"
+        ]
+      },
+      "drywall": {
+        "role": "neutral",
+        "displayName": "Finished Drywall",
+        "canonical": "#f6f2ea",
+        "tonalRamp": [
+          "#362b17",
+          "#5d4b28",
+          "#846b39",
+          "#ab8b49",
+          "#c0a46d",
+          "#d1bd94",
+          "#e3d7bf",
+          "#f7f4ed"
+        ]
+      },
+      "drywall-bright": {
+        "role": "neutral",
+        "displayName": "Drywall Bright",
+        "canonical": "#fffdf8",
+        "tonalRamp": [
+          "#4c3700",
+          "#855f00",
+          "#bd8700",
+          "#f5af00",
+          "#ffc32e",
+          "#ffd366",
+          "#ffe5a3",
+          "#fff8e5"
+        ]
+      },
+      "drywall-edge": {
+        "role": "neutral",
+        "displayName": "Drywall Edge",
+        "canonical": "#d6cdbd",
+        "tonalRamp": [
+          "#2f291d",
+          "#524733",
+          "#746548",
+          "#97825e",
+          "#af9d7e",
+          "#c4b8a1",
+          "#dcd4c6",
+          "#f5f3ef"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#4a5266",
+        "tonalRamp": [
+          "#20242c",
+          "#383e4d",
+          "#4f586d",
+          "#67728e",
+          "#868fa7",
+          "#a6adbf",
+          "#caced8",
+          "#f0f1f4"
+        ]
+      },
+      "painters-tape": {
+        "role": "tertiary",
+        "displayName": "Painter's Tape Blue",
+        "canonical": "#2b7bbd",
+        "tonalRamp": [
+          "#0e293e",
+          "#19466c",
+          "#23649a",
+          "#2d82c7",
+          "#559dd8",
+          "#82b7e3",
+          "#b4d4ee",
+          "#eaf3fa"
         ]
       },
       "form-blue": {
-        "role": "secondary",
+        "role": "tertiary",
         "displayName": "Form Blue",
-        "canonical": "oklch(58.1% 0.229 263.9)",
+        "canonical": "#2f6bff",
         "tonalRamp": [
-          "oklch(15.0% 0.156 263.9)",
-          "oklch(26.4% 0.182 263.9)",
-          "oklch(37.9% 0.208 263.9)",
-          "oklch(49.3% 0.229 263.9)",
-          "oklch(60.7% 0.229 263.9)",
-          "oklch(72.1% 0.229 263.9)",
-          "oklch(83.6% 0.205 263.9)",
-          "oklch(95.0% 0.179 263.9)"
+          "#00164c",
+          "#002685",
+          "#0036bd",
+          "#0047f5",
+          "#2e6aff",
+          "#6692ff",
+          "#a3beff",
+          "#e5edff"
         ]
       },
       "error-red": {
-        "role": "error",
+        "role": "neutral",
         "displayName": "Error Red",
-        "canonical": "oklch(50.1% 0.178 28.7)",
+        "canonical": "#b3261e",
         "tonalRamp": [
-          "oklch(15.0% 0.128 28.7)",
-          "oklch(26.4% 0.148 28.7)",
-          "oklch(37.9% 0.169 28.7)",
-          "oklch(49.3% 0.178 28.7)",
-          "oklch(60.7% 0.178 28.7)",
-          "oklch(72.1% 0.178 28.7)",
-          "oklch(83.6% 0.166 28.7)",
-          "oklch(95.0% 0.146 28.7)"
+          "#420e0b",
+          "#721813",
+          "#a2221b",
+          "#d22d23",
+          "#e1544c",
+          "#e9827c",
+          "#f2b4b0",
+          "#fbeae9"
         ]
       }
+    },
+    "illustrationPalette": {
+      "bulbs": [
+        "#ff4636",
+        "#2fd27a",
+        "#3d8bff",
+        "#ffb020",
+        "#ff5fb8"
+      ],
+      "wire": "#1f3a28",
+      "wireOnYellow": "#15233b",
+      "bulbOff": "#b9b2a2",
+      "purpose": "C9 light strings in the hero roof and across section tops. Glow (additive radial halo) only on navy and the hero; the estimate string stays dark until an estimate is sent."
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headline (two stacked lines, second in amber); closing wordmark at clamp(52px,16vw,96px)."
+        "purpose": "Hero headline only; close wordmark uses the same voice at clamp(44px,13.5vw,96px)."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section headings, uppercase, balanced wrap."
+        "purpose": "Every section h2, uppercase 900."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Step titles, uppercase; paired with 900/44px amber numerals."
-      },
-      "body-large": {
-        "displayName": "Body Large",
-        "purpose": "Ledes, service row labels (700), owner paragraph."
+        "purpose": "Service rows, Facebook link; step titles at 22px/800 uppercase."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Default text; hero promise scales 17-20px within 34em."
+        "purpose": "Default reading text; Max's paragraphs at 19px, max 30em."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Section intros and the hero promise, in the ground's secondary ink."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Buttons, form labels; phone number at 16px tabular."
+        "purpose": "Form labels on drywall."
       },
-      "small": {
-        "displayName": "Small",
-        "purpose": "Hints, notes, optional markers, errors, photo tags (800 uppercase .04em)."
+      "tape": {
+        "displayName": "Tape",
+        "purpose": "Uppercase text on painter's tape strips."
       }
     },
     "shadows": [
       {
-        "name": "hung-frame",
+        "name": "hung-photo",
         "value": "0 30px 60px -28px rgba(5,10,20,.85)",
-        "purpose": "Photos hanging on the wall (portrait: 0 30px 60px -24px rgba(5,10,20,.9))."
+        "purpose": "Before/after frame and Max's portrait (portrait: 0 30px 60px -24px rgba(5,10,20,.9))."
       },
       {
-        "name": "wall-fixture",
-        "value": "0 10px 18px -6px rgba(5,10,20,.65), 0 2px 4px rgba(5,10,20,.35)",
-        "purpose": "The wall switch plate."
+        "name": "tape",
+        "value": "0 2px 4px rgba(5,10,20,.3)",
+        "purpose": "Painter's-tape tags."
       },
       {
         "name": "knob",
         "value": "0 6px 16px rgba(5,10,20,.45)",
-        "purpose": "Before/after drag knob."
+        "purpose": "Before/after drag handle."
       },
       {
-        "name": "form-focus-halo",
+        "name": "form-focus",
         "value": "0 0 0 3px rgba(47,107,255,.22)",
-        "purpose": "Input focus inside the estimate form (.3 on the send button)."
+        "purpose": "Focused estimate fields (.3 on the send button)."
       }
     ],
     "motion": [
       {
-        "name": "color-transition",
-        "value": "background-color .2s, color .2s, border-color .2s",
-        "purpose": "Buttons, arrow circles."
-      },
-      {
-        "name": "form-transition",
-        "value": "border-color .15s, box-shadow .15s",
-        "purpose": "Inputs and chips."
+        "name": "state-change",
+        "value": ".2s",
+        "purpose": "Button, row-arrow and link color transitions; fields and chips use .15s."
       },
       {
         "name": "press",
-        "value": "transform .15s; translateY(1px) on :active",
-        "purpose": "Button press feedback."
+        "value": "transform .15s, translateY(1px)",
+        "purpose": "Button press."
       },
       {
-        "name": "TUNE.BASE",
-        "value": "0.24",
-        "purpose": "Resting brightness of every light (0-1)."
+        "name": "roller-wipe",
+        "value": "0.75s per room",
+        "purpose": "Paint roller renovates one room of the cutaway house (TUNE.WIPE)."
       },
       {
-        "name": "TUNE.BREATH",
-        "value": "0.05",
-        "purpose": "Slow breathing amplitude (plus 0.025 faster ripple, per-can phase)."
+        "name": "auto-renovate",
+        "value": "1.1s step after 5s idle",
+        "purpose": "Max renovates the house himself when nobody touches it (TUNE.STEP, TUNE.IDLE)."
       },
       {
-        "name": "TUNE.DECAY",
-        "value": "0.55",
-        "purpose": "Per-second rate a light dims back to BASE."
+        "name": "light-up",
+        "value": "0.8s end to end",
+        "purpose": "A light string switches on left to right (TUNE.LIGHT_UP)."
       },
       {
-        "name": "TUNE.RISE",
-        "value": "14",
-        "purpose": "How fast a light rises under a finger."
-      },
-      {
-        "name": "TUNE.REACH",
-        "value": "0.75",
-        "purpose": "Finger influence, in light spacings."
-      },
-      {
-        "name": "TUNE.SWEEP_STEP",
-        "value": "0.13s",
-        "purpose": "Delay between cans in a sweep; each holds full 0.35s."
-      },
-      {
-        "name": "TUNE.IDLE",
-        "value": "6s",
-        "purpose": "Seconds without a finger before a row sweeps itself."
-      },
-      {
-        "name": "TUNE.MOTES",
-        "value": "55 phone / 140 desktop",
-        "purpose": "Dust particle counts."
-      },
-      {
-        "name": "TUNE.PUSH",
-        "value": "80px",
-        "purpose": "Finger radius that shoves dust."
-      },
-      {
-        "name": "light-row-geometry",
-        "value": "can spacing 105px phone / 190px desktop; scallop width max(1.7x spacing, 170px); DPR cap 1.5",
-        "purpose": "Where cans go and how wide each wash is."
+        "name": "rope-physics",
+        "value": "GRAV .35, DAMP .982, PUSH .6, REACH 40px",
+        "purpose": "Verlet light strings a finger or cursor can shove."
       },
       {
         "name": "reduced-motion",
-        "value": "still frame at 0.75 intensity (1.0 with switch on)",
-        "purpose": "prefers-reduced-motion: no loop, redraw on resize only."
+        "value": "still, finished",
+        "purpose": "Under prefers-reduced-motion the house renders finished and strings still."
       }
     ],
     "breakpoints": [
       {
-        "name": "small-phone",
-        "value": "max-width:380px"
+        "name": "tiny",
+        "value": "max-width: 380px"
       },
       {
-        "name": "tablet",
+        "name": "wide",
         "value": "700px"
       },
       {
         "name": "desktop",
         "value": "1024px"
-      },
-      {
-        "name": "fine-pointer",
-        "value": "(hover:hover) and (pointer:fine)"
       }
     ]
   },
@@ -408,150 +352,140 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Amber pill for the main action (free estimate).",
+      "description": "Navy pill on the yellow sign; the main action (Get a free estimate).",
       "html": "<a class=\"ds-btn ds-btn-fill\" href=\"#\">Get a free estimate</a>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;text-decoration:none;border:2px solid #ffb238;transition:background-color .2s,color .2s,border-color .2s,transform .15s} .ds-btn:active{transform:translateY(1px)} .ds-btn:focus-visible{outline:3px solid #ffb238;outline-offset:3px} .ds-btn-fill{background:#ffb238;color:#17223a} .ds-btn-fill:hover{background:#ffc76b;border-color:#ffc76b}"
+      "css": ".ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;text-decoration:none;border:2px solid #15233b;transition:background-color .2s,color .2s,border-color .2s,transform .15s}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:3px solid #15233b;outline-offset:3px}.ds-btn-fill{background:#15233b;color:#ffc83a}.ds-btn-fill:hover{background:#22345a;border-color:#22345a}"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Secondary hero action; same height and border as the primary, on the night wall.",
-      "html": "<div style=\"background:#16233b;padding:20px\"><a class=\"ds-btn-line\" href=\"#\">See my work</a></div>",
-      "css": ".ds-btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;text-decoration:none;border:2px solid #ffb238;background:transparent;color:#f4ede2;transition:background-color .2s,transform .15s} .ds-btn-line:hover{background:rgba(255,178,56,.12)} .ds-btn-line:active{transform:translateY(1px)} .ds-btn-line:focus-visible{outline:3px solid #ffb238;outline-offset:3px}"
+      "description": "Second hero action (See my work); same height as the primary.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">See my work</a>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;text-decoration:none;border:2px solid #15233b;background:transparent;color:#15233b;transition:background-color .2s}.ds-btn-line:hover{background:rgba(21,35,59,.08)}.ds-btn-line:focus-visible{outline:3px solid #15233b;outline-offset:3px}"
     },
     {
       "name": "Send Button",
       "kind": "button",
       "refersTo": "button-send",
-      "description": "Navy pill on the lit plaster that opens the pre-written text; blue on hover/focus.",
-      "html": "<div style=\"background:#efe5d3;padding:20px\"><button class=\"ds-send\" type=\"button\">Text this to Max</button></div>",
-      "css": ".ds-send{min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;background:#17223a;color:#efe5d3;border:2px solid #17223a;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .15s} .ds-send:hover,.ds-send:focus-visible{border-color:#2f6bff;outline:none;box-shadow:0 0 0 3px rgba(47,107,255,.3)} .ds-send:active{transform:translateY(1px)}"
+      "description": "Estimate form submit on drywall; Form Blue only on hover/focus.",
+      "html": "<button class=\"ds-send\" type=\"button\">Text this to Max</button>",
+      "css": ".ds-send{display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;padding:0 26px;border-radius:999px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:17px;background:#15233b;color:#f6f2ea;border:2px solid #15233b;cursor:pointer;transition:border-color .2s,box-shadow .2s}.ds-send:hover,.ds-send:focus-visible{border-color:#2f6bff;outline:none;box-shadow:0 0 0 3px rgba(47,107,255,.3)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Estimate input on finished drywall.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-label\">Your name</span><input class=\"ds-input\" type=\"text\"></label>",
+      "css": ".ds-field{display:grid;gap:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#15233b}.ds-label{font-weight:800;font-size:17px}.ds-input{font:inherit;font-size:17px;color:#15233b;background:#fffdf8;border:2px solid #d6cdbd;border-radius:12px;padding:14px 16px;min-height:56px;caret-color:#2f6bff;transition:border-color .15s,box-shadow .15s}.ds-input:hover{border-color:#2f6bff}.ds-input:focus{outline:none;border-color:#2f6bff;box-shadow:0 0 0 3px rgba(47,107,255,.22)}"
+    },
+    {
+      "name": "Job Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Multi-select job picker in the estimate form.",
+      "html": "<label class=\"ds-chip\"><input type=\"checkbox\"><span>Roofs</span></label><label class=\"ds-chip\"><input type=\"checkbox\" checked><span>Kitchens</span></label>",
+      "css": ".ds-chip{position:relative;display:inline-block;margin:0 6px 6px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}.ds-chip input{position:absolute;opacity:0;width:1px;height:1px}.ds-chip span{display:flex;align-items:center;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid #d6cdbd;background:#fffdf8;color:#15233b;font-weight:700;font-size:16px;cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}.ds-chip span:hover{border-color:#2f6bff}.ds-chip input:focus-visible+span{outline:3px solid #2f6bff;outline-offset:2px;border-color:#2f6bff}.ds-chip input:checked+span{background:#15233b;border-color:#15233b;color:#f6f2ea}"
     },
     {
       "name": "Service Row",
       "kind": "custom",
       "refersTo": "service-row",
-      "description": "Whole-row link with an arrow circle; only the arrow lights on hover/focus.",
-      "html": "<div style=\"background:#16233b;padding:0 20px\"><ul class=\"ds-rows\"><li><a class=\"ds-row\" href=\"#\"><span>TV mounting</span><span class=\"ds-arrow\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a></li><li><a class=\"ds-row\" href=\"#\"><span>Hidden wiring</span><span class=\"ds-arrow\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a></li></ul></div>",
-      "css": ".ds-rows{list-style:none;margin:0;padding:0;border-top:1px solid #2b3d5f} .ds-rows li{border-bottom:1px solid #2b3d5f} .ds-row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;padding:8px 0;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:19px;font-weight:700;color:#f4ede2} .ds-arrow{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#1c2c49;transition:background-color .2s} .ds-arrow svg{width:18px;height:18px;stroke:#f4ede2;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s} .ds-row:hover,.ds-row:focus-visible{outline:none;background:none;box-shadow:none} .ds-row:hover .ds-arrow,.ds-row:focus-visible .ds-arrow{background:#ffb238} .ds-row:hover .ds-arrow svg,.ds-row:focus-visible .ds-arrow svg{stroke:#17223a} .ds-row:focus-visible .ds-arrow{outline:3px solid #ffb238;outline-offset:3px}"
+      "description": "Job list on yellow; hover changes only the arrow circle.",
+      "html": "<div class=\"ds-rows\"><a class=\"ds-row\" href=\"#\"><span>Roofs</span><span class=\"ds-arrow\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a><a class=\"ds-row\" href=\"#\"><span>Basements</span><span class=\"ds-arrow\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a></div>",
+      "css": ".ds-rows{background:#ffc83a;padding:0 20px;border-top:1px solid rgba(21,35,59,.22);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}.ds-row{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:62px;padding:8px 0;border-bottom:1px solid rgba(21,35,59,.22);color:#15233b;text-decoration:none;font-size:19px;font-weight:700;outline:none}.ds-arrow{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(21,35,59,.1);transition:background-color .2s}.ds-arrow svg{width:18px;height:18px;stroke:#15233b;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s}.ds-row:hover .ds-arrow,.ds-row:focus-visible .ds-arrow{background:#15233b}.ds-row:hover .ds-arrow svg,.ds-row:focus-visible .ds-arrow svg{stroke:#ffc83a}.ds-row:focus-visible .ds-arrow{outline:3px solid #15233b;outline-offset:3px}"
     },
     {
-      "name": "Choice Chip",
-      "kind": "chip",
-      "refersTo": "chip",
-      "description": "Checkbox chip in the estimate form; blue hover/focus, navy when selected.",
-      "html": "<div style=\"background:#efe5d3;padding:20px;display:flex;gap:10px;flex-wrap:wrap\"><label class=\"ds-chip\"><input type=\"checkbox\"><span>TV mounting</span></label><label class=\"ds-chip\"><input type=\"checkbox\" checked><span>LED lighting</span></label></div>",
-      "css": ".ds-chip{position:relative} .ds-chip input{position:absolute;opacity:0;width:1px;height:1px} .ds-chip span{display:flex;align-items:center;min-height:46px;padding:0 16px;border-radius:999px;border:2px solid #cfc2aa;background:#fbf7ef;color:#17223a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:16px;cursor:pointer;transition:border-color .15s,background-color .15s,color .15s} .ds-chip span:hover{border-color:#2f6bff} .ds-chip input:focus-visible+span{outline:3px solid #2f6bff;outline-offset:2px;border-color:#2f6bff} .ds-chip input:checked+span{background:#17223a;border-color:#17223a;color:#efe5d3} .ds-chip input:checked+span:hover{border-color:#2f6bff}"
-    },
-    {
-      "name": "Text Field",
-      "kind": "input",
-      "refersTo": "input-text",
-      "description": "Plaster-set input with label; blue border on hover, blue halo on focus.",
-      "html": "<div style=\"background:#efe5d3;padding:20px\"><label class=\"ds-field\"><span class=\"ds-label\">Town <small>(optional)</small></span><input class=\"ds-input\" type=\"text\" placeholder=\"Newark\"></label></div>",
-      "css": ".ds-field{display:grid;gap:8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif} .ds-label{font-weight:800;font-size:17px;color:#17223a} .ds-label small{font-weight:600;color:#4a5266;font-size:15px} .ds-input{width:100%;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:17px;color:#17223a;background:#fbf7ef;border:2px solid #cfc2aa;border-radius:12px;padding:14px 16px;min-height:56px;caret-color:#2f6bff;transition:border-color .15s,box-shadow .15s} .ds-input::placeholder{color:#6f6656} .ds-input:hover{border-color:#2f6bff} .ds-input:focus{outline:none;border-color:#2f6bff;box-shadow:0 0 0 3px rgba(47,107,255,.22)}"
-    },
-    {
-      "name": "Header (Ceiling)",
+      "name": "Header",
       "kind": "nav",
       "refersTo": "",
-      "description": "Ceiling band header: wordmark, language toggle, top-right tap-to-call number.",
-      "html": "<div class=\"ds-top\"><a class=\"ds-mark\" href=\"#\">Handy<b>Max</b></a><button class=\"ds-lang\" type=\"button\">Español</button><a class=\"ds-phone\" href=\"tel:+18622393260\"><svg viewBox=\"0 0 24 24\"><path d=\"M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z\"/></svg>862-239-3260</a></div>",
-      "css": ".ds-top{height:64px;display:flex;align-items:center;gap:10px;padding:0 20px;background:#101a2e;color:#f4ede2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif} .ds-mark{font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;color:inherit} .ds-mark b{color:#ffb238;font-weight:900} .ds-lang{margin-left:auto;min-height:44px;padding:0 10px;border:0;background:none;color:#c3cbdb;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(195,203,219,.45)} .ds-lang:hover{color:#f4ede2} .ds-phone{display:flex;align-items:center;gap:7px;min-height:44px;font-weight:800;font-size:16px;text-decoration:none;color:inherit;font-variant-numeric:tabular-nums} .ds-phone svg{width:17px;height:17px;fill:#ffb238} .ds-phone:hover{color:#ffc76b} .ds-lang:focus-visible,.ds-phone:focus-visible,.ds-mark:focus-visible{outline:3px solid #ffb238;outline-offset:3px;border-radius:6px}"
+      "description": "Wordmark left; language toggle and phone top-right. No menu.",
+      "html": "<div class=\"ds-top\"><a class=\"ds-mark\" href=\"#\">Handy<b>Max</b></a><button class=\"ds-lang\" type=\"button\">Español</button><a class=\"ds-phone\" href=\"#\"><svg viewBox=\"0 0 24 24\"><path d=\"M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z\"/></svg>862-239-3260</a></div>",
+      "css": ".ds-top{display:flex;align-items:center;gap:10px;height:64px;padding:0 20px;background:#ffc83a;color:#15233b;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}.ds-mark{font-weight:900;font-size:22px;letter-spacing:-0.02em;text-decoration:none;color:#15233b}.ds-mark b{background:#15233b;color:#ffc83a;padding:0 5px;margin-left:2px;border-radius:3px}.ds-lang{margin-left:auto;min-height:44px;padding:0 10px;border:0;background:none;color:#15233b;font:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(21,35,59,.4)}.ds-lang:hover{text-decoration-color:#15233b}.ds-phone{display:flex;align-items:center;gap:7px;min-height:44px;font-weight:800;font-size:16px;color:#15233b;text-decoration:none;font-variant-numeric:tabular-nums}.ds-phone svg{width:17px;height:17px;fill:#15233b}.ds-phone:hover{text-decoration:underline;text-underline-offset:4px}"
     },
     {
-      "name": "Before/After Slider",
+      "name": "Painter's-Tape Label",
       "kind": "custom",
-      "refersTo": "photo-frame",
-      "description": "Hung photo frame with a plain amber divider and knob; drag or arrow keys.",
-      "html": "<div style=\"background:#16233b;padding:20px\"><div class=\"ds-ba\" tabindex=\"0\" role=\"slider\" aria-valuenow=\"50\" aria-label=\"Before and after\"><div class=\"ds-ba-before\"></div><div class=\"ds-ba-after\"></div><span class=\"ds-ba-tag ds-l\">Before</span><span class=\"ds-ba-tag ds-r\">After</span><span class=\"ds-ba-bar\"></span><span class=\"ds-ba-knob\"><svg viewBox=\"0 0 24 24\"><path d=\"M9 6l-6 6 6 6M15 6l6 6-6 6\"/></svg></span></div></div>",
-      "css": ".ds-ba{position:relative;aspect-ratio:800/694;max-width:420px;border-radius:18px;overflow:hidden;background:#1c2c49;box-shadow:0 30px 60px -28px rgba(5,10,20,.85);--p:50%;cursor:ew-resize;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif} .ds-ba-before,.ds-ba-after{position:absolute;inset:0} .ds-ba-before{background:linear-gradient(160deg,#5a4a3a,#2e2620)} .ds-ba-after{background:linear-gradient(160deg,#f3eee6,#bfb6a8);clip-path:inset(0 0 0 var(--p))} .ds-ba-bar{position:absolute;top:0;bottom:0;left:var(--p);width:4px;margin-left:-2px;background:#ffb238} .ds-ba-knob{position:absolute;top:50%;left:var(--p);width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:#ffb238;display:grid;place-items:center;box-shadow:0 6px 16px rgba(5,10,20,.45)} .ds-ba-knob svg{width:24px;height:24px;stroke:#17223a;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round} .ds-ba-tag{position:absolute;bottom:14px;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.04em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.8)} .ds-l{left:16px} .ds-r{right:16px} .ds-ba:focus-visible{outline:3px solid #ffb238;outline-offset:4px}"
+      "refersTo": "tape-label",
+      "description": "Tilted tape strip naming a real thing in a picture (room labels, Before/After).",
+      "html": "<div class=\"ds-tape-wrap\"><span class=\"ds-tape ds-tape-b\">Before</span><span class=\"ds-tape ds-tape-a\">After</span></div>",
+      "css": ".ds-tape-wrap{display:flex;gap:24px;padding:24px;background:#15233b}.ds-tape{display:inline-block;padding:3px 10px;background:#2b7bbd;color:#fff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.05em;box-shadow:0 2px 4px rgba(5,10,20,.3)}.ds-tape-b{transform:rotate(-2deg)}.ds-tape-a{transform:rotate(2deg)}"
+    },
+    {
+      "name": "Facebook Link",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Yellow-ringed pill on navy, directly under the before/after.",
+      "html": "<div class=\"ds-night\"><a class=\"ds-fb\" href=\"#\"><span class=\"ds-fbi\"><svg viewBox=\"0 0 24 24\"><path d=\"M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.87.25-1.46 1.5-1.46h1.6V4.46A21 21 0 0 0 14.3 4.3c-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21z\"/></svg></span>Click to see more of my work.</a></div>",
+      "css": ".ds-night{background:#15233b;padding:24px}.ds-fb{display:inline-flex;align-items:center;gap:14px;min-height:60px;padding:10px 24px 10px 12px;border-radius:999px;border:2px solid #ffc83a;color:#f6f2ea;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:19px;transition:background-color .2s}.ds-fb:hover{background:rgba(255,200,58,.12)}.ds-fb:focus-visible{outline:3px solid #ffc83a;outline-offset:3px}.ds-fbi{width:40px;height:40px;border-radius:50%;background:#ffc83a;display:grid;place-items:center}.ds-fbi svg{width:22px;height:22px;fill:#15233b}"
     }
   ],
   "narrative": {
-    "northStar": "The Room When the Lights Come On",
-    "overview": "**Creative North Star: \"The Room When the Lights Come On\"**\n\nThe whole page is one wall in a living room at night. A darker ceiling band runs across the top holding recessed can lights; each can throws a real downlight scallop (a parabola-edged wash of 2700K amber) onto deep navy plaster, with dust drifting in the beam. The visitor's finger or mouse brings the nearest cans up, a wall switch turns every light on, and when nobody touches anything the cans sweep on by themselves. Lower on the page the light-row returns as a ceiling over each major section, and at the estimate section the beams finally \"reveal\" the wall itself: the background turns into lit warm plaster. That turn from night wall to lit wall is the page's story (Max's before/after is literally a dim room turned bright) and it is the one place the ground changes.\n\nEverything else stays plain and heavy so the light carries the craft: the system font stack set in 900-weight uppercase for display, sentence-case body in warm off-white, one amber accent, generous phone-first spacing, and photos framed as softly rounded, shadowed pictures hanging on the wall. The system is governed by Ellie's pitch-site house rules (`ellie-taste.md`, `finishing-rules.md`); the constraints those rules place on contact, hover and form behavior are recorded here as part of the system, not as page-local choices.\n\nConfirmed rejections: the contractor template (toolbelt stock photography, icon cards, a blue-and-orange \"pro\" bar), black page grounds, thin decorative highlight lines, and any sticky bottom action bar.",
+    "northStar": "The Job-Site Sign",
+    "overview": "**Creative North Star: \"The Job-Site Sign\"**\n\nHandyMax reads like a yellow sign staked in a front lawn: one loud field of sign yellow, navy ink set heavy and uppercase, and everything else made of the materials of the job itself. Painter's tape labels the work, a paint roller does the renovating, C9 Christmas-light strings hang on real rope physics across the tops of sections, and the estimate form sits on clean finished drywall. The hero is a dollhouse cutaway of a house (slate roof, kitchen, window wall, basement under the dirt line) that goes from tired to finished room by room, under a finger or on its own.\n\nThe page alternates three grounds in a fixed order: the sign (hero, services, close), the night (navy: work, Max, how it works), and the drywall (estimate). Each change of ground is announced by a light string hung across the section top. Density is low and phone-first: one column, big tap targets, a single display voice.",
     "keyCharacteristics": [
-      "Night-navy ground with a darker ceiling band; never black.",
-      "Light is rendered, not drawn: canvas downlight scallops and dust, interactive by finger and mouse.",
-      "Amber is the only accent and means \"light\"; blue exists only inside the estimate form for hover and focus.",
-      "System sans, heavy uppercase display, sentence-case body.",
-      "Pill-shaped controls, 18px-rounded photo frames, hairline rules between list rows.",
-      "Phone first: 56px controls, full-width stacked CTAs on phones, contact by text message and tap-to-call."
+      "One yellow field, one navy ink; navy carries every type and button on yellow.",
+      "Heavy uppercase system-sans display (900, -0.02em, 0.95 leading).",
+      "Job materials as UI: tape labels, roller wipe, C9 light strings, drywall form.",
+      "Three grounds in order: sign, night, drywall, back to sign; never black.",
+      "Pills for actions, 18px corners for photos, 12px for fields."
     ],
     "rules": [
       {
-        "name": "The One Light Rule",
-        "body": "Amber is the only accent on the page and it always means light: the beam, the lit word, the knob, a filled arrow. Never introduce a second decorative hue.",
+        "name": "The Two-Inks Rule",
+        "body": "On yellow, everything is navy; on navy, accents are yellow. No third color competes on either ground; tape blue appears only as tape.",
         "section": "colors"
       },
       {
-        "name": "The Blue Stays In The Form Rule",
-        "body": "Form Blue appears only on estimate-form controls (inputs, chips, the send button) and only on hover or focus. Service rows, links and buttons on the night wall never use it.",
+        "name": "The Never-Black Rule",
+        "body": "The darkest ground is Navy Ink (#15233b). No section, footer or overlay goes black.",
         "section": "colors"
       },
       {
-        "name": "The No Black Rule",
-        "body": "The darkest value on the page is the ceiling band. No pure or near-black grounds anywhere.",
+        "name": "The Form-Blue Rule",
+        "body": "Form Blue (#2f6bff) exists only for hover and focus on estimate-form controls. It never appears at rest and never outside the form.",
         "section": "colors"
       },
       {
-        "name": "The Hover Brings The Accent Rule",
-        "body": "Interactive elements are neutral at rest and take amber on hover (arrow circles fill, links brighten). Amber at rest is reserved for content that represents light (the lit headline word, numerals, the divider) and the primary button.",
-        "section": "colors"
-      },
-      {
-        "name": "The Heavy Caps Only Rule",
-        "body": "Uppercase is for display, headlines, step titles and the photo tags. Body, labels, buttons and form copy stay sentence case.",
+        "name": "The System-Stack Rule",
+        "body": "The system font stack only. No webfonts, no second family; weight and case do the work.",
         "section": "typography"
       },
       {
-        "name": "The 16px Floor Rule",
-        "body": "Body text never drops below 17px and nothing readable goes under 15px; inputs stay at 17px so phones never zoom.",
+        "name": "The Shout-Then-Talk Rule",
+        "body": "Uppercase 900 is for headlines, step titles and tape. Everything Max says to the visitor is sentence case at reading weight.",
         "section": "typography"
       },
       {
-        "name": "The First Screen Rule",
-        "body": "The first phone screen shows wordmark, language toggle and phone number in the header; the benefit headline, the owner's promise, and at most two buttons. No services list, service area, or call button in the hero.",
+        "name": "The Phone-Top-Right Rule",
+        "body": "On the first screen the phone number appears only in the header, top-right. It may return in the close. There is no call button in the hero and no sticky bottom bar.",
         "section": "layout"
       },
       {
-        "name": "The Clear Wall Rule",
-        "body": "Nothing in the scene runs through text: scallops fall from the ceiling band and fade before the bottom-anchored copy, and the wall switch sits on the right edge away from the headline.",
-        "section": "layout"
-      },
-      {
-        "name": "The Lit From Above Rule",
-        "body": "Every shadow falls downward and is tinted with the night (rgba 5,10,20), never neutral gray and never a hard offset.",
-        "section": "elevation"
-      },
-      {
-        "name": "The No Glint Rule",
-        "body": "No hairline highlights, sheens or films over surfaces or photos.",
+        "name": "The Only-Objects-Cast Rule",
+        "body": "Shadows belong to objects in the world (photos, tape, the knob). Interface controls stay flat.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do keep amber as the single accent and use it for things that are light or that a hover has just lit.",
-      "Do confine Form Blue to hover and focus on estimate-form controls.",
-      "Do make service-row hover change only the arrow circle (neutral to amber), with the keyboard ring around the circle.",
-      "Do put the phone number in the header's top-right corner as a tap-to-call link and nowhere else on the first screen; it may return in the closing section.",
-      "Do keep the email address in the footer only, and the Facebook link both directly under the before/after and in the footer.",
-      "Do make primary and secondary buttons the same height (56px+) and border; secondary is outlined, never filled.",
-      "Do tune motion through the named TUNE constants and keep one shared loop, off-screen pausing, the DPR cap, and the reduced-motion still frame.",
-      "Do cast shadows downward and navy-tinted, as if lit by the cans."
+      "Do keep every ground yellow (#ffc83a), navy (#15233b) or drywall (#f6f2ea), in the order sign, night, drywall, sign.",
+      "Do set headlines in the system stack at 900, uppercase, -0.02em, 0.95 leading.",
+      "Do announce a change of ground with a light string hung across the section top, and give that section 130px (160px wide) of top padding.",
+      "Do use pills (999px) at 56px height for actions, and keep paired buttons the same height.",
+      "Do label things in the picture with painter's tape (#2b7bbd), tilted, white uppercase.",
+      "Do put the Facebook link under the before/after and again in the footer; put the email in the footer only.",
+      "Do render every animation as a finished still under `prefers-reduced-motion`."
     ],
     "donts": [
-      "Don't add a sticky bottom action bar or any full-width banner fixed to the screen.",
-      "Don't put a call button in the hero, a third button under the title, or the phone number twice on one screen.",
-      "Don't add email buttons, mailto prompts, or a send-by-email option anywhere outside the footer.",
-      "Don't outline, border, ring or tint a service row on hover or focus.",
-      "Don't use black or near-black grounds; the darkest tone is the ceiling band.",
-      "Don't add hairline highlights, glints, sheens, or moving decorations on the before/after divider.",
-      "Don't style non-interactive labels or service-area towns as pills or chips.",
-      "Don't let scallops, dust or the switch run through text.",
-      "Don't introduce icon cards, stock photography, or a blue-and-orange \"pro\" contractor bar."
+      "Don't let the ground go black, anywhere.",
+      "Don't load a webfont or add a second family.",
+      "Don't show the phone number on the first screen anywhere but the header's top-right, add a call button to the hero, or add a sticky bottom bar.",
+      "Don't highlight a whole service row on hover; only the arrow circle changes.",
+      "Don't use Form Blue (#2f6bff) at rest or outside the estimate form's hover and focus states.",
+      "Don't use tape strips as section kickers or eyebrows above headings.",
+      "Don't put shadows on buttons, chips, rows or fields.",
+      "Don't fall back to the contractor template: job-photo hero, blue-and-orange bar, icon cards."
     ]
   }
 }
