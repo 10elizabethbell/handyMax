@@ -4,11 +4,11 @@
 web
 
 ## Stack
-Static single-file HTML/CSS/JS (`index.html`), photos as WebP files in `img/`. No framework, no tracking, system font stack. Hosted on GitHub Pages.
+Static single-file HTML/CSS/JS (`index.html`), photos as WebP files in `img/`. No framework, no tracking. Cal Sans (Google Fonts) for headings, system font stack for body text. Hosted on GitHub Pages.
 
 ## Users
 - **The owner, Max** (first audience): sees the link on his phone, probably inside Facebook's in-app browser. The page must look like his real business website, done better than he imagined, within one phone screen.
-- **His customers** (second audience): New Jersey homeowners who need roof, basement, kitchen or window work, Christmas lights hung, a TV mounted, lighting, outlets or electrical work, or general maintenance. English and Spanish speakers (Max advertises in both). Mostly on phones, arriving from Facebook. Age not stated; no sign the audience skews 40+, so the house motion applies.
+- **His customers** (second audience): New Jersey homeowners who need roof, basement, kitchen or window work, Christmas lights hung, a TV mounted, lighting, outlets or electrical work, or general maintenance. English and Spanish speakers (Max advertises in both). Mostly on phones, arriving from Facebook. Age not stated; no sign the audience skews 40+, so the calm style's motion (H1 bounce-in, fade-up) applies.
 
 ## Purpose
 Turn a Facebook visitor into a free-estimate request: a pre-written text message, or a call to Max.
@@ -40,4 +40,4 @@ A one-person handyman, renovation and electrical service that fixes up the whole
 1. Phone first: the first phone screen shows who, what, and the free-estimate action.
 2. Only facts from the brief or his own posts; mark everything else as inferred in HANDOFF.md.
 3. Speak as Max, about how he treats your home, not how the service works.
-4. The page should feel like a tired house getting fixed up, room by room: his before/after is exactly that.
+4. Calm and orderly (the house calm band style since 2026-10-19): his own finished room in the hero, his face and words, one list of jobs, one way to ask for a free estimate.
