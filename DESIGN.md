@@ -1,275 +1,319 @@
 ---
 name: HandyMax
-description: A job-site sign for a one-person handyman; a cutaway house the visitor renovates room by room.
+description: A calm, banded one-page site for a one-man New Jersey handyman; paper and navy bands, one job-site yellow, his own finished room in the hero.
 colors:
-  sign-yellow: "#ffc83a"
-  sign-yellow-light: "#ffd25c"
-  sign-text-2: "#4a3d12"
-  navy-ink: "#15233b"
-  navy-ink-2: "#22345a"
-  night-line: "#2b3d5f"
-  text-on-navy: "#f6f2ea"
-  text-on-navy-2: "#c3cbdb"
-  drywall: "#f6f2ea"
-  drywall-bright: "#fffdf8"
-  drywall-edge: "#d6cdbd"
-  ink-soft: "#4a5266"
-  painters-tape: "#2b7bbd"
-  form-blue: "#2f6bff"
+  job-site-yellow: "#ffc83a"
+  job-site-yellow-light: "#ffd665"
+  yellow-ink: "#8a5a00"
+  beanie-navy: "#1d3f73"
+  deep-navy: "#0f2340"
+  ink: "#12233f"
+  body-slate: "#2a3a4c"
+  soft-slate: "#4a5868"
+  paper: "#f4f6fb"
+  card-white: "#ffffff"
+  field-tint: "#e6ecf5"
+  on-dark: "#f4f7fb"
+  on-dark-soft: "#c9d7ea"
+  rule-on-dark: "rgba(255,255,255,.12)"
   error-red: "#b3261e"
 typography:
   display:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
-    fontSize: "clamp(34px, 8.8vw, 92px)"
-    fontWeight: 900
-    lineHeight: 0.95
-    letterSpacing: "-0.02em"
+    fontFamily: "\"Cal Sans\", \"Avenir Next\", \"Segoe UI\", system-ui, sans-serif"
+    fontSize: "clamp(42px, 12vw, 80px)"
+    fontWeight: 400
+    lineHeight: 1.02
+    letterSpacing: "-0.005em"
   headline:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
-    fontSize: "clamp(34px, 9vw, 64px)"
-    fontWeight: 900
-    lineHeight: 0.95
-    letterSpacing: "-0.02em"
+    fontFamily: "\"Cal Sans\", \"Avenir Next\", \"Segoe UI\", system-ui, sans-serif"
+    fontSize: "clamp(30px, 7.6vw, 48px)"
+    fontWeight: 400
+    lineHeight: 1.08
+    letterSpacing: "-0.005em"
   title:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
-    fontSize: "19px"
-    fontWeight: 700
-    lineHeight: 1.5
-  body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
-    fontSize: "17px"
+    fontFamily: "\"Cal Sans\", \"Avenir Next\", \"Segoe UI\", system-ui, sans-serif"
+    fontSize: "clamp(19px, 5.2vw, 22px)"
     fontWeight: 400
-    lineHeight: 1.5
+    lineHeight: 1.2
+  button:
+    fontFamily: "\"Cal Sans\", \"Avenir Next\", \"Segoe UI\", system-ui, sans-serif"
+    fontSize: "18px"
+    fontWeight: 400
+    lineHeight: 1
   lede:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
-    fontSize: "19px"
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "clamp(17px, 4.6vw, 19px)"
     fontWeight: 400
-    lineHeight: 1.5
+    lineHeight: 1.7
+  body:
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
+    lineHeight: 1.7
   label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
-    fontSize: "17px"
-    fontWeight: 800
-    lineHeight: 1.5
-  tape:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif"
+    fontFamily: "-apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Helvetica Neue\", Arial, sans-serif"
     fontSize: "14px"
-    fontWeight: 800
-    letterSpacing: "0.05em"
+    fontWeight: 500
+    lineHeight: 1
+    letterSpacing: "0.02em"
 rounded:
-  wordmark: "3px"
-  field: "12px"
-  media: "18px"
+  field: "10px"
+  card: "24px"
   pill: "999px"
-  circle: "50%"
 spacing:
-  gutter-phone: "20px"
-  gutter-wide: "32px"
-  container: "1160px"
-  section-phone: "72px"
-  section-wide: "96px"
-  string-top-phone: "130px"
-  string-top-wide: "160px"
+  gutter: "20px"
+  gutter-desktop: "40px"
+  stack: "16px"
+  section: "64px"
+  section-desktop: "96px"
 components:
   button-primary:
-    backgroundColor: "{colors.navy-ink}"
-    textColor: "{colors.sign-yellow}"
+    backgroundColor: "{colors.job-site-yellow}"
+    textColor: "{colors.ink}"
+    typography: "{typography.button}"
     rounded: "{rounded.pill}"
     padding: "0 26px"
     height: "56px"
   button-primary-hover:
-    backgroundColor: "{colors.navy-ink-2}"
-  button-outline:
+    backgroundColor: "{colors.job-site-yellow-light}"
+    textColor: "{colors.ink}"
+  button-ghost:
     backgroundColor: "transparent"
-    textColor: "{colors.navy-ink}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.button}"
     rounded: "{rounded.pill}"
     padding: "0 26px"
     height: "56px"
-  button-send:
-    backgroundColor: "{colors.navy-ink}"
-    textColor: "{colors.drywall}"
-    rounded: "{rounded.pill}"
-    height: "56px"
   input-field:
-    backgroundColor: "{colors.drywall-bright}"
-    textColor: "{colors.navy-ink}"
+    backgroundColor: "{colors.field-tint}"
+    textColor: "{colors.ink}"
+    typography: "{typography.body}"
     rounded: "{rounded.field}"
-    padding: "14px 16px"
-    height: "56px"
+    padding: "13px 14px"
+    height: "52px"
   chip:
-    backgroundColor: "{colors.drywall-bright}"
-    textColor: "{colors.navy-ink}"
+    backgroundColor: "{colors.field-tint}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.pill}"
     padding: "0 16px"
-    height: "46px"
+    height: "44px"
   chip-selected:
-    backgroundColor: "{colors.navy-ink}"
-    textColor: "{colors.drywall}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.card-white}"
+  card-form:
+    backgroundColor: "{colors.card-white}"
+    rounded: "{rounded.card}"
+    padding: "clamp(20px, 5vw, 32px)"
   service-row:
-    textColor: "{colors.navy-ink}"
+    textColor: "{colors.on-dark}"
     typography: "{typography.title}"
-    height: "62px"
-  tape-label:
-    backgroundColor: "{colors.painters-tape}"
-    textColor: "#ffffff"
-    typography: "{typography.tape}"
-    padding: "3px 10px"
+    height: "64px"
+  step-number:
+    backgroundColor: "{colors.job-site-yellow}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    size: "48px"
+  float-circle:
+    backgroundColor: "{colors.job-site-yellow}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    size: "60px"
 ---
 
 # Design System: HandyMax
 
 ## Overview
 
-**Creative North Star: "The Job-Site Sign"**
+**Creative North Star: "Calm Order, Roof to Basement"**
 
-HandyMax reads like a yellow sign staked in a front lawn: one loud field of sign yellow, navy ink set heavy and uppercase, and everything else made of the materials of the job itself. Painter's tape labels the work, a paint roller does the renovating, C9 Christmas-light strings hang on real rope physics across the tops of sections, and the estimate form sits on clean finished drywall. The hero is a dollhouse cutaway of a house (slate roof, kitchen, window wall, basement under the dirt line) that goes from tired to finished room by room, under a finger or on its own.
+HandyMax is a one-person handyman's site in Ellie's house calm band style (default since 2026-10-19, learned from lpmr.co.uk). It earns trust through order rather than spectacle: full-bleed bands alternate between cool off-white paper and two navies, so each new section is obvious; one job-site yellow is the only warm colour and it is used as a fill; shapes are soft and borderless. The real material is Max himself: his own finished dining room behind the promise, his face, his first-person words.
 
-The page alternates three grounds in a fixed order: the sign (hero, services, close), the night (navy: work, Max, how it works), and the drywall (estimate). Each change of ground is announced by a light string hung across the section top. Density is low and phone-first: one column, big tap targets, a single display voice.
+Density is low on the phone: one column, a 20px gutter, 64px between bands, and every tap target 44px or more. On desktop the same bands widen to a 1160px column with 96px band padding and simple two-column splits. Motion is limited to three things: the hero H1 letters bounce in once, content below the first screen rises 12px into place, and the floating text circle slides up after the hero.
 
-It refuses the contractor template (job-photo hero, blue-and-orange bar, icon cards) and the earlier can-light night-wall world this replaced.
+This replaces the earlier cutaway-house world entirely (redesign, not refinement); that world survives only in git history (7c9efb4) and `demos/`.
 
 **Key Characteristics:**
-- One yellow field, one navy ink; navy carries every type and button on yellow.
-- Heavy uppercase system-sans display (900, -0.02em, 0.95 leading).
-- Job materials as UI: tape labels, roller wipe, C9 light strings, drywall form.
-- Three grounds in order: sign, night, drywall, back to sign; never black.
-- Pills for actions, 18px corners for photos, 12px for fields.
+- Paper / beanie navy / paper / deep navy (lined) / paper / navy / paper / navy band rhythm, deep-navy footer.
+- One warm accent, job-site yellow, as fills: primary buttons, step numbers, the slider bar and knob, arrow circles on hover, the floating circle.
+- Cal Sans at weight 400 for every heading, button, row and phone number; the system stack at 16/1.7 for reading.
+- Borderless soft shapes: 24px cards, 10px tinted fields, full pills.
+- Flat bands; only the two yellow controls that sit over other content cast a shadow.
+- Bilingual: every visible string exists in English and Spanish, toggled in the header.
+
+### Direction contract (verbatim, top of `<body>` in index.html)
+
+> THESIS: A one-man handyman's site that earns trust through calm order (after lpmr.co.uk): Max's own finished room behind the promise, his face and his words, one list of jobs, one way to ask for a free estimate, in English or Spanish.
+>
+> OWN-WORLD: Off-white paper, beanie navy (#1d3f73) and deep navy (#0f2340, faint diagonal lines) bands, job-site yellow (#ffc83a) as the one warm accent (fills only; #8a5a00 when it has to be text on light). Cal Sans display, system body at 16/1.7.
+>
+> STORY: The visitor sees who fixes homes in New Jersey, meets Max, sees the whole list of what he does, sees a room he redid, and texts or calls him for a free estimate.
+>
+> FIRST VIEWPORT: Paper header with the HandyMax wordmark left, Español toggle and tap-to-call number top right. Hero: his own dining room after the job (recessed lights, new fixture) under a navy overlay; eyebrow "Handyman & electrical", "Roof to basement in New Jersey.", one promise line, two pill buttons (Get a free estimate, Text Max).
+>
+> FORM: fixed by pitch-site calm-photo-style.md (house default since 2026-10-19), no concept roll and no seed key; one real photo in the hero; the earlier cutaway-house world is in git history (7c9efb4) and demos/.
+>
+> FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, DESIGN.md, and every shipping raster carrying its provenance
+
+Divergence: the contract's FIRST VIEWPORT says the hero eyebrow reads "Free estimates"; the build ships "Handyman & electrical" / "Handyman y electricista" (changed in af11b17). The build wins.
+
+### Imagery and provenance
+
+There is no logo and no brand palette. The navy comes from Max's beanie in his profile photo; the yellow is job-site yellow carried over from the first build. Every photo is Max's own, sourced from his Facebook, with a `.json` provenance sidecar beside it:
+
+- `img/hero.webp` (940x850): the "After" half of his dining-room before/after post (recessed lights, new ceiling fixture), cropped to drop a person reflected in the glass door and the baked-in label; native resolution, WebP q74. Sits under a navy overlay.
+- `img/before.webp`, `img/after.webp` (980x850 each): the two halves of the same post, labels cropped off; the before/after slider.
+- `img/max.webp` (580x580): his Facebook profile picture, cropped above the printed contact text.
+- `og.jpg` (1200x630): a screenshot of the shipped hero (regenerated in 9a23036 without the line texture over the photo). Not generated art.
+- `icon.svg` and `apple-touch-icon.png` (180x180): the site's own lettering standing in for a logo; a roof chevron and an "H" stroked in ink (#12233f) on a yellow rounded square (rx 14 of 64).
+
+Photos are real, never stretched (`object-fit: cover` only), sized to display, and carry provenance; new rasters follow the same rule.
 
 ## Colors
 
-A two-color sign (yellow and navy) with a warm drywall neutral and one blue borrowed from painter's tape.
+Cool paper and two navies carry the page; one job-site yellow is the only warm note, and it is a fill, never text on light.
 
 ### Primary
-- **Job-Site Sign Yellow** (#ffc83a): the ground of the hero, services and close, the `html` background and `theme-color`. On navy it becomes the accent: step numerals, the before/after bar and knob, the Facebook ring, focus rings, footer link hover. The hero lifts it with a radial wash toward Sign Yellow Light (#ffd25c) behind the house.
-- **Sign Text Brown** (#4a3d12): secondary text on yellow (promise, ledes, the "where" line), tinted from the yellow rather than a grey.
+- **Job-Site Yellow** (`job-site-yellow`): the single warm accent, fills only. Primary buttons, numbered step discs, the before/after divider bar and knob, the floating text circle, arrow circles on hover/focus, the 7px eyebrow dot, text selection, and the focus ring on dark bands. Text on it is always Ink. It also colours the last phrase of a heading on dark bands ("New Jersey.", "do.", "works.") and the phone icon in the closing band.
+- **Light Yellow** (`job-site-yellow-light`): primary button hover fill only.
+- **Yellow Ink** (`yellow-ink`): the accent when it must be text or an icon on a light ground: "Max" in the wordmark, the header phone icon, header phone hover. About 5.5:1 on paper.
 
 ### Secondary
-- **Navy Ink** (#15233b): all type and lines on yellow, the fill of primary buttons, the night-section ground, the footer, the wordmark's "Max" block, the roller frame in the hero. Navy Ink 2 (#22345a) is its hover and the photo placeholder fill.
-
-### Tertiary
-- **Painter's Tape Blue** (#2b7bbd): only on tape strips: the hero's room labels and the Before/After tags. White 800-weight uppercase text on it.
-- **Form Blue** (#2f6bff): hover and focus on estimate-form controls only (inputs, textarea, chips, send button, caret).
+- **Beanie Navy** (`beanie-navy`): the mid navy. The hero ground and overlay tint, the How-it-works and closing bands. Also the focus/hover outline colour on light grounds (form fields, chips, slider, submit button) and the field caret.
+- **Deep Navy** (`deep-navy`): the darker band, always with the line texture. The services band and the footer. Its rgb (15,35,64) also tints the hero overlay gradient and the before/after tags.
 
 ### Neutral
-- **Finished Drywall** (#f6f2ea): the estimate ground; also primary text on navy.
-- **Drywall Bright** (#fffdf8): input and chip fill; the roller sleeve.
-- **Drywall Edge** (#d6cdbd): 2px resting border for inputs and chips.
-- **Soft Ink** (#4a5266): secondary text on drywall (lede, notes, optional tags).
-- **Night Secondary** (#c3cbdb): secondary text on navy and the footer's text.
-- **Hairline** (rgba(21,35,59,.22)): service-row dividers on yellow.
-- **Error Red** (#b3261e): inline form errors, 700 weight.
+- **Paper** (`paper`): page ground, header, and the light bands; also `theme-color`.
+- **Card White** (`card-white`): the estimate form card and the Facebook card on paper; white text on the hero H1, selected chips and slider tags.
+- **Field Tint** (`field-tint`): fill for inputs, textareas and chips on the white card, and the placeholder behind photos while they load. Exists because paper-on-white fields measured about 1.08:1.
+- **Ink** (`ink`): headings on light, text on yellow, the selected-chip fill.
+- **Body Slate** (`body-slate`): running text on light.
+- **Soft Slate** (`soft-slate`): ledes, hints, notes, placeholders, "(optional)" and the desktop wordmark subtitle on light.
+- **On Dark** (`on-dark`): headings, rows, step titles and buttons on navy bands.
+- **On Dark Soft** (`on-dark-soft`): running text and ledes on navy bands.
+- **Rule on Dark** (`rule-on-dark`): the hairline between service rows; the same 12% white is the eyebrow fill on dark.
+- **Error Red** (`error-red`): inline error sentences and the invalid-field border.
 
 ### Named Rules
-**The Two-Inks Rule.** On yellow, everything is navy; on navy, accents are yellow. No third color competes on either ground; tape blue appears only as tape.
+**The Fill-Only Yellow Rule.** Job-site yellow is a fill. On light grounds, text or icons in the accent use Yellow Ink; on yellow, text is Ink. Never white on yellow, never yellow text on paper.
 
-**The Never-Black Rule.** The darkest ground is Navy Ink (#15233b). No section, footer or overlay goes black.
+**The Dark-Band Accent Rule.** A heading's closing phrase goes yellow only on the hero and navy bands. Headings on paper stay all Ink.
 
-**The Form-Blue Rule.** Form Blue (#2f6bff) exists only for hover and focus on estimate-form controls. It never appears at rest and never outside the form.
+**The Faint Line Rule.** The diagonal texture (`repeating-linear-gradient(135deg, transparent 0 22px, rgba(255,255,255,.035) 22px 23px)`) lives on deep-navy bands and the footer, at 3.5% white or fainter, so it never reads as lines through text. It is never visible over the hero photo.
 
 ## Typography
 
-**Display Font:** system sans stack (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif)
-**Body Font:** the same stack
+**Display Font:** Cal Sans (Google Fonts, `display=swap`, preconnected), falling back to Avenir Next, Segoe UI, system-ui
+**Body Font:** the system stack (-apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, Arial)
 
-**Character:** One family doing a sign painter's job: black weight, uppercase, tight tracking for anything that announces; plain 17px reading text for anything Max says.
+**Character:** One friendly geometric display face at a single weight does all the talking (headings, buttons, service rows, phone numbers, form labels); the native system face does the reading. Hierarchy comes from size, not weight.
 
 ### Hierarchy
-- **Display** (900, clamp(34px, 8.8vw, 92px), 0.95, uppercase, -0.02em): the hero headline only, balanced line by line. The close's wordmark uses the same voice larger (clamp(44px, 13.5vw, 96px)).
-- **Headline** (900, clamp(34px, 9vw, 64px), 0.95, uppercase, -0.02em): every section h2.
-- **Title** (700 to 800, 19 to 22px): service rows (19px/700), step titles (22px/800 uppercase, -0.01em), the Facebook link (19px/800).
-- **Body** (400, 17px, 1.5): default text; Max's paragraphs run 19px at max 30em.
-- **Lede** (400 to 500, 19px or clamp(17px, 4.6vw, 20px) for the hero promise): one-line section introductions in the secondary ink of the ground.
-- **Label** (800, 17px): form labels, with a 600/15px "(optional)" in Soft Ink.
-- **Tape** (800, 14px, 0.05em, uppercase): text on painter's tape; the canvas labels scale 10 to 15px with the house.
-- **Numerals** (900, 44px, Sign Yellow): step counters on navy. Phone numbers use tabular figures.
+- **Display** (Cal Sans 400, clamp 42-80px, 1.02): the hero H1 only, white, max 11ch, letter-by-letter bounce-in.
+- **Headline** (Cal Sans 400, clamp 30-48px, 1.08, -0.005em, balanced wrap): every section H2.
+- **Title** (Cal Sans 400, clamp 19-22px, 1.2): service rows, the Facebook card, step titles (21px, 22px on desktop), form labels and legends (17px).
+- **Button** (Cal Sans 400, 18px, 1): every pill button. The header phone number uses the same face at 17px (20px desktop); the closing-band phone at clamp 32-52px.
+- **Lede** (system 400, clamp 17-19px, max 38ch): the one sentence under a section heading. The hero promise is the same voice at clamp 17-20px, 1.5, in On Dark.
+- **Body** (system 400, 16px, 1.7): all running text, max 60ch in the About block. Inputs are 16px so iOS never zooms.
+- **Label** (system 500, 14px, 0.02em): eyebrow pills and slider tags. Hints and notes are system 15px in Soft Slate.
 
 ### Named Rules
-**The System-Stack Rule.** The system font stack only. No webfonts, no second family; weight and case do the work.
+**The One Weight Rule.** Cal Sans is only ever set at 400. Emphasis comes from size and colour (the yellow closing phrase), never bold display.
 
-**The Shout-Then-Talk Rule.** Uppercase 900 is for headlines, step titles and tape. Everything Max says to the visitor is sentence case at reading weight.
+**The Letters-Once Rule.** Only the hero H1 animates letter by letter. No other heading gets a reveal.
 
 ## Layout
 
-Single column on phones with a 20px gutter, widening to 32px at 700px; content caps at 1160px. Sections pad 72px vertically on phones and 96px from 700px. A section that carries a light string at its top gets 130px top padding (160px from 700px) so the string hangs in clear space; the string canvas is 96px tall on phones and 120px wide.
+Single 1160px centred column (`wrap`) with a 20px gutter on phones and 40px from 760px. Bands are full-bleed with 64px vertical padding, 96px from 760px. Section heads are a left-aligned stack (16px gap, max 640px wide): optional eyebrow, H2, lede.
 
-The hero fills the first screen (clamp(640px, 100svh, 880px)). On phones the copy is bottom-anchored and the house is sized to fill the space between header and headline. From 1024px the copy sits left (max 500px or 40vw), vertically centered, with the house on the right edge of the container.
+Breakpoints: up to 370px the header tightens (smaller wordmark and phone, phone icon hidden); from 760px the header grows to 76px, the wordmark subtitle appears and hero buttons sit side by side (min 240px each); from 1024px the hero photo takes the right 60% beside solid navy copy (min-height 620px), About becomes a 300px portrait plus text, service rows go two columns (56px column gap), the before/after slider sits beside a vertically centred heading, hint and Facebook card, the form sits beside a sticky heading, the closing band puts the big phone number bottom-right, and the three steps sit in a row.
 
-At 700px the hero buttons go side by side and the services list breaks into two columns (56px gap). At 1024px the before/after takes the wider column with the heading and Facebook link beside it, Max's portrait sits beside his words, the three steps run in a row, and the estimate splits into intro and form (1fr / 1.3fr). Under 380px the header tightens so wordmark, language and phone fit on one line.
-
-### Named Rules
-**The Phone-Top-Right Rule.** On the first screen the phone number appears only in the header, top-right. It may return in the close. There is no call button in the hero and no sticky bottom bar.
+Spacing rhythm: 16px stack inside heads, 20-28px between hero and section parts, 22px between form fields, 64px column gaps on desktop splits. Hover styles live only inside `(hover: hover)` so taps never leave them stuck.
 
 ## Elevation & Depth
 
-Flat grounds; depth belongs only to physical things. Photos cast long, soft, navy-black shadows as if hung on the wall; tape strips carry a tight drop as if stuck on; the before/after knob floats. Buttons, rows, chips and fields never cast shadows. On navy, the light strings glow with additive radial halos; on yellow and drywall the bulbs read by color alone, and the estimate's string stays unlit until an estimate is sent.
+Flat by default. Depth comes from band colour (paper against navy against deep navy) and from white cards sitting on paper, not from shadow. Only the two yellow controls that sit on top of other content cast a soft navy shadow.
 
 ### Shadow Vocabulary
-- **Hung photo** (`box-shadow: 0 30px 60px -28px rgba(5,10,20,.85)`): the before/after frame and Max's portrait (portrait at -24px, .9).
-- **Tape** (`box-shadow: 0 2px 4px rgba(5,10,20,.3)`): Before/After tags; the canvas tape uses an equivalent 3px navy blur.
-- **Knob** (`box-shadow: 0 6px 16px rgba(5,10,20,.45)`): the before/after drag handle.
-- **Form focus halo** (`box-shadow: 0 0 0 3px rgba(47,107,255,.22)`): focused fields; .3 on the send button.
+- **Slider knob** (`box-shadow: 0 6px 16px rgba(8,20,40,.35)`): the yellow knob on the before/after photo.
+- **Floating circle** (`box-shadow: 0 10px 28px rgba(8,20,40,.3)`): the fixed text circle over the page.
 
 ### Named Rules
-**The Only-Objects-Cast Rule.** Shadows belong to objects in the world (photos, tape, the knob). Interface controls stay flat.
+**The Flat Band Rule.** Bands, cards, rows, fields and buttons carry no shadow at rest or on hover. A shadow means the control floats over something else.
 
 ## Shapes
 
-Pills (999px) for every action: buttons, chips, the Facebook link. Circles for icon carriers: the service-row arrow (40px), the Facebook badge (40px), the before/after knob (48px). Photos round at 18px. Fields round at 12px. The wordmark's "Max" block is a 3px-rounded navy slug. Tape strips are the one deliberately crooked shape: square-ended, rotated a few degrees (±2° on tags, -3° to 34° in the hero), torn at the ends in the canvas.
+Soft and borderless. Cards and photo frames round at 24px, fields at 10px, and buttons, chips, eyebrow pills, slider tags, arrow circles, step discs and the floating circle are full pills or circles. Fields and chips have a 2px transparent border that only takes colour on hover, focus or error. The only drawn lines are the 1px service-row hairlines on deep navy and the 4px yellow slider bar. Photos are clipped by their rounded frame and fill it with `object-fit: cover`.
 
 ## Components
 
 ### Buttons
-Heavy, round, sign-painted.
-- **Shape:** full pill (999px), min height 56px, 26px side padding, 2px navy border, 800 weight 17px.
-- **Primary:** Navy Ink fill, Sign Yellow text. Hover to Navy Ink 2.
-- **Outline:** transparent with navy border and text; hover tints with 8% navy.
-- **Send (estimate):** Navy fill, Drywall text; hover and focus swap the border to Form Blue with a blue halo.
-- **Press:** 1px downward nudge on all buttons.
-- **Pairing:** the two hero buttons are always the same height, stacked full-width on phones and side by side from 700px.
+Pill-shaped, tall and plain; at most two side by side.
+- **Shape:** full pill (999px), 56px tall, 26px side padding, optional 20px icon left of the label.
+- **Primary:** yellow fill, Ink label in Cal Sans 18px. Full width on phones and in the form.
+- **Hover / Focus:** primary lightens to Light Yellow; the form's submit also gains a 3px navy outline at 3px offset. Pressing scales to 0.98. Focus is a 3px outline (navy on light, yellow on dark).
+- **Ghost:** transparent with a 2px 70%-white border and On Dark label, for the secondary hero action; hover turns the border solid white with a 10% white fill.
 
 ### Chips
-- **Style:** Drywall Bright pill, 2px Drywall Edge border, 46px tall, 700 weight 16px.
-- **State:** hover turns the border Form Blue; checked fills Navy Ink with Drywall text; keyboard focus gets a 3px Form Blue ring.
+- **Style:** Field Tint pill, 44px tall, 16px padding, Ink system 15px, 2px transparent border. Real checkboxes, visually hidden.
+- **State:** selected fills Ink with white text; hover adds a 2px navy outline at 2px offset; keyboard focus a 3px navy outline. A chip ticked by tapping a service row flashes a 3px yellow outline for 1.4s.
+
+### Cards / Containers
+- **Corner Style:** 24px (form, portrait, slider, Facebook card).
+- **Background:** Card White on paper; Field Tint behind photos while they load.
+- **Shadow Strategy:** none (see The Flat Band Rule).
+- **Border:** none.
+- **Internal Padding:** clamp 20-32px for the form; 14-22px for the Facebook card.
 
 ### Inputs / Fields
-- **Style:** Drywall Bright fill, 2px Drywall Edge border, 12px radius, 14px 16px padding, 56px min height (textarea 110px); caret in Form Blue.
-- **Focus:** border to Form Blue plus a 3px 22% Form Blue halo; hover also turns the border Form Blue.
-- **Error:** a 700-weight Error Red line under the field; the control gets `aria-invalid`.
+- **Style:** Field Tint fill, no visible border (2px transparent), 10px radius, 13px 14px padding, 52px min height (textarea 110px, vertical resize). Labels above in Cal Sans 17px Ink; "(optional)" in system 14px Soft Slate.
+- **Focus:** the border turns Beanie Navy; hover does the same.
+- **Error:** border turns Error Red and stays red while focused; the error is a plain sentence in red system 16px under the field.
 
 ### Navigation
-The header is the hero's top 64px: wordmark left (22px, 900, "Max" in a navy slug), then the language toggle (an underlined text button, 15px/700) and the phone link (16px/800, tabular, inline phone glyph) pushed right. No menu. The footer is navy with the name in 900, then the email and Facebook links, Night Secondary text turning Sign Yellow on hover.
+- **Header:** paper, 64px (76px desktop). Wordmark "Handy" + "Max" in Cal Sans 22-25px, "Max" in Yellow Ink, with a small uppercase subtitle on desktop. Right side: the language toggle (underlined system 15px, "Español" / "English", JS only) and the tap-to-call number in Cal Sans with a Yellow Ink phone icon. No menu.
+- **Footer:** deep navy with line texture; name, area, phone, email (its only appearance) and Facebook as 44px links that turn yellow on hover.
 
-### Service Row
-A full-width list on the yellow, 62px tall, 19px/700 job name left and a 40px circle with an arrow right, divided by navy hairlines. Hover and keyboard focus change only the arrow circle: it fills Navy Ink and the arrow turns Sign Yellow. The row itself never highlights. On touch a row opens a pre-written text; on desktop it selects that job in the estimate form.
+### Service Rows
+The whole list of jobs on deep navy, each row a link that ticks the matching chip in the form. Cal Sans title, 64px min height, hairline above each row, a 44px arrow circle (10% white) on the right. Only the arrow changes on hover/focus: it fills yellow with an Ink arrow. One column on phones, two on desktop.
 
-### Painter's-Tape Label
-Tape Blue strip, white 800 uppercase tracked text, tilted, small drop shadow. Used for the hero room labels and the Before/After tags. A label marks a real thing in the picture; it is never a section kicker.
+### Before/After Slider
+A 980:850 photo frame at 24px radius with the after photo clipped from a draggable point. A 4px yellow bar and a 48px yellow knob (Ink chevrons, the knob shadow) mark the split; "Before"/"After" tags are 82% deep-navy pills with white 14px text. Drag, tap or arrow keys; vertical drags still scroll. Followed by a white Facebook card whose arrow circle fills yellow on hover.
 
-### Light String
-A C9 Christmas-light string drawn on canvas as a verlet rope hung from evenly spaced clips: dark green wire (#1f3a28; navy on the close), bulbs cycling red, green, blue, amber and pink, a gentle twinkle, and a finger or cursor can shove it. Strings hang across the top of each change of ground (work, estimate, close) and along both slopes of the hero roof. Under reduced motion everything renders still and fully finished.
+### Numbered Steps
+Three steps on beanie navy, each with a 48px yellow disc holding the CSS-counter number in Cal Sans 20px Ink, a Cal Sans title in On Dark and a sentence in On Dark Soft.
 
-### Signature: The Cutaway House
-The hero canvas: a dollhouse cross-section with roof, kitchen, window wall and basement below a dirt line. Each room starts tired; a tap (or Max, after 5s idle, every 1.1s) sends a paint roller across it in 0.75s, wiping the finished room in. The roof's lights switch on from the ridge outward last. When the finished house scrolls out of view it resets, so it is never seen going backwards.
+### Hero
+Max's dining room (`img/hero.webp`) fills the band under a deep-navy vertical gradient (62% to 88%) on phones; from 1024px the photo sits at the right 60% and a horizontal navy gradient (solid to 40%, 50% at the edge) holds the copy on solid colour. Copy: eyebrow, the Display H1 with its last phrase in yellow, the promise line, then the primary and ghost buttons. No call button in the hero; the number stays in the header.
 
-### Before / After
-An 18px-rounded photo frame with a hung-photo shadow, a 4px Sign Yellow divider and a 48px yellow knob; drag or arrow keys move the split. Tape tags label each side. The Facebook link (a yellow-ringed pill with a yellow Facebook badge) sits directly under it.
+**Bounce-in:** JS splits the visible-language H1 into letters inside no-wrap word spans; each letter goes from `opacity:0; translateX(50px)` to rest over 1s with `cubic-bezier(.34,1.56,.64,1)` (the overshoot), 20ms apart. It waits for Cal Sans (600ms cap) so letters don't land in the fallback face. The H1 carries an `aria-label` while split, and the plain heading is restored when the last letter lands or the language changes. Skipped entirely under reduced motion or without JS.
+
+### Fade-up
+Elements marked to rise are visible at rest. Only those starting below the first screen are hidden by JS, then move up 12px and fade in over 400ms ease-out when they enter. Nothing waits at opacity 0 without JS or under reduced motion.
+
+### Floating Text Circle
+One 60px yellow circle, bottom right (16px plus safe-area insets), Ink chat icon, opening a pre-written `sms:` in the current language. It slides up 120px into view (350ms, `cubic-bezier(.2,.8,.2,1)`) once the hero leaves and hides while the form is on screen; when hidden it is `tabIndex=-1` and `aria-hidden`. Focus draws a white outline plus an Ink ring.
+
+### Eyebrow Pill (scoped exception)
+A quiet 14px label pill (6% ink on light, 12% white on dark, a 7px yellow dot) shipped above three headings: the hero H1, "What I do." and the estimate form. It is a `<p>`, not a heading, with no arrow, hover or shadow. It exists because Ellie chose LPMR-style pills for the house style on 2026-10-19, against the craft floor's ban on eyebrows (the conflict is logged in HANDOFF.md). It is recorded here because it ships, not as a pattern: do not add eyebrows to new headings or new surfaces without Ellie's explicit call.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep every ground yellow (#ffc83a), navy (#15233b) or drywall (#f6f2ea), in the order sign, night, drywall, sign.
-- **Do** set headlines in the system stack at 900, uppercase, -0.02em, 0.95 leading.
-- **Do** announce a change of ground with a light string hung across the section top, and give that section 130px (160px wide) of top padding.
-- **Do** use pills (999px) at 56px height for actions, and keep paired buttons the same height.
-- **Do** label things in the picture with painter's tape (#2b7bbd), tilted, white uppercase.
-- **Do** put the Facebook link under the before/after and again in the footer; put the email in the footer only.
-- **Do** render every animation as a finished still under `prefers-reduced-motion`.
+- **Do** alternate full-bleed paper and navy bands so every section change is obvious, with deep navy carrying the faint line texture.
+- **Do** use job-site yellow as a fill with Ink text on it, and Yellow Ink whenever the accent has to be text or an icon on paper.
+- **Do** set every heading, button, row and phone number in Cal Sans at 400, and running text in the system stack at 16px / 1.7.
+- **Do** keep shapes borderless and soft: 24px cards, 10px Field Tint fields, full pills for buttons and chips.
+- **Do** outline form controls in Beanie Navy on hover and focus, and keep the error border red while focused.
+- **Do** keep every tap target at 44px or more, and hover styles inside `(hover: hover)`.
+- **Do** write every visible string in English and Spanish and let the toggle swap them, including aria-labels, placeholders, SMS bodies and the page title.
+- **Do** use only Max's own photos, cropped with `object-fit: cover`, each with a provenance `.json`.
 
 ### Don't:
-- **Don't** let the ground go black, anywhere.
-- **Don't** load a webfont or add a second family.
-- **Don't** show the phone number on the first screen anywhere but the header's top-right, add a call button to the hero, or add a sticky bottom bar.
-- **Don't** highlight a whole service row on hover; only the arrow circle changes.
-- **Don't** use Form Blue (#2f6bff) at rest or outside the estimate form's hover and focus states.
-- **Don't** use tape strips as section kickers or eyebrows above headings.
-- **Don't** put shadows on buttons, chips, rows or fields.
-- **Don't** fall back to the contractor template: job-photo hero, blue-and-orange bar, icon cards.
+- **Don't** put white text on yellow or yellow text on paper.
+- **Don't** colour a heading's closing phrase yellow on a paper band.
+- **Don't** add shadows to bands, cards, rows, fields or buttons; only controls floating over content get one.
+- **Don't** animate any heading other than the hero H1, and don't let fade-up content sit hidden without JS or under reduced motion.
+- **Don't** turn the floating circle into a bottom bar or show it while the form is in view.
+- **Don't** strengthen the line texture beyond 3.5% white or show it over the hero photo.
+- **Don't** change anything on a service row's hover except its arrow circle.
+- **Don't** put a call button in the hero; the number lives in the header and the closing band.

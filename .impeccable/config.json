@@ -161,6 +161,18 @@
         ],
         "createdAt": "2026-10-20T01:44:23.781Z",
         "reason": "Ellie's house rule: calm-photo-style.md item 2 mandates the faint 135deg band texture (2026-10-19)"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#1877f2",
+        "createdAt": "2026-10-20T01:56:10.754Z",
+        "reason": "Facebook's own brand blue on the Facebook link icon (finishing rule: prominent Facebook link); not a palette color"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "25px",
+        "createdAt": "2026-10-20T01:56:10.821Z",
+        "reason": "Desktop wordmark size in the header, one-off reviewed in the calm revamp 2026-10-19"
       }
     ]
   }
