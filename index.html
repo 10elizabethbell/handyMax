@@ -109,6 +109,7 @@ section{padding:64px 0}
 .hero h1 .w{display:inline-block;white-space:nowrap}
 .hero h1 .c{display:inline-block;opacity:0;transform:translateX(50px);animation:letter-in 1s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:calc(var(--i) * 20ms)}
 @keyframes letter-in{to{opacity:1;transform:none}}
+.hero h1.wait .c{animation-play-state:paused}  /* held until Cal Sans is in, so letters don't land in the fallback face and jump */
 .promise{font-size:clamp(17px,4.7vw,20px);line-height:1.5;color:var(--on-dark);max-width:30ch}
 .actions{display:grid;gap:12px;width:100%;margin-top:4px}
 
@@ -171,12 +172,13 @@ input[type=text]:focus,textarea:focus{outline:none;border-color:var(--focus)}
 .chips label{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:var(--pill);background:var(--field);border:2px solid transparent;font:15px/1.2 var(--text);color:var(--ink);cursor:pointer;margin:0;transition:border-color .15s,background-color .15s,color .15s}
 .chips input:focus-visible+label{outline:3px solid var(--focus);outline-offset:2px}
 .chips input:checked+label{background:var(--ink);color:#fff}
-.err{display:none;font-size:15px;color:var(--error)}
+.chips label.just{outline:3px solid var(--yellow);outline-offset:2px}  /* the job a service row just ticked */
+.err{display:none;font-size:16px;color:var(--error)}
 .field.bad .err{display:block}
 .field.bad input[type=text],.field.bad textarea,.field.bad input[type=text]:focus{border-color:var(--error)}
 form .btn-primary{width:100%}
 form .btn-primary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
-.after{font-size:15px;color:var(--soft)}
+.note{font-size:15px;color:var(--soft)}
 .sent{color:var(--ink);font-weight:600}
 .sent a{white-space:nowrap;display:inline-block;padding:11px 0;margin:-11px 0}
 
@@ -198,7 +200,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-d
 .js .float{display:grid}
 .float.on{transform:none}
 .float svg{width:26px;height:26px}
-.float:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:50%}
+.float:focus-visible{outline:3px solid #fff;outline-offset:2px;border-radius:50%;box-shadow:0 0 0 7px var(--ink),0 10px 28px rgba(8,20,40,.3)}
 
 /* ---------- Motion: one fade-up, only for things below the first screen ---------- */
 .js .rise{transition:opacity .4s ease-out,transform .4s ease-out}
@@ -226,9 +228,10 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-d
   .portrait{width:100%}
   .rows{grid-template-columns:1fr 1fr;column-gap:56px}
   .rows li:nth-last-child(2):nth-child(odd){border-bottom:1px solid rgba(255,255,255,.12)}
-  .work .wrap{grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto 1fr;column-gap:64px;row-gap:20px;align-items:start}
-  .work .ba{grid-column:1;grid-row:1/4}
-  .work .head,.work .hint,.work .fb{grid-column:2}
+  /* the heading, hint and Facebook card sit centred beside the slider, not stranded at its top */
+  .work .wrap{grid-template-columns:1.25fr 1fr;grid-template-rows:1fr auto auto auto 1fr;column-gap:64px;row-gap:20px;align-items:start}
+  .work .ba{grid-column:1;grid-row:1/6}
+  .work .head{grid-column:2;grid-row:2}.work .hint{grid-column:2;grid-row:3}.work .fb{grid-column:2;grid-row:4}
   .ask .wrap{grid-template-columns:1fr 1.3fr;gap:64px;align-items:start}
   .ask .head{position:sticky;top:40px}
   .close .wrap{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end}
@@ -265,7 +268,7 @@ THESIS: A one-man handyman's site that earns trust through calm order (after lpm
 OWN-WORLD: Off-white paper, beanie navy (#1d3f73) and deep navy (#0f2340, faint diagonal lines) bands, job-site yellow (#ffc83a) as the one warm accent (fills only; #8a5a00 when it has to be text on light). Cal Sans display, system body at 16/1.7.
 STORY: The visitor sees who fixes homes in New Jersey, meets Max, sees the whole list of what he does, sees a room he redid, and texts or calls him for a free estimate.
 FIRST VIEWPORT: Paper header with the HandyMax wordmark left, Español toggle and tap-to-call number top right. Hero: his own dining room after the job (recessed lights, new fixture) under a navy overlay; eyebrow "Free estimates", "Roof to basement in New Jersey.", one promise line, two pill buttons (Get a free estimate, Text Max).
-FORM: calm-photo band system with one real photo in the hero; the earlier cutaway-house world is in git history (7c9efb4) and demos/.
+FORM: fixed by pitch-site calm-photo-style.md (house default since 2026-10-19), no concept roll and no seed key; one real photo in the hero; the earlier cutaway-house world is in git history (7c9efb4) and demos/.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, DESIGN.md, and every shipping raster carrying its provenance
 -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -341,7 +344,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
     <div class="head rise">
       <h2 id="h-work"><span class="en">Before &amp; after</span><span class="es" lang="es">Antes y después</span></h2>
     </div>
-    <div class="ba rise" id="ba" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-en="Before and after: drag to compare" data-es="Antes y después: desliza para comparar" aria-label="Before and after: drag to compare">
+    <div class="ba rise" id="ba" tabindex="0" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" data-en="Dining room, before and after: drag to compare" data-es="Comedor, antes y después: desliza para comparar" aria-label="Dining room, before and after: drag to compare">
       <img class="before" alt="" draggable="false" width="980" height="850" src="img/before.webp" loading="lazy" decoding="async">
       <img class="after" alt="" draggable="false" width="980" height="850" src="img/after.webp" loading="lazy" decoding="async">
       <span class="tag tag-b"><span class="en">Before</span><span class="es" lang="es">Antes</span></span>
@@ -414,7 +417,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       </div>
       <button class="btn btn-primary" type="submit"><svg aria-hidden="true"><use href="#i-chat"/></svg><span class="en">Text this to Max</span><span class="es" lang="es">Mándale esto a Max</span></button>
       <p class="sent" id="sent" role="status" hidden><span class="en">Didn't open your messages? Call me at</span><span class="es" lang="es">¿No se abrieron tus mensajes? Llámame al</span> <a href="tel:+18622393260">862-239-3260</a>.</p>
-      <p class="after"><span class="en">Opens your messages with this written out.</span><span class="es" lang="es">Abre tus mensajes con esto ya escrito.</span></p>
+      <noscript><p class="note">Text or call me at <a href="tel:+18622393260">862-239-3260</a>.</p></noscript>
+      <p class="note"><span class="en">Opens your messages with this written out.</span><span class="es" lang="es">Abre tus mensajes con esto ya escrito.</span></p>
     </form>
   </div>
 </section>
@@ -433,7 +437,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 <footer>
   <div class="wrap">
-    <span>HandyMax · Max · <span class="en">New Jersey</span><span class="es" lang="es">Nueva Jersey</span> · <span class="nw">862-239-3260</span></span>
+    <span>HandyMax · Max · <span class="en">New Jersey</span><span class="es" lang="es">Nueva Jersey</span> · <a class="nw" href="tel:+18622393260">862-239-3260</a></span>
     <nav aria-label="Contact">
       <a href="mailto:handymaxx27@gmail.com">handymaxx27@gmail.com</a>
       <a href="https://facebook.com/profile.php?id=61595320890752" rel="noopener">Facebook</a>
@@ -470,7 +474,7 @@ document.documentElement.classList.add('js');
 /* ===== Hero H1 bounce-in: split the visible language into letters (JS only, so no-JS and reduced motion keep the plain heading) ===== */
 var bounce = (function(){
   var h = document.getElementById('h1'), plain = h.innerHTML, done = false;
-  function restore(){ if (done) return; done = true; h.innerHTML = plain; h.removeAttribute('aria-label'); }
+  function restore(){ if (done) return; done = true; h.innerHTML = plain; h.classList.remove('wait'); h.removeAttribute('aria-label'); }
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) { done = true; return { restore: restore }; }
   var shown = h.querySelector(':scope > .' + lang), i = 0, last = null;
   h.setAttribute('aria-label', shown.textContent.replace(/\s+/g, ' ').trim());
@@ -487,7 +491,9 @@ var bounce = (function(){
       } else if (n.nodeType === 1) { var copy = n.cloneNode(false); split(n, copy); into.appendChild(copy); }
     });
   }
-  var copy = shown.cloneNode(false); split(shown, copy); h.replaceChild(copy, shown);
+  var copy = shown.cloneNode(false); split(shown, copy); h.classList.add('wait'); h.replaceChild(copy, shown);
+  var go = function(){ h.classList.remove('wait'); };
+  if (document.fonts && document.fonts.load) { Promise.race([document.fonts.load('400 1em "Cal Sans"'), new Promise(function(r){ setTimeout(r, 600); })]).then(go, go); } else go();
   // once the last letter lands, put the plain heading back so kerning and text selection return
   if (last) last.addEventListener('animationend', restore);
   return { restore: restore };
@@ -519,7 +525,9 @@ var bounce = (function(){
   var fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
   document.getElementById('rows').addEventListener('click', function(e){
     var a = e.target.closest('.row'); if (!a) return;
-    var c = document.getElementById('s' + a.getAttribute('data-svc')); if (c) c.checked = true;
+    var c = document.getElementById('s' + a.getAttribute('data-svc')); if (!c) return;
+    c.checked = true;
+    var l = c.nextElementSibling; l.classList.add('just'); setTimeout(function(){ l.classList.remove('just'); }, 1400);
     document.getElementById('f-details').classList.remove('bad'); document.getElementById('details').setAttribute('aria-invalid', 'false');
     // focus the details box on computers only; on phones it would pop the keyboard up mid-scroll
     if (fine) setTimeout(function(){ document.getElementById('details').focus({ preventScroll: true }); }, 500);
@@ -531,8 +539,8 @@ var bounce = (function(){
   var form = document.getElementById('estForm');
   function mark(id, bad, el){ document.getElementById(id).classList.toggle('bad', bad); el.setAttribute('aria-invalid', bad ? 'true' : 'false'); }
   form.addEventListener('input', function(e){
-    if (e.target.name === 'svc' || e.target.id === 'details') { if (form.querySelector('input[name=svc]:checked') || form.details.value.trim()) document.getElementById('f-details').classList.remove('bad'); }
-    if (e.target.id === 'name' && e.target.value.trim()) document.getElementById('f-name').classList.remove('bad');
+    if (e.target.name === 'svc' || e.target.id === 'details') { if (form.querySelector('input[name=svc]:checked') || form.details.value.trim()) { document.getElementById('f-details').classList.remove('bad'); form.details.setAttribute('aria-invalid', 'false'); } }
+    if (e.target.id === 'name' && e.target.value.trim()) { document.getElementById('f-name').classList.remove('bad'); form.name.setAttribute('aria-invalid', 'false'); }
   });
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -557,7 +565,7 @@ var bounce = (function(){
 /* ===== Before/after slider: drag sideways, tap, or use the arrow keys; vertical drags still scroll ===== */
 (function(){
   var ba = document.getElementById('ba'), p = 50;
-  function set(v){ p = Math.max(0, Math.min(100, v)); ba.style.setProperty('--p', p + '%'); ba.setAttribute('aria-valuenow', Math.round(p)); }
+  function set(v){ p = Math.max(0, Math.min(100, v)); ba.style.setProperty('--p', p + '%'); ba.setAttribute('aria-valuenow', Math.round(p)); ba.setAttribute('aria-valuetext', Math.round(p) + '%'); }
   function fromX(x){ var r = ba.getBoundingClientRect(); set((x - r.left) / r.width * 100); }
   var down = null, dragging = false;
   ba.addEventListener('pointerdown', function(e){

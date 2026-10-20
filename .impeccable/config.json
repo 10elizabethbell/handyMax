@@ -152,6 +152,15 @@
         "rule": "design-system-color",
         "value": "#6b6458",
         "createdAt": "2026-10-19T14:40:38.750Z"
+      },
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-20T01:44:23.781Z",
+        "reason": "Ellie's house rule: calm-photo-style.md item 2 mandates the faint 135deg band texture (2026-10-19)"
       }
     ]
   }
