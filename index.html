@@ -245,7 +245,7 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-d
   .row:hover .arrow{background:var(--yellow);color:var(--ink)}
   .fb:hover .arrow{background:var(--yellow);color:var(--ink)}
   input[type=text]:hover,textarea:hover{border-color:var(--focus)}
-  .chips label:hover{border-color:var(--focus)}
+  .chips label:hover{outline:2px solid var(--focus);outline-offset:2px}
   form .btn-primary:hover{outline:3px solid var(--focus);outline-offset:3px}
   .sent a:hover{color:var(--navy)}
   .bigtel:hover{color:var(--yellow)}
@@ -286,7 +286,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 <section class="hero" id="hero" aria-labelledby="h1">
   <img class="hero-photo" src="img/hero.webp" alt="" width="940" height="850" fetchpriority="high" decoding="async">
   <div class="wrap hero-copy">
-    <p class="eyebrow"><span class="en">Free estimates</span><span class="es" lang="es">Estimados gratis</span></p>
+    <p class="eyebrow"><span class="en">Handyman &amp; electrical</span><span class="es" lang="es">Handyman y electricista</span></p>
     <h1 id="h1"><span class="en">Roof to basement in <span class="accent">New Jersey.</span></span><span class="es" lang="es">Del techo al sótano en <span class="accent">Nueva Jersey.</span></span></h1>
     <p class="promise"><span class="en">I take care of your home like it's my own.</span><span class="es" lang="es">Cuido tu casa como si fuera mía.</span></p>
     <div class="actions">
@@ -412,7 +412,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <label for="town"><span class="en">Your town</span><span class="es" lang="es">Tu ciudad</span> <small><span class="en">(optional)</span><span class="es" lang="es">(opcional)</span></small></label>
         <input type="text" id="town" name="town" autocomplete="address-level2" maxlength="60">
       </div>
-      <button class="btn btn-primary" type="submit"><svg aria-hidden="true"><use href="#i-chat"/></svg><span class="en">Text this to Max</span><span class="es" lang="es">Mandarle esto a Max</span></button>
+      <button class="btn btn-primary" type="submit"><svg aria-hidden="true"><use href="#i-chat"/></svg><span class="en">Text this to Max</span><span class="es" lang="es">Mándale esto a Max</span></button>
       <p class="sent" id="sent" role="status" hidden><span class="en">Didn't open your messages? Call me at</span><span class="es" lang="es">¿No se abrieron tus mensajes? Llámame al</span> <a href="tel:+18622393260">862-239-3260</a>.</p>
       <p class="after"><span class="en">Opens your messages with this written out.</span><span class="es" lang="es">Abre tus mensajes con esto ya escrito.</span></p>
     </form>
@@ -520,7 +520,7 @@ var bounce = (function(){
   document.getElementById('rows').addEventListener('click', function(e){
     var a = e.target.closest('.row'); if (!a) return;
     var c = document.getElementById('s' + a.getAttribute('data-svc')); if (c) c.checked = true;
-    var f = document.getElementById('f-need'); f.classList.remove('bad');
+    document.getElementById('f-details').classList.remove('bad'); document.getElementById('details').setAttribute('aria-invalid', 'false');
     // focus the details box on computers only; on phones it would pop the keyboard up mid-scroll
     if (fine) setTimeout(function(){ document.getElementById('details').focus({ preventScroll: true }); }, 500);
   });
